@@ -2,6 +2,8 @@
 
 This is a portable llm-wiki-native research knowledge base.
 
+Language: **EN** · [한국어 README (KO)](README.ko.md)
+
 This repository is a public, empty-by-default llm-wiki template. It contains the workflow, templates, scripts, wiki navigation, and static HTML shell. Personal cards, sources, PDFs, and generated research records are intentionally absent from the initial repository.
 
 The implementation specification is preserved at [`docs/llm-wiki-custom-prd.md`](docs/llm-wiki-custom-prd.md).
