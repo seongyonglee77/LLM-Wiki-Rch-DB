@@ -53,6 +53,28 @@ Windows와 WSL은 서로 다른 Python 환경을 사용해야 합니다.
 
 PDF는 GitHub에 올리지 않습니다. 생성된 카드와 wiki를 검토하고 QC 결과를 확인한 후 commit하세요.
 
+## 간단한 사용법
+
+스크립트 이름을 외울 필요 없이, 이 저장소를 작업 폴더로 연 LLM에게 자연어로 요청하면 됩니다.
+
+1. LLM을 이 저장소에서 열어 `AGENTS.md`를 읽게 합니다.
+2. 승인한 PDF를 로컬 `inbox/`에 넣습니다.
+3. 다음처럼 요청합니다: `inbox의 새 PDF를 전부 ingest해 줘.`
+4. `sources/`, `cards/`, `wiki/`, `refs.bib`, `qc/`를 검토합니다.
+5. 필요하면 다음처럼 검증을 요청합니다: `이 카드의 주장과 직접 인용을 source와 대조하고 wiki 링크를 확인해 줘.`
+6. 검토가 끝난 레코드만 commit합니다. PDF와 개인 작업 메모는 공개 저장소 밖에 둡니다.
+
+자주 쓰는 요청:
+
+```text
+llm-wiki 안에서 내 주제와 관련된 논문을 찾아 줘.
+open 카드의 metadata를 점검하되 locked 레코드는 변경하지 말고 차이만 보고해 줘.
+승인한 카드 변경을 registry, indexes, refs.bib, QC에 반영해 줘.
+이 논문을 기존 wiki에 연결할 후보를 제안하되 card와 source를 복제하지 마.
+```
+
+이 저장소의 운영 원칙은 한 논문을 하나의 canonical record로 유지하고, 근거가 있는 상세 요약·wiki 링크·생성 bibliography·QC를 함께 검토하는 것입니다.
+
 ## 언어 설정
 
 논문 내용 언어와 wiki 설명 언어는 독립적으로 설정합니다.

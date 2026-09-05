@@ -46,6 +46,28 @@ After a local ingest and review, the repository can publish English summary card
 2. Ask the coding agent: `inbox의 새 PDF를 전부 ingest해 줘.`
 3. Review generated files in `sources/`, `cards/`, `wiki/`, `registry/`, `indexes/`, `qc/`, and `refs.bib` before publishing.
 
+## Simple user guide
+
+You can work through an LLM in natural language; you do not need to memorize the script names.
+
+1. Open the LLM with this repository as the working folder so it can read `AGENTS.md`.
+2. Put an approved PDF in `inbox/`.
+3. Ask: `Ingest every new PDF in inbox.`
+4. Review the generated `sources/`, `cards/`, `wiki/`, `refs.bib`, and `qc/` files.
+5. Ask for a consistency check when needed: `Check this card's claims and direct quotations against the source, and verify the wiki links.`
+6. Commit only reviewed records. Keep PDFs and private working notes outside the public repository.
+
+Useful requests:
+
+```text
+Find papers about my topic inside llm-wiki.
+Audit open-card metadata and report differences without changing locked records.
+Update the registry, indexes, refs.bib, and QC after my approved card changes.
+Propose wiki links for this paper without duplicating its card or source.
+```
+
+For the full natural-language command guide, see the Korean and English guide used as the project reference: the workflow is designed around one canonical paper record, evidence-backed summaries, explicit wiki links, generated bibliography, and QC before publication.
+
 ## Ingest and rebuild
 
 Place an approved PDF in the local `inbox/` directory and run the complete workflow from the repository root:
