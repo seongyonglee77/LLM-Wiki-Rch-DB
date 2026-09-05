@@ -6,6 +6,34 @@ This repository is a public, empty-by-default llm-wiki template. It contains the
 
 The implementation specification is preserved at [`docs/llm-wiki-custom-prd.md`](docs/llm-wiki-custom-prd.md).
 
+## Installation
+
+Clone the repository, then use a Python environment outside the repository. Do not create a virtual environment inside a OneDrive, Dropbox, or other cloud-synced folder.
+
+### Windows PowerShell
+
+```powershell
+git clone https://github.com/seongyonglee77/LLM-Wiki-Rch-DB.git
+Set-Location LLM-Wiki-Rch-DB
+py -3 -m venv D:\win-python\llm-wiki-venv
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' -m pip install --upgrade pip
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' -m pip install pyyaml docling
+```
+
+If Docling is already installed in `D:\win-python\master_venv`, that runtime can be used instead. The repository itself contains no Python environment or dependency cache.
+
+### WSL/Linux
+
+```bash
+git clone https://github.com/seongyonglee77/LLM-Wiki-Rch-DB.git
+cd LLM-Wiki-Rch-DB
+python3 -m venv /mnt/d/WSL/llm-wiki-venv
+/mnt/d/WSL/llm-wiki-venv/bin/python -m pip install --upgrade pip
+/mnt/d/WSL/llm-wiki-venv/bin/python -m pip install pyyaml docling
+```
+
+Keep Windows and WSL environments separate. `km-config.json` is portable and points Obsidian at the repository root; update its local paths only for your machine.
+
 ## GitHub publication scope
 
 After a local ingest and review, the repository can publish English summary cards, parsed source Markdown, the Korean wiki layer, indexes, generation scripts, and the static `wiki-site/` presentation. Personal records are not bundled here, and original PDFs in `papers/`, `papers-supplementary/`, and intake files in `inbox/` are excluded.
@@ -15,6 +43,28 @@ After a local ingest and review, the repository can publish English summary card
 1. Keep the public repository clean; place approved PDFs in the local `inbox/` only when preparing a new record.
 2. Ask the coding agent: `inbox의 새 PDF를 전부 ingest해 줘.`
 3. Review generated files in `sources/`, `cards/`, `wiki/`, `registry/`, `indexes/`, `qc/`, and `refs.bib` before publishing.
+
+## Ingest and rebuild
+
+Place an approved PDF in the local `inbox/` directory and run the complete workflow from the repository root:
+
+```powershell
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\ingest_batch.py
+```
+
+The workflow parses the PDF, creates the English source/card layers, creates the configured wiki-language layer, rebuilds the registry, indexes, bibliography, QC report, and static HTML site. PDFs remain local and are excluded from GitHub. Review the generated files and QC report before committing.
+
+For an empty-repository validation or a rebuild without ingesting a PDF:
+
+```powershell
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\build_registry.py
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\build_indexes.py
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\export_refs_bib.py
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\qc_report.py
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\build_html_site.py --output wiki-site
+```
+
+The paper/source language and wiki language are independent settings in `km-config.json`. The public template defaults to English paper records and Korean wiki explanations; change `paper_language` and `wiki_language` before ingest if needed.
 
 ## Runtime Rule
 
@@ -51,6 +101,10 @@ Example ingest command from PowerShell:
 - `qc/` contains validation and audit reports.
 
 Do not manually edit generated bibliography files. Correct the relevant card, then ask the agent to refresh that paper's registry, indexes, `refs.bib`, and QC records.
+
+## GitHub Pages
+
+The workflow in `.github/workflows/pages.yml` publishes the checked-in `wiki-site/` directory when `main` is pushed. In the GitHub repository, enable Pages with **GitHub Actions** as the source if it is not enabled automatically. The initial site is intentionally an empty public shell; only reviewed records should be committed.
 
 ## Status Model
 
