@@ -1,0 +1,1 @@
+const input=document.querySelector('#search');const rows=[...document.querySelectorAll('.row')];const count=document.querySelector('#result-count');if(input){input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();let n=0;rows.forEach(r=>{const show=!q||r.dataset.search.includes(q);r.hidden=!show;if(show)n++});count.textContent=`${n} pages`})}

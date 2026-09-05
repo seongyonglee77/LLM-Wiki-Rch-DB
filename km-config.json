@@ -1,0 +1,25 @@
+{
+  "llm_wiki_root": ".",
+  "paper_language": "en",
+  "paper_language_name": "English",
+  "wiki_language": "ko",
+  "wiki_language_name": "한국어",
+  "publication_profile": "public-summary-only",
+  "publish_pdfs": false,
+  "storage": {
+    "primary": "obsidian",
+    "obsidian": {
+      "enabled": true,
+      "vaultPath": ".",
+      "defaultFolder": "wiki"
+    },
+    "local": {
+      "enabled": true,
+      "outputPath": "agenda/km-inbox"
+    }
+  },
+  "search_paths": ["indexes", "wiki", "cards", "sources"],
+  "write_safe_paths": ["agenda/km-inbox", "agenda/search-notes", "materials/km-captures"],
+  "canonical_ingest_handoff": "Place approved PDFs in inbox/ locally and run scripts/ingest_batch.py from the repository root.",
+  "secrets_policy": "Do not store API keys, credentials, or original PDFs in this repository."
+}

@@ -1,0 +1,39 @@
+.venv/
+venv/
+env/
+.env/
+__pycache__/
+*.py[cod]
+
+# Local caches and heavyweight runtime/model artifacts must stay outside OneDrive.
+.cache/
+pip-cache/
+model-cache/
+hf-cache/
+*.tmp
+
+# Private/local material not intended for public template repositories.
+papers/
+papers-supplementary/
+registry/legacy/
+materials/km-captures/
+agenda/km-inbox/
+agenda/search-notes/
+
+# Local/private operational state; canonical cards, sources, wiki, and the static site are publishable outputs.
+inbox/
+logs/
+.obsidian/
+
+# Keep empty intake/storage folders visible in the template without tracking content.
+!inbox/
+!inbox/.gitkeep
+!cards/
+!cards/.gitkeep
+!sources/
+!sources/.gitkeep
+
+# Legacy root-level placeholder notes; canonical versions live under wiki/.
+/index.md
+/sources 1.md
+/sources.md
