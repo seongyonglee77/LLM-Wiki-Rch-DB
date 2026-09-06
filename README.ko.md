@@ -2,15 +2,39 @@
 
 Language: [English README (EN)](README.md) · **한국어 (KO)**
 
-이 저장소는 논문을 ingest하고, 영어 연구 카드와 source, 설정된 언어의 wiki, 검색용 인덱스, 참고문헌, 정적 HTML 사이트를 생성하는 공개용 `llm-wiki` 템플릿입니다.
+Release: **v0.2.0** · 근거 기반 논문 ingest 파이프라인
 
-초기 저장소는 의도적으로 비어 있습니다. 개인 논문 카드, source, wiki 레코드, PDF는 포함하지 않습니다.
+이 저장소는 논문 PDF를 로컬에서 파싱하고, 영어 source·summary card·한국어 wiki·검색 인덱스·참고문헌·정적 HTML 사이트를 생성하는 공개용 `llm-wiki` 템플릿입니다. 저장소에는 개인 논문 기록과 원본 PDF가 포함되지 않습니다.
 
-구현 사양은 [llm-wiki Custom Build PRD](docs/llm-wiki-custom-prd.md)에 있습니다.
+구현 사양은 [llm-wiki Custom PRD](docs/llm-wiki-custom-prd.md)에 있습니다.
+
+## v0.2.0 변경 사항
+
+- 파싱 직후 provisional 파일명을 만들고, 요약에서 확정한 연도·저자·제목으로 최종 파일명을 자동 확정합니다.
+- 최종 `YYYY_Author_ShortTitle` stem을 PDF, source, card, wiki, parse manifest, registry, index, bibliography, QC, HTML에 일관되게 적용합니다.
+- 요약카드는 통합 YAML 스키마를 사용하며 Literature Review, Findings, Discussion에 원문 근거가 필요합니다.
+- 직접 인용문을 parsed source와 대조합니다. 신뢰할 수 있는 페이지 표식이 없으면 `source_text`로 표시하고 페이지 확인은 사람의 검토 대상으로 남깁니다.
+- GitHub Pages용 정적 사이트가 `wiki/`, `cards/`, `sources/`를 함께 렌더링합니다. 원본 PDF는 로컬에만 둡니다.
+- 파일명 정규화, record rekey, 요약 입력 정리, 근거 기반 카드 생성을 검증하는 테스트를 포함합니다.
+
+## 권장 Luna–Luna 요약 프로파일
+
+저장소의 Python 스크립트는 특정 LLM을 직접 호출하지 않으며 모델에 독립적입니다. Codex에서 운용할 때는 다음처럼 Luna를 두 번 사용하는 방식을 권장합니다.
+
+```text
+Docling 파싱
+  → 임시 이미지 정리 Markdown 생성
+  → Luna가 상세 요약과 evidence JSON 작성
+  → 두 번째 Luna가 원문 근거·인용문·주장을 검증
+  → 결정적 스크립트가 직접 인용문과 필수 섹션 검증
+  → 최종 파일명 변경 및 registry/index/QC/HTML 재생성
+```
+
+두 번째 Luna 검증은 실용적인 critic 단계이지 독립적인 진실성 보장을 의미하지 않습니다. 직접 인용문 검사, 페이지 표식 규칙, QC, 사람의 검토가 계속 필요합니다. 페이지 정보가 parsed Markdown에 없으면 PDF를 다시 읽어 페이지를 추정하지 않고, 정확한 인용문을 `source_text`로 남기며 페이지를 비워 둡니다.
 
 ## 설치
 
-저장소 안에 가상환경을 만들지 말고, OneDrive 밖의 경로를 사용하세요.
+저장소 안에 가상환경을 만들지 말고, OneDrive 밖의 Python 환경을 사용하세요.
 
 ### Windows PowerShell
 
@@ -22,86 +46,34 @@ py -3 -m venv D:\win-python\llm-wiki-venv
 & 'D:\win-python\llm-wiki-venv\Scripts\python.exe' -m pip install pyyaml docling
 ```
 
-이미 `D:\win-python\master_venv`에 Docling이 설치되어 있다면 그 Python을 사용해도 됩니다.
-
-### WSL/Linux
-
-```bash
-git clone https://github.com/seongyonglee77/LLM-Wiki-Rch-DB.git
-cd LLM-Wiki-Rch-DB
-python3 -m venv /mnt/d/WSL/llm-wiki-venv
-/mnt/d/WSL/llm-wiki-venv/bin/python -m pip install --upgrade pip
-/mnt/d/WSL/llm-wiki-venv/bin/python -m pip install pyyaml docling
-```
-
-Windows와 WSL은 서로 다른 Python 환경을 사용해야 합니다.
+이미 `D:\win-python\master_venv`에 Docling이 설치되어 있으면 그 환경을 사용해도 됩니다.
 
 ## PDF ingest
 
-승인한 PDF를 로컬 `inbox/`에 넣고 저장소 루트에서 실행합니다.
+검토할 PDF를 로컬 `inbox/`에 넣고 저장소 루트에서 실행합니다.
 
 ```powershell
-& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\ingest_batch.py
+& 'D:\win-python\master_venv\Scripts\python.exe' scripts\ingest_batch.py
 ```
 
-이 작업은 다음을 생성·갱신합니다.
-
-- 영어 source와 summary card
-- `km-config.json`에 설정한 언어의 wiki 페이지
-- registry, indexes, `refs.bib`, QC report
-- 정적 HTML 사이트인 `wiki-site/`
-
-PDF는 GitHub에 올리지 않습니다. 생성된 카드와 wiki를 검토하고 QC 결과를 확인한 후 commit하세요.
-
-## 간단한 사용법
-
-스크립트 이름을 외울 필요 없이, 이 저장소를 작업 폴더로 연 LLM에게 자연어로 요청하면 됩니다.
-
-1. LLM을 이 저장소에서 열어 `AGENTS.md`를 읽게 합니다.
-2. 승인한 PDF를 로컬 `inbox/`에 넣습니다.
-3. 다음처럼 요청합니다: `inbox의 새 PDF를 전부 ingest해 줘.`
-4. `sources/`, `cards/`, `wiki/`, `refs.bib`, `qc/`를 검토합니다.
-5. 필요하면 다음처럼 검증을 요청합니다: `이 카드의 주장과 직접 인용을 source와 대조하고 wiki 링크를 확인해 줘.`
-6. 검토가 끝난 레코드만 commit합니다. PDF와 개인 작업 메모는 공개 저장소 밖에 둡니다.
-
-자주 쓰는 요청:
+또는 LLM 에이전트에게 다음처럼 요청합니다.
 
 ```text
-llm-wiki 안에서 내 주제와 관련된 논문을 찾아 줘.
-open 카드의 metadata를 점검하되 locked 레코드는 변경하지 말고 차이만 보고해 줘.
-승인한 카드 변경을 registry, indexes, refs.bib, QC에 반영해 줘.
-이 논문을 기존 wiki에 연결할 후보를 제안하되 card와 source를 복제하지 마.
+inbox의 새 PDF를 전부 ingest해 줘. 요약은 Luna로 작성하고, 두 번째 Luna 패스로 원문 진위 여부를 검증해 줘.
 ```
 
-이 저장소의 운영 원칙은 한 논문을 하나의 canonical record로 유지하고, 근거가 있는 상세 요약·wiki 링크·생성 bibliography·QC를 함께 검토하는 것입니다.
+완료 후 `sources/`, `cards/`, `wiki/`, `registry/`, `indexes/`, `refs.bib`, `qc/`, `wiki-site/`를 검토하세요. 원본 PDF와 개인 작업 메모는 GitHub에 commit하지 않습니다.
 
-## 언어 설정
-
-논문 내용 언어와 wiki 설명 언어는 독립적으로 설정합니다.
-
-```json
-{
-  "paper_language": "en",
-  "wiki_language": "ko"
-}
-```
-
-기본값은 논문 카드·source는 영어(`en`), wiki 설명은 한국어(`ko`)입니다. 다른 사용자는 `km-config.json`에서 자신의 언어 코드로 변경할 수 있습니다.
-
-## 생성 파일과 검증
+## 빈 저장소 재빌드와 검증
 
 ```powershell
-& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\build_registry.py
-& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\build_indexes.py
-& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\export_refs_bib.py
-& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\qc_report.py
-& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\build_html_site.py --output wiki-site
+& 'D:\win-python\master_venv\Scripts\python.exe' scripts\build_registry.py
+& 'D:\win-python\master_venv\Scripts\python.exe' scripts\build_indexes.py
+& 'D:\win-python\master_venv\Scripts\python.exe' scripts\export_refs_bib.py
+& 'D:\win-python\master_venv\Scripts\python.exe' scripts\qc_report.py
+& 'D:\win-python\master_venv\Scripts\python.exe' scripts\build_html_site.py --output wiki-site
 ```
-
-`refs.bib`, `registry/`, `indexes/`, `qc/`는 생성 결과이므로 직접 편집하지 않습니다. 원본 카드와 설정을 수정한 뒤 다시 생성하세요.
 
 ## GitHub Pages
 
-`.github/workflows/pages.yml`이 `main`에 push될 때 `wiki-site/`를 GitHub Pages로 배포합니다. GitHub 저장소의 Pages 설정에서 source를 **GitHub Actions**로 선택하세요.
-
-초기 사이트는 빈 공개 템플릿입니다. 검토가 끝난 카드만 공개 저장소에 추가하세요.
+`.github/workflows/pages.yml`이 `main` push를 감지해 `wiki-site/`를 GitHub Pages로 배포합니다. 저장소 Settings → Pages → Source에서 **GitHub Actions**를 선택하세요.
