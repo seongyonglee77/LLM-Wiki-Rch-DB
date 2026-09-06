@@ -40,6 +40,8 @@ Keep Windows and WSL environments separate. `km-config.json` is portable and poi
 
 After a local ingest and review, the repository can publish English summary cards, parsed source Markdown, the Korean wiki layer, indexes, generation scripts, and the static `wiki-site/` presentation. Personal records are not bundled here, and original PDFs in `papers/`, `papers-supplementary/`, and intake files in `inbox/` are excluded.
 
+The ingest pipeline uses a two-stage filename policy. A parsed paper first receives a provisional stem. After the summary metadata is finalized, the PDF, source, card, wiki node, and parse manifest are rekeyed together to one canonical `YYYY_Author_ShortTitle` stem. This prevents the summary card from having a different identity from the rest of the record.
+
 ## Quick Use
 
 1. Keep the public repository clean; place approved PDFs in the local `inbox/` only when preparing a new record.
@@ -76,7 +78,7 @@ Place an approved PDF in the local `inbox/` directory and run the complete workf
 & 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\ingest_batch.py
 ```
 
-The workflow parses the PDF, creates the English source/card layers, creates the configured wiki-language layer, rebuilds the registry, indexes, bibliography, QC report, and static HTML site. PDFs remain local and are excluded from GitHub. Review the generated files and QC report before committing.
+The workflow parses the PDF, creates the English source/card layers, creates the configured wiki-language layer, finalizes the canonical filename after summary metadata is known, and rebuilds the registry, indexes, bibliography, QC report, and static HTML site. The site includes generated pages for `wiki/`, `cards/`, and `sources/`; PDFs remain local and are excluded from GitHub. Review the generated files and QC report before committing.
 
 For an empty-repository validation or a rebuild without ingesting a PDF:
 

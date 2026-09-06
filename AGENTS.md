@@ -69,17 +69,20 @@ discover inbox PDFs
   -> detect duplicates
   -> parse with Docling
   -> validate extracted text
-  -> move valid PDFs to papers/
-  -> create source, card, and wiki node
-  -> rebuild registry, indexes, refs.bib, and QC
+  -> create a provisional parsed source and move valid PDFs to papers/
+  -> summarize the parsed source and finalize title/author/year metadata
+  -> rekey the PDF, source, card, wiki, and parse manifest to the final stem
+  -> rebuild registry, indexes, refs.bib, QC, and wiki-site
   -> report success, failure, duplicate, excluded, and needs-review items
 ```
 
 The rebuild step also maintains `wiki/{overviews,concepts,projects,questions}/index.md` navigation pages without replacing their curated introductions. It appends newly created pages, and QC must resolve every wikilink to an actual Markdown file; a visible link with a missing target is a failure.
 
-The optional static web layer lives in `wiki-site/`. It is generated from `wiki/` by `scripts/build_html_site.py`, must remain separate from canonical Markdown, and must be safe to publish through GitHub Pages. Rebuild it after wiki changes and verify that generated local HTML links and assets resolve.
+The optional static web layer lives in `wiki-site/`. It is generated from `wiki/`, `cards/`, and `sources/` by `scripts/build_html_site.py`, must remain separate from canonical Markdown, and must be safe to publish through GitHub Pages. Rebuild it after wiki, card, or source changes and verify that generated local HTML links and assets resolve.
 
 Use `scripts/ingest_batch.py` for deterministic file operations. LLM judgment is used for improving summaries after source extraction; scripts do not call another LLM.
+
+Filename normalization has two stages. Parsing creates a provisional stem so the source can be admitted and passed to the summary workflow. After summary metadata is finalized, the canonical writer rekeys the PDF, source, card, wiki, and parse manifest to the final `YYYY_Author_ShortTitle` stem. The same final stem is used by registry, index, bibliography, QC, and HTML outputs. Collisions receive deterministic author suffixes; filename decisions do not require a second full-document LLM read.
 
 PDF extraction order is Docling first, then `opendataloader-pdf`, then `pypdf`, then `pdftotext`. Record the extractor used and any earlier fallback failures in the parse manifest.
 

@@ -4,9 +4,7 @@ import argparse
 import re
 from pathlib import Path
 
-import yaml
-
-from llm_wiki_common import add_root_arg, read_yaml_md, slugify, utc_now, write_yaml_md
+from llm_wiki_common import add_root_arg, read_yaml_md, slugify, write_yaml_md
 
 
 def parse_title(source_body: str, stem: str) -> str:
@@ -31,17 +29,24 @@ def create_or_update_card(root: Path, source: Path) -> Path:
         data, body = read_yaml_md(template)
         # Ingest creates the record shell only.  A card is not summarized until
         # a human/LLM summary pass has actually populated its body.
-        data["status"] = "unsummarized"
+        data["summary"]["status"] = "unsummarized"
+    # Migrate only the card being maintained.  Legacy fields are intentionally
+    # removed because provenance owns the PDF path and wiki synthesis is owned
+    # by build_wiki.py rather than card YAML.
+    summary = data.pop("summary", None) or {}
+    summary.setdefault("level", data.pop("summary_level", "deep"))
+    summary.setdefault("status", data.pop("status", "unsummarized"))
+    summary.setdefault("structure_policy", data.pop("structure_policy", "source_structure"))
+    data["summary"] = summary
+    for field in ("paper_id", "file_name", "topics", "projects", "related", "review_log"):
+        data.pop(field, None)
     data.update(
         {
-            "paper_id": data.get("paper_id") or record_id,
             "record_id": data.get("record_id") or record_id,
             "stem": stem,
-            "file_name": data.get("file_name") or Path(source_meta.get("pdf_path", "")).name,
             "title": data.get("title") or parse_title(source_body, stem),
             "citation_key": data.get("citation_key") or slugify(parse_title(source_body, stem)).replace("-", "")[:24],
             "metadata_status": data.get("metadata_status") or "open",
-            "status": data.get("status") or "needs_review",
         }
     )
     provenance = data.setdefault("provenance", {})
@@ -55,9 +60,6 @@ def create_or_update_card(root: Path, source: Path) -> Path:
     )
     verification = data.setdefault("verification", {})
     verification.setdefault("requires_human_review", True)
-    review_log = data.setdefault("review_log", [])
-    if not any(isinstance(item, dict) and item.get("event") == "card_created" for item in review_log):
-        review_log.append({"event": "card_created", "at": utc_now(), "source": str(source.relative_to(root))})
     write_yaml_md(card_path, data, body)
     return card_path
 

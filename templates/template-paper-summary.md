@@ -1,25 +1,18 @@
 ---
-paper_id: ""
 record_id: ""
 stem: ""
-file_name: ""
-type: "paper" # paper | book_chapter | conference_paper | review | conceptual | theoretical | book | report | other
-research_design: "" # empirical | review | conceptual | theoretical | book | mixed | not_applicable
-
 title: ""
-year: ""
-
 authors:
   - "Last Name, First Name"
-
+year: ""
+type: "paper" # paper | book_chapter | conference_paper | review | conceptual | theoretical | book | report | other
+research_design: "" # empirical | review | conceptual | theoretical | book | mixed | not_applicable
 citation_key: ""
 doi: ""
 url: ""
-
 metadata_status: "open" # open | locked
 metadata_authority: "publisher_pdf" # publisher_pdf | crossref | openalex | legacy_zotero | human_verified
 publication_stage: "" # online_first | version_of_record | in_press | book | chapter | conference | unknown
-
 citation_info:
   source_type: "journal"
   source_title: ""
@@ -31,11 +24,11 @@ citation_info:
   publisher: ""
 
 tags: []
-topics: []
-projects: []
-summary_level: "deep" # quick | structured | deep
-status: "unsummarized" # unsummarized | summarized | needs_review
-structure_policy: "source_structure" # empirical_sections | source_structure | selective_sections
+
+summary:
+  level: "deep" # quick | structured | deep
+  status: "unsummarized" # unsummarized | summarized | needs_review
+  structure_policy: "source_structure" # empirical_sections | source_structure | selective_sections
 
 provenance:
   pdf_path: "papers/"
@@ -52,16 +45,6 @@ verification:
   claim_verification_pass_rate: 0.0
   requires_human_review: true
   verified_at: ""
-
-related:
-  wiki: []
-  overviews: []
-  concepts: []
-  questions: []
-  supersedes: []
-  superseded_by: []
-
-review_log: []
 ---
 
 # Quick Card
@@ -86,8 +69,7 @@ review_log: []
 
 # Deep Summary
 
-> For each substantive claim, provide a direct quotation in the form `"..." (p. N)` whenever wording and relative page are reliable.
-> Use relative page numbers from the parsed source. If page alignment is uncertain, write `Paraphrase (page unverified): ...` instead of inventing a quotation or page.
+> A card may be marked `summary.status: summarized` only through `scripts/fill_summary_cards.py` with per-paper evidence JSON. Every substantive claim must have an exact direct quotation. Add a positive page number only when the parsed source provides a reliable page marker; otherwise leave it blank, use `source_text`, and require manual page review. Do not invent quotations or page numbers or reopen the PDF solely for summary page verification.
 
 ## Summary Mode and Source Structure
 
@@ -103,9 +85,8 @@ Do not create artificial Method, Participants, Data, or Findings sections for a 
 
 ## Theory & Literature Review
 
-- Theme:
-  - Evidence: "Direct quotation" (p. N)
-  - Interpretation:
+- Claim supported by a direct quotation and page locator.
+  - Evidence: "Direct quotation" (p. N; source_page-verified), or (page unavailable; source-text-verified) when no page marker exists
 
 ## Gaps & Research Questions
 
@@ -125,6 +106,9 @@ Do not create artificial Method, Participants, Data, or Findings sections for a 
 
 ## Findings
 
+- Finding supported by a direct quotation and page locator.
+  - Evidence: "Direct quotation" (p. N; source_page-verified), or (page unavailable; source-text-verified) when no page marker exists
+
 ## Key Claims
 
 ## Directly Citable Evidence
@@ -134,6 +118,9 @@ Do not create artificial Method, Participants, Data, or Findings sections for a 
 |  |  |  | verified / partial / failed / not_applicable |
 
 ## Discussion
+
+- Interpretation supported by a direct quotation and page locator.
+  - Evidence: "Direct quotation" (p. N; source_page-verified), or (page unavailable; source-text-verified) when no page marker exists
 
 ## Conclusion
 

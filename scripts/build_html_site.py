@@ -24,7 +24,12 @@ def link_for(raw: str, source: Path, root: Path, site: Path) -> str:
     if target_path.suffix == "":
         target_path = target_path.with_suffix(".md")
     if target_path.exists() and target_path.is_relative_to(root):
-        destination = page_path(site, target_path, root) if target_path.is_relative_to(root / "wiki") else target_path
+        # Markdown pages that are part of the generated site (wiki and cards)
+        # must link to their generated HTML counterpart. Other repository
+        # artifacts keep their relative source link because they are not
+        # published by this site build.
+        generated = any(target_path.is_relative_to(root / folder) for folder in ("wiki", "cards", "sources"))
+        destination = page_path(site, target_path, root) if generated else target_path
         href = os.path.relpath(destination, page_path(site, source, root).parent).replace(chr(92), "/")
         return f'<a href="{html.escape(href)}">{html.escape(label)}</a>'
     return html.escape(label)
@@ -96,9 +101,23 @@ def shell(title: str, body: str, source: Path, site: Path, output: Path | None =
 
 def build(root: Path, site: Path) -> int:
     wiki = root / "wiki"
+    cards = root / "cards"
+    sources = root / "sources"
     site.mkdir(parents=True, exist_ok=True)
     pages = sorted(wiki.rglob("*.md"))
-    for source in pages:
+    card_pages = sorted(cards.rglob("*.md")) if cards.exists() else []
+    source_pages = sorted(sources.rglob("*.md")) if sources.exists() else []
+    all_sources = pages + card_pages + source_pages
+    expected_pages = {page_path(site, source, root).resolve() for source in all_sources}
+    # Rekeying a paper removes/renames canonical Markdown, so delete only
+    # stale generated HTML pages in the generated wiki/cards/sources folders.
+    for folder in ("wiki", "cards", "sources"):
+        generated_folder = site / folder
+        if generated_folder.exists():
+            for stale in generated_folder.rglob("*.html"):
+                if stale.resolve() not in expected_pages:
+                    stale.unlink()
+    for source in all_sources:
         destination = page_path(site, source, root)
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_text(shell(title_of(source), markdown_to_html(source.read_text(encoding="utf-8"), source, root, site), source, site, destination), encoding="utf-8")
@@ -118,7 +137,7 @@ def build(root: Path, site: Path) -> int:
     (site / "index.html").write_text(shell(SITE_NAME, body, root / "wiki" / "index.md", site, site / "index.html"), encoding="utf-8")
     (site / "styles.css").write_text(CSS, encoding="utf-8")
     (site / "app.js").write_text(JS, encoding="utf-8")
-    return len(pages)
+    return len(pages) + len(card_pages) + len(source_pages)
 
 
 CSS = r''':root{--paper:#e8e3d5;--surface:#efebdf;--ink:#1f1d18;--muted:#6b665a;--rule:#bdb6a4;--accent:#7a3b2e}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.6}.layout{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:100vh}.rail{border-right:1px solid var(--rule);padding:36px 24px;position:sticky;top:0;height:100vh}.brand{color:var(--ink);font:600 1.15rem 'IBM Plex Mono',Consolas,monospace;letter-spacing:.08em;text-decoration:none}.rail-note,.eyebrow,.meta,.num,label,#result-count,.catalog-head,footer{font:12px 'IBM Plex Mono',Consolas,monospace;letter-spacing:.05em;color:var(--muted)}.rail-note{margin:10px 0 42px}.rail nav{display:grid;gap:12px;border-top:2px solid var(--ink);padding-top:16px}.rail nav a{color:var(--ink);text-decoration:none}.rail nav a:hover{color:var(--accent);text-decoration:underline}.content{max-width:1240px;width:100%;padding:40px clamp(20px,5vw,64px) 60px}.hero{display:flex;justify-content:space-between;gap:30px;border-bottom:2px solid var(--ink);padding:28px 0 34px}.hero h1{font-size:clamp(2rem,4vw,4rem);font-weight:500;line-height:1.1;margin:10px 0}.hero p{font-size:1.1rem;margin:0;max-width:680px}.count{font:500 3.8rem Georgia;color:var(--accent);text-align:right;line-height:1}.count small{display:block;font:11px 'IBM Plex Mono',Consolas,monospace;color:var(--muted);margin-top:8px}.toolbar{display:flex;align-items:center;gap:18px;padding:24px 0;border-bottom:1px solid var(--rule)}input{background:transparent;border:1px solid var(--rule);padding:10px 12px;min-width:min(360px,55vw);font:14px 'IBM Plex Mono',Consolas,monospace;color:var(--ink)}input:focus{outline:2px solid var(--accent);outline-offset:2px}.catalog-head,.row{display:grid;grid-template-columns:70px minmax(0,1fr) 160px;gap:20px;align-items:center}.catalog-head{padding:14px 12px;border-bottom:1px solid var(--ink)}.row{padding:14px 12px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);transition:background 120ms linear}.row:nth-child(even){background:var(--surface)}.row:hover{background:#dfd9c8}.num{color:var(--accent)}.row-title{font-size:1.07rem}.row-title:hover{text-decoration:underline;text-decoration-color:var(--accent)}.about{border-top:2px solid var(--ink);margin-top:50px;padding-top:22px;max-width:720px}.about h2,h2{font-size:1.8rem;font-weight:500}.content>h1{font-size:clamp(2rem,4vw,3.4rem);font-weight:500;line-height:1.15;border-bottom:2px solid var(--ink);padding-bottom:22px}.content>h2{margin-top:38px;border-top:1px solid var(--rule);padding-top:18px}.content p,.content ul{max-width:760px}.content li{margin:5px 0}.content a{color:var(--accent)}code{font-family:'IBM Plex Mono',Consolas,monospace;font-size:.9em}footer{border-top:2px solid var(--ink);margin-top:70px;padding-top:15px}@media(max-width:760px){.layout{display:block}.rail{position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule);padding:20px}.rail nav{display:flex;border-top:0;padding-top:12px}.content{padding:28px 18px}.hero{display:block}.count{text-align:left;margin-top:25px}.catalog-head,.row{grid-template-columns:44px minmax(0,1fr)}.catalog-head span:last-child,.meta{display:none}.toolbar{flex-wrap:wrap}input{min-width:100%}}'''

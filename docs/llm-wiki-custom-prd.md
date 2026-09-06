@@ -1,10 +1,14 @@
 # llm-wiki Custom Build PRD
 
-> Version: 1.2
+> Version: 1.4
 > Status: implementation specification
 > Language: configurable per vault/project; the setup must ask the user before creating knowledge content.
 
 > **v1.2 quality correction (2026-09-05):** A parsed source, metadata shell, bibliography entry, or link-only wiki node is not a completed ingest. Completion now requires a source-grounded detailed summary, a populated synthesis connection, and content-aware QC. The default card state is `unsummarized` until that work is done.
+>
+> **v1.3 summary/schema correction (2026-09-06):** Deep summaries must be substantially developed, section-sensitive, and evidence-backed with direct source citations whenever the source text and relative page can be verified. Card YAML is consolidated: redundant identity/path/topic fields and `review_log` are removed; summary state lives under a `summary` block; verification remains the place for quote, claim, and human-review evidence.
+>
+> **v1.4 summary-efficiency correction (2026-09-06):** Summary agents read a temporary sanitized view of the parsed Markdown, never embedded Base64/data-URI image payloads, and do not reopen the PDF solely for page verification. Deep-summary detail and direct-citation requirements are unchanged. Page numbers are retained only when the parsed Markdown supplies a reliable locator; otherwise the page is blank, the exact quote is marked `source_text`, and human review remains required.
 
 ## 1. Purpose
 
@@ -58,7 +62,7 @@ macOS must use its own macOS-native Python environment and package/cache locatio
 
 This PRD is self-contained and is the implementation authority. An implementation agent must not require any companion file, local drive path, or previous conversation to build the system.
 
-The design incorporates a source-to-wiki flow with parsed sources, synthesis links, audit logs, and explicit agent behavior. Knowledge Manager is an external search and capture layer, not a second canonical wiki.
+The design incorporates a source-to-wiki flow with parsed sources, synthesis links, verification evidence, audit reports, and explicit agent behavior. Knowledge Manager is an external search and capture layer, not a second canonical wiki.
 
 The repository may contain separate rationale or user-guide documents, but they are optional documentation only. They are not installation prerequisites and must not be treated as runtime dependencies.
 
@@ -147,11 +151,13 @@ Every admitted paper must have:
 - matching PDF, source, card, and wiki paths;
 - a registry entry with status, provenance, and timestamps.
 
-Recommended stem format:
+Canonical new-ingest stem and filename format:
 
 ```text
-{first-author-lastname}-{year}-{first-five-title-tokens}
+YYYY_Author_ShortTitle
 ```
+
+The canonical PDF filename is `YYYY_Author_ShortTitle.pdf`; source, card, wiki, registry, and bibliography records reuse the same `stem`. `ShortTitle` is at most three content words. Include up to the first three detected author surnames in the author component. If year, author, and short-title collide, append a deterministic suffix to the author component, for example `2024_Lee_AI_Teacher_Agency`, `2024_Lee-a_AI_Teacher_Agency`, then `2024_Lee-b_AI_Teacher_Agency`.
 
 ### 3.3 Paper-scoped maintenance and isolation
 
@@ -186,7 +192,9 @@ discover inbox PDFs
   -> extract text with Docling
   -> save source Markdown and provenance
   -> validate PDF and extracted text
-  -> move valid PDF to papers/
+  -> derive canonical YYYY_Author_ShortTitle stem from parsed source metadata
+  -> rename parsed source to sources/{canonical-stem}.md
+  -> move valid PDF to papers/{canonical-stem}.pdf
   -> create detailed card from templates/template-paper-summary.md
   -> create paper wiki node and synthesis links
   -> rebuild registry and indexes
@@ -197,6 +205,8 @@ discover inbox PDFs
 
 The workflow is idempotent. Repeating it must not create a second record for the same DOI, file hash, or stable stem. Failed files remain in `inbox/` with a log entry and are not silently moved.
 
+Filename normalization happens after parsing and before card creation. The parser may create a provisional `sources/{provisional-stem}.md`, but ingest must then derive the canonical stem from already extracted source metadata near the beginning of the parsed source, rename the source, move the PDF under the same stem, and pass that canonical source path to card/wiki generation. This must not trigger a second full-document LLM read. LLM judgment is reserved for the later summary-writing stage, where the active agent reads the canonical parsed source and writes the detailed card.
+
 Do not use `ingest_batch.py` as a harmless no-op validation unless `inbox/` has first been inspected and confirmed empty. `ingest_batch.py` is an ingest command and may move admitted PDFs from `inbox/` to `papers/`. For setup validation that must not ingest anything, run registry, index, bibliography, and QC builders directly.
 
 ### 4.1 Source parsing policy
@@ -206,6 +216,7 @@ Do not use `ingest_batch.py` as a harmless no-op validation unless `inbox/` has 
 - Store parser name, version, source hash, parse timestamp, and warnings in source frontmatter or the ingest manifest.
 - If parsing fails, do not fabricate a source or summary. Report the failure and retain the original PDF.
 - The parsed source is the first content-verification source; the PDF is the final visual/source check.
+- Parsing and ingest may inspect the PDF as required by the extractor, but summary writing must not reopen or send the PDF merely to locate or verify page numbers. Page-level checks for summaries are manual unless reliable page markers already exist in the parsed Markdown.
 
 Before the first ingest, the implementation agent must check whether Python and Docling are available in the approved runtime. If Docling is present and importable, reuse it. If it is missing, install the required package in the global/user Python runtime or another explicitly approved environment outside all cloud-synced folders, then run a minimal import/version check. Never create or use a project `.venv` under a OneDrive-backed or otherwise cloud-synced `${ROOT}`. WSL and Windows/PowerShell have separate runtimes and must be checked independently; do not point both platforms at the same environment directory. Windows-native commands may use a Windows Python environment under the approved Windows base path, while WSL commands may use a WSL environment under the approved WSL base path. When using a WSL runtime from Windows, invoke it through `wsl` and record both the Windows path and the WSL path. The agent must report whether the parser was reused, installed, or unavailable, and must record where the runtime lives.
 
@@ -215,23 +226,29 @@ For Windows, install Windows-native fallback tools into or alongside the approve
 
 ### 4.2 Summary and wiki policy
 
-The detailed card is generated first from the parsed source and the embedded template. The active LLM agent must read the parsed source and write the summary; deterministic scripts may create the record shell but must never mark a shell as summarized. The wiki node is a navigational and synthesis layer that links to the card, source, and relevant overview/concept/question pages.
+The detailed card is generated first from the parsed source and the embedded template. Before the LLM reads it, the implementation must create a temporary sanitized summary view with `scripts/prepare_summary_input.py`; this view removes embedded Base64/data-URI image payloads without modifying the canonical source. The active LLM agent reads that view once and writes the summary/evidence; deterministic scripts may create the record shell but must never mark a shell as summarized. The wiki node is a navigational and synthesis layer that links to the card, source, and relevant overview/concept/question pages.
+
+Summary verification is token-efficient and source-first. `scripts/fill_summary_cards.py` and `scripts/qc_report.py` perform local validation and do not call an LLM. They may read the canonical parsed source locally to check exact quote matches, but they must not send it to another model. A summary agent must not reopen the PDF for page verification. When a reliable page marker is present in the parsed Markdown, evidence uses `page: N` and `verification: source_page`; when it is absent, evidence uses `page: ""` and `verification: source_text`, and the card records that page-level verification is pending manual review. No page number may be invented. The deep-summary depth, section coverage, and direct-quotation requirements below remain mandatory.
 
 #### 4.2.1 Summary completion gate
 
-A paper is `summarized` only when its card contains source-grounded prose in all applicable sections. A template copied without substantive content is `unsummarized`, regardless of whether its YAML is complete. At minimum:
+A paper is `summarized` only when its card contains source-grounded prose in all applicable sections. A template copied without substantive content is `unsummarized`, regardless of whether its YAML is complete. A `deep` summary is not an abstract-length recap: it must reconstruct the paper's argument, evidence base, major results, interpretation, limitations, and relevance at a level suitable for later literature-review reuse.
+
+At minimum:
 
 - `One-sentence Summary` states the paper's central contribution;
 - `Purpose` identifies the problem, aim, or research questions;
 - `Method`/`Methodology` describes the actual design, participants/data or review procedure when reported;
-- `Findings`/`Key Claims` contains multiple substantive claims grounded in the source;
-- `Discussion`/`Conclusion` explains the interpretation and implications;
+- `Theory & Literature Review` or the equivalent background section identifies the intellectual context, main constructs, prior-study pattern, and stated gap;
+- `Findings`/`Results`/`Key Claims` contains multiple substantive claims grounded in the source, preserving distinctions among themes, quantitative/statistical results, examples, or review synthesis strands when present;
+- `Discussion`/`Conclusion` explains the authors' interpretation, contribution, implications, caveats, and relationship to the stated problem;
 - `Limitations` and `Relevance to My Study` are completed when applicable;
 - review, conceptual, theoretical, and book sources follow their actual structure and do not receive invented empirical sections;
-- direct quotations include verified relative pages; otherwise each claim is explicitly labelled `Paraphrase (page unverified)`;
+- substantive claims in the Literature Review/Background, Findings/Results, and Discussion sections are supported by direct quotations with verified relative pages whenever reliable page markers are available in the parsed source; otherwise each claim retains an exact source-text quotation, uses a blank page, and is explicitly labelled `source_text`/`page unavailable` for manual page review;
+- the `Directly Citable Evidence` table collects the strongest quotes for later reuse and records claim/page verification status;
 - no required section may contain only template instructions, an empty heading, or generic text such as “see the original.”
 
-The implementation must record `summary_verified`, quote/claim verification status, and `requires_human_review` independently. `status: summarized` does not mean that page-level quotation verification or human approval is complete.
+The implementation must record `verification.summary_verified`, quote/claim verification status, and `requires_human_review` independently. `summary.status: summarized` does not mean that page-level quotation verification or human approval is complete.
 
 #### 4.2.2 Synthesis and navigation completion gate
 
@@ -244,7 +261,7 @@ If no suitable synthesis page exists, the ingest must create an explicit unresol
 
 Every admitted paper must connect to at least one synthesis target, or create an explicit unresolved-link entry in QC. A paper is not considered fully ingested merely because a PDF and a summary file exist.
 
-During ingest and maintenance, also perform a supersede/correction/retraction check when the source or metadata indicates a newer version. Record the result in the card, registry, and audit log. Rebuild indexes after every accepted structural change, and preserve a dated log for batch, metadata, link, and citation audits.
+During ingest and maintenance, also perform a supersede/correction/retraction check when the source or metadata indicates a newer version. Record the result in verification/QC evidence and the registry; do not use a card-level `review_log`. Rebuild indexes after every accepted structural change, and preserve dated logs for batch, metadata, link, and citation audits outside the card YAML.
 
 Initial wiki behavior:
 
@@ -319,10 +336,8 @@ The implementation must write the following content to `templates/template-paper
 
 ```markdown
 ---
-paper_id: ""
 record_id: ""
 stem: ""
-file_name: ""
 type: "paper" # paper | book_chapter | conference_paper | review | conceptual | theoretical | book | report | other
 research_design: "" # empirical | review | conceptual | theoretical | book | mixed | not_applicable
 
@@ -351,11 +366,11 @@ citation_info:
   publisher: ""
 
 tags: []
-topics: []
-projects: []
-summary_level: "deep" # quick | structured | deep
-status: "unsummarized" # unsummarized | summarized | needs_review
-structure_policy: "source_structure" # empirical_sections | source_structure | selective_sections
+
+summary:
+  level: "deep" # quick | structured | deep
+  status: "unsummarized" # unsummarized | summarized | needs_review
+  structure_policy: "source_structure" # empirical_sections | source_structure | selective_sections
 
 provenance:
   pdf_path: "papers/"
@@ -372,16 +387,6 @@ verification:
   claim_verification_pass_rate: 0.0
   requires_human_review: true
   verified_at: ""
-
-related:
-  wiki: []
-  overviews: []
-  concepts: []
-  questions: []
-  supersedes: []
-  superseded_by: []
-
-review_log: []
 ---
 
 # Quick Card
@@ -406,8 +411,9 @@ review_log: []
 
 # Deep Summary
 
-> For each substantive claim, provide a direct quotation in the form `"..." (p. N)` whenever wording and relative page are reliable.
-> Use relative page numbers from the parsed source. If page alignment is uncertain, write `Paraphrase (page unverified): ...` instead of inventing a quotation or page.
+> Write a developed, reusable research summary, not a short abstract. Preserve the source's actual argument and section structure.
+> For each substantive claim, provide a short, exact direct quotation. Add `(p. N)` only when the parsed source supplies a reliable page marker. If page alignment is unavailable, leave the page blank and label the evidence `source_text`/`page unavailable` for manual review; never invent a page or reopen the PDF solely for this purpose.
+> Prioritize direct citation support in the Literature Review/Background, Findings/Results, and Discussion sections. The temporary summary input must omit embedded Base64/data-URI image payloads, while the canonical parsed source remains unchanged. These token-saving steps must not shorten or simplify the required deep summary.
 
 ## Summary Mode and Source Structure
 
@@ -424,8 +430,9 @@ Do not create artificial Method, Participants, Data, or Findings sections for a 
 ## Theory & Literature Review
 
 - Theme:
-  - Evidence: "Direct quotation" (p. N)
+  - Evidence: "Direct quotation" (p. N) when a parsed-source page marker exists; otherwise (page unavailable; source-text-verified) for manual review
   - Interpretation:
+  - Relationship to the paper's gap or research questions:
 
 ## Gaps & Research Questions
 
@@ -445,6 +452,8 @@ Do not create artificial Method, Participants, Data, or Findings sections for a 
 
 ## Findings
 
+For each major finding/result/theme, state the claim, describe the evidence or analytic basis, include at least one direct quotation when available, and explain why the result matters for the paper's argument.
+
 ## Key Claims
 
 ## Directly Citable Evidence
@@ -454,6 +463,8 @@ Do not create artificial Method, Participants, Data, or Findings sections for a 
 |  |  |  | verified / partial / failed / not_applicable |
 
 ## Discussion
+
+Explain how the authors interpret the findings or argument, what contribution they claim, what implications they draw, and which caveats shape the interpretation. Support major interpretive claims with direct citations or labelled page-unverified paraphrases.
 
 ## Conclusion
 
@@ -468,9 +479,9 @@ Do not create artificial Method, Participants, Data, or Findings sections for a 
 ## Possible Use in Literature Review
 
 ## Citation Notes
-
-## Related Links
 ```
+
+Card YAML must not include redundant or workflow-only fields such as `paper_id`, `file_name`, `topics`, `projects`, `related`, or `review_log`. Use `record_id` as the stable internal identity, `stem` as the shared filesystem stem, `tags` for lightweight user-facing labels, `summary.*` for summary state, and `verification.*` for quote/claim/human-review evidence. Source/PDF paths belong in `provenance`; wiki/synthesis links are maintained by the wiki layer and QC outputs, not by a duplicated `related` YAML block.
 
 ### 6.1 Flexible document-type and evidence rules
 
@@ -480,9 +491,11 @@ The template is deliberately section-flexible. Before writing the summary, class
 - For review papers, summarize review scope, search or selection procedure when reported, organizing themes, synthesis, gaps, and implications. Do not invent participants or findings.
 - For conceptual or theoretical papers, summarize the problem, concepts, framework, propositions, argument structure, contribution, and limitations. Method and Findings may be omitted.
 - For books and chapters, follow the actual chapter/book structure and argument. Do not force journal-style headings.
+- For all document types, make the deep summary detailed enough to support later drafting: capture the paper's argumentative sequence, not only isolated bullet points.
 - Omit sections that do not exist or are not applicable, and record the omission in `Citation Notes`.
-- Every substantive summary claim must be supported by a direct quotation with a relative page marker, such as `"..." (p. 12)`, when the text and page alignment are reliable.
-- If the quotation or page cannot be verified, use `Paraphrase (page unverified): ...` and set the relevant verification status accordingly.
+- Every substantive summary claim should be supported by a direct quotation with a relative page marker, such as `"..." (p. 12)`, when the parsed source provides reliable page alignment; this is mandatory for major Literature Review/Background, Findings/Results, and Discussion claims when such markers are available.
+- If page alignment is unavailable, retain the exact quotation with a blank page, mark it `source_text`/`page unavailable`, and set the relevant verification status for manual review. Do not reopen the PDF solely to locate or verify summary pages, and do not invent a page number.
+- The `Directly Citable Evidence` table must not be ornamental. It must contain reusable evidence rows for the main claims, especially those from Literature Review/Background, Findings/Results, and Discussion.
 - Do not invent DOI, pages, publisher, methods, findings, quotations, or page numbers.
 
 The LLM must extract all authors and exact bibliographic information when present, leave unknown fields empty, and flag uncertainty.
@@ -490,6 +503,14 @@ The LLM must extract all authors and exact bibliographic information when presen
 ## 7. Script contracts
 
 Create scripts under `scripts/`. The PRD does not prescribe implementation language beyond Python compatibility, but each script must be deterministic where possible, idempotent, log its inputs and outputs, and return a non-zero status on an incomplete required operation.
+
+### 7.0 `prepare_summary_input.py`
+
+- Input: one canonical parsed Markdown source.
+- Output: a temporary Markdown view for the summary agent; the canonical source is never edited.
+- Must replace embedded `data:image/...;base64,...` image payloads with a short omission marker and preserve all textual content, headings, metadata, and existing page markers.
+- Must not call an LLM, open the PDF, or perform page verification.
+- Removing image payloads is an input-token optimization only; it must not shorten, filter, or otherwise simplify the required deep-summary content.
 
 ### 7.1 `parse_pdf.py`
 
@@ -504,6 +525,10 @@ Create scripts under `scripts/`. The PRD does not prescribe implementation langu
 
 - Input: `${ROOT}/inbox/*.pdf`.
 - Output: admitted PDFs in `papers/`, sources, cards, wiki nodes, manifest, logs, and QC updates.
+- Must parse first, then normalize the filename/stem from parsed metadata before card creation.
+- Must use `YYYY_Author_ShortTitle` for newly admitted PDFs and all downstream Markdown layers; `ShortTitle` is at most three words and author names include up to the first three detected surnames.
+- Must handle same-year/same-author/same-short-title collisions by suffixing the author component deterministically, for example `2024_Lee_AI_Teacher_Agency`, `2024_Lee-a_AI_Teacher_Agency`, `2024_Lee-b_AI_Teacher_Agency`.
+- Must avoid duplicate token spend by reusing the parsed source text for filename normalization rather than asking an LLM to read the full PDF again.
 - Must detect duplicate hash, DOI, and citation key conflicts.
 - Must continue processing independent files while classifying failures.
 - Must not call another LLM CLI or spawn an uncontrolled agent. LLM reasoning is performed by the active agent; scripts handle file operations, parsing, indexing, and validation.
@@ -511,11 +536,15 @@ Create scripts under `scripts/`. The PRD does not prescribe implementation langu
 ### 7.3 `build_card.py`
 
 - Input: parsed source, metadata candidates, embedded template.
-- Output: `cards/{stem}.md` with YAML and detailed sections. A newly created shell must use `status: unsummarized`; this script must not claim that an LLM summary exists.
+- Output: `cards/{stem}.md` with consolidated YAML and detailed sections. A newly created shell must use `summary.status: unsummarized`; this script must not claim that an LLM summary exists.
+- Must generate the current YAML schema: `record_id`, `stem`, bibliographic metadata, `citation_info`, `tags`, `summary`, `provenance`, and `verification`. It must not generate `paper_id`, `file_name`, `topics`, `projects`, `related`, or `review_log`.
 - Must preserve human edits when updating an existing card unless a field is explicitly targeted.
 - Must mark unresolved fields and claims for review.
-- Must not silently convert an empty/template body to `summarized`.
-- The completion validator must reject a card whose applicable summary sections are empty, instruction-only, or generic placeholder prose.
+- Summary preparation must use `scripts/prepare_summary_input.py` to remove embedded Base64/data-URI images from a temporary LLM input view; it must preserve the canonical source and must not reduce deep-summary detail.
+- Summary verification must not reopen or send the PDF to an LLM solely for page mapping. A reliable parsed-source page marker uses `source_page`; otherwise a blank page with `source_text` is retained for manual review.
+- Must not silently convert an empty/template body to `summary.status: summarized`.
+- The completion validator must reject a card whose applicable summary sections are empty, instruction-only, generic placeholder prose, or too shallow to reconstruct the paper's argument and evidence.
+- The completion validator must check direct-citation coverage for major Literature Review/Background, Findings/Results, and Discussion claims. It must record pass rates and `requires_human_review` in `verification`; page-unavailable claims may pass source-text quote validation but remain flagged for manual page review.
 
 ### 7.4 `build_wiki.py`
 
@@ -523,6 +552,7 @@ Create scripts under `scripts/`. The PRD does not prescribe implementation langu
 - Output: `wiki/{stem}.md`, links to synthesis pages, a concise source-grounded summary, and an unresolved-link report if no suitable anchor exists.
 - Must not create category splits without an approved taxonomy proposal.
 - Must reject or flag a link-only node that has no summary and no synthesis connection.
+- Must own wiki/synthesis relationships separately from card YAML. Related overview/concept/question links may be generated from maintained mapping logic, existing wiki pages, or explicit user curation, but they must not require or duplicate a card-level `related` YAML block.
 
 ### 7.5 `build_registry.py`
 
@@ -558,7 +588,7 @@ Create scripts under `scripts/`. The PRD does not prescribe implementation langu
 ### 7.9 `build_indexes.py` and `qc_report.py`
 
 - `build_indexes.py` rebuilds root and category indexes from current records without deleting human-authored notes. It must keep `indexes/papers.md`, `wiki/index.md`, and category indexes navigable, append newly created category pages, and never replace populated human-authored pages with placeholders.
-- `qc_report.py` summarizes broken links, duplicate stems/DOIs, missing source/card/wiki layers, unresolved metadata, unverified quotes, stale generated outputs, empty required summary sections, template-instruction remnants, synthesis orphans, and placeholder wiki prose. It must resolve every wikilink to an actual Markdown file. Any such content-quality issue makes the record needs-review and prevents a batch from being reported as fully successful.
+- `qc_report.py` summarizes broken links, duplicate stems/DOIs, missing source/card/wiki layers, unresolved metadata, unverified quotes, stale generated outputs, empty required summary sections, shallow deep summaries, missing direct-citation coverage, template-instruction remnants, synthesis orphans, and placeholder wiki prose. It must resolve every wikilink to an actual Markdown file. Any such content-quality issue makes the record needs-review and prevents a batch from being reported as fully successful.
 
 ### 7.10 Local operations skill and routing
 
@@ -797,6 +827,7 @@ The implementation is complete only when all of the following pass:
 4. The result contains matching PDF, source, card, wiki, registry, index, bibliography, and QC records.
 5. Batch ingest processes all inbox files and classifies every file.
 6. Re-running ingest does not duplicate records.
+6a. New ingest normalizes filenames after parsing into `YYYY_Author_ShortTitle.pdf`, uses the same canonical stem for source/card/wiki/registry/bibliography, and resolves collisions with author suffixes such as `Lee-a` and `Lee-b`.
 7. A card edit regenerates registry, indexes, `refs.bib`, and QC.
 8. `open` metadata is audited but not silently locked; `locked` metadata is never silently overwritten.
 9. Crossref/OpenAlex disagreement is visible in the audit report.
@@ -806,14 +837,17 @@ The implementation is complete only when all of the following pass:
 13. Audit-only work changes no card or bibliography entry, and a locked record changes only after explicit paper-specific user approval or direction.
 14. The system reports that monitoring and remote automation are future extensions rather than pretending they are active.
 15. Setup asks the user to choose Discord or Slack, records the choice, and configures the selected ChatOps adapter without changing the core workflow.
-16. A newly ingested card is `unsummarized` until the active agent has written source-grounded content; template-only content cannot pass QC.
-17. A representative empirical paper card contains non-empty purpose, method, findings, discussion, limitations, and relevance sections, with multiple substantive findings rather than one repeated sentence.
-18. A representative review/conceptual paper follows its source structure and does not contain invented participants, methods, or findings.
-19. Every admitted paper has a bidirectional synthesis link or an explicit unresolved-link QC item; no paper is silently left as a synthesis orphan.
-20. `wiki/index.md`, `indexes/papers.md`, and `wiki/{overviews,concepts,questions,projects}/index.md` are navigable and contain real links or a documented empty-state reason.
-21. QC fails on empty required sections, untouched template instructions, generic placeholder prose, broken links (including links from category indexes), or a `summarized` card whose substantive summary gate is not met.
-22. Setup asks for and records paper language and wiki language separately; cards/sources/paper summaries use paper language, wiki synthesis/navigation uses wiki language, and original titles, names, quotations, and citation metadata are preserved.
-23. The optional HTML layer can be regenerated in one command from `wiki/`, contains working pages for all wiki Markdown files, and does not replace canonical Markdown records.
+16. A newly ingested card has the consolidated YAML schema, uses `summary.status: unsummarized`, and contains no `paper_id`, `file_name`, `topics`, `projects`, `related`, or `review_log` field.
+17. A newly ingested card remains `summary.status: unsummarized` until the active agent has written source-grounded content; template-only content cannot pass QC.
+18. A representative empirical paper card contains non-empty purpose, method, findings/results, discussion, limitations, and relevance sections, with a developed deep summary and multiple substantive findings rather than one repeated sentence.
+19. Literature Review/Background, Findings/Results, and Discussion claims are backed by direct quotations with verified relative pages when available; when page mapping is unavailable, retain the exact quote with a blank page and `source_text`/manual-review verification rather than inventing a page.
+19a. Summary preparation strips embedded Base64/data-URI image payloads only in a temporary LLM input view; canonical source Markdown is unchanged, the PDF is not reopened for summary page verification, and unavailable page numbers remain blank with `source_text` evidence for manual review.
+20. A representative review/conceptual paper follows its source structure and does not contain invented participants, methods, or findings.
+21. Every admitted paper has a bidirectional synthesis link or an explicit unresolved-link QC item; no paper is silently left as a synthesis orphan.
+22. `wiki/index.md`, `indexes/papers.md`, and `wiki/{overviews,concepts,questions,projects}/index.md` are navigable and contain real links or a documented empty-state reason.
+23. QC fails on empty required sections, untouched template instructions, generic placeholder prose, shallow deep summaries, missing direct-citation coverage, broken links (including links from category indexes), or a `summary.status: summarized` card whose substantive summary gate is not met.
+24. Setup asks for and records paper language and wiki language separately; cards/sources/paper summaries use paper language, wiki synthesis/navigation uses wiki language, and original titles, names, quotations, and citation metadata are preserved.
+25. The optional HTML layer can be regenerated in one command from `wiki/`, contains working pages for all wiki Markdown files, and does not replace canonical Markdown records.
 
 ## 15. Implementation handoff
 

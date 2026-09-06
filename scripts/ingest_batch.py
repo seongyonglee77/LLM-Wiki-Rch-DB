@@ -11,7 +11,8 @@ from build_indexes import build_indexes
 from build_registry import build_registry
 from build_wiki import build_wiki
 from export_refs_bib import export_refs
-from llm_wiki_common import add_root_arg, file_sha256, load_registry, utc_now
+from filename_normalizer import canonicalize_paths
+from llm_wiki_common import add_root_arg, file_sha256, load_registry, read_yaml_md, utc_now, write_yaml_md
 from parse_pdf import parse_pdf
 from qc_report import qc_report
 
@@ -31,16 +32,21 @@ def ingest_one(root: Path, pdf: Path, hashes: set[str]) -> dict:
         if h in hashes:
             return {"file": str(pdf), "status": "duplicate", "reason": "source_hash already exists"}
         manifest = parse_pdf(pdf, root)
-        stem = manifest["stem"]
+        provisional_stem = manifest["stem"]
+        source_path = root / manifest["source_path"]
+        source_meta, source_body = read_yaml_md(source_path)
+        # Parse first, then normalize from the extracted first-page metadata. This
+        # avoids a second full-document LLM read and gives all downstream layers
+        # one canonical YYYY_Author_ShortTitle stem.
+        stem, source_path = canonicalize_paths(root, provisional_stem, source_path, source_body)
         target_pdf = root / "papers" / f"{stem}.pdf"
         if target_pdf.exists() and file_sha256(target_pdf) != h:
             return {"file": str(pdf), "status": "failure", "reason": f"target PDF already exists: {target_pdf.name}"}
+        source_meta.update({"stem": stem, "record_id": f"paper:{stem}", "pdf_path": str(target_pdf.relative_to(root)), "source_path": str(source_path.relative_to(root))})
+        write_yaml_md(source_path, source_meta, source_body)
         shutil.move(str(pdf), str(target_pdf))
-        manifest["pdf_path"] = str(target_pdf.relative_to(root))
-        source_path = root / manifest["source_path"]
-        text = source_path.read_text(encoding="utf-8")
-        text = text.replace(f'"{str(pdf)}"', f'"{manifest["pdf_path"]}"')
-        source_path.write_text(text, encoding="utf-8")
+        manifest.update({"provisional_stem": provisional_stem, "stem": stem, "record_id": f"paper:{stem}", "pdf_path": str(target_pdf.relative_to(root)), "source_path": str(source_path.relative_to(root))})
+        (root / "logs" / f"parse-{stem}.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
         card = create_or_update_card(root, source_path)
         wiki = build_wiki(root, card)
         rows = build_registry(root)
