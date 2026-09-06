@@ -1,5 +1,7 @@
 # llm-wiki Research Database
 
+Release: **v0.2.0** — evidence-backed ingest pipeline
+
 This is a portable llm-wiki-native research knowledge base.
 
 Language: **EN** · [한국어 README (KO)](README.ko.md)
@@ -7,6 +9,30 @@ Language: **EN** · [한국어 README (KO)](README.ko.md)
 This repository is a public, empty-by-default llm-wiki template. It contains the workflow, templates, scripts, wiki navigation, and static HTML shell. Personal cards, sources, PDFs, and generated research records are intentionally absent from the initial repository.
 
 The implementation specification is preserved at [`docs/llm-wiki-custom-prd.md`](docs/llm-wiki-custom-prd.md).
+
+## What changed in v0.2.0
+
+- A paper is admitted with a provisional stem, then renamed automatically after the summary metadata is finalized.
+- The final `YYYY_Author_ShortTitle` stem is applied consistently to the PDF, source, card, wiki node, parse manifest, registry, indexes, bibliography, QC, and generated HTML.
+- Summary cards use a consolidated YAML schema and require source-grounded evidence for Theory & Literature Review, Findings, and Discussion.
+- Direct quotations are checked against the parsed source. Reliable page markers are preserved; otherwise the claim is marked `source_text` and remains subject to human page review.
+- The static site now renders `wiki/`, `cards/`, and `sources/`, while original PDFs remain local and outside the public repository.
+- Regression tests cover filename normalization, record rekeying, sanitized summary input, and evidence-backed card generation.
+
+## Recommended Luna–Luna summary profile
+
+The repository is model-agnostic: its Python scripts do not call an LLM. In the Codex operating profile, the recommended workflow is to use Luna for both passes:
+
+```text
+Docling parse
+  -> temporary sanitized Markdown view
+  -> Luna writes the detailed summary and evidence JSON
+  -> Luna performs a second source-grounded verification pass
+  -> deterministic scripts validate exact quotations and required sections
+  -> final filename rekey and registry/index/QC/HTML rebuild
+```
+
+The second Luna pass is a practical critic layer, not a guarantee of independent truth. Exact-quote checks, page-marker rules, QC, and human review remain necessary. The verification pass must not reopen the PDF solely to locate page numbers; when the parsed Markdown has no reliable page marker, retain the exact quote with `source_text` and leave the page blank.
 
 ## Installation
 
