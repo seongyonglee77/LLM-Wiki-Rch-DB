@@ -5,7 +5,7 @@ import json
 import re
 from pathlib import Path
 
-from llm_wiki_common import add_root_arg, load_registry, utc_now
+from llm_wiki_common import add_root_arg, iter_cards, load_registry, read_yaml_md, utc_now
 
 
 def qc_report(root: Path) -> dict:
@@ -37,6 +37,17 @@ def qc_report(root: Path) -> dict:
     for doi, ids in dois.items():
         if len(ids) > 1:
             issues.append({"type": "duplicate_doi", "doi": doi, "record_ids": ids})
+    for card in iter_cards(root):
+        data, body = read_yaml_md(card)
+        summary = data.get("summary", {}) or {}
+        status = summary.get("status", data.get("status", "unsummarized"))
+        if status != "summarized":
+            continue
+        required = ("## Theory & Literature Review", "## Findings", "## Discussion", "## Directly Citable Evidence")
+        missing = [section for section in required if section not in body]
+        evidence_count = len(re.findall(r"\((?:p\.\s*\d+;\s*(?:source_page|pdf)-verified|page unavailable;\s*source-text-verified)\)", body))
+        if missing or evidence_count < 3:
+            issues.append({"record_id": data.get("record_id", f"paper:{card.stem}"), "type": "summary_evidence_gate", "missing_sections": missing, "verified_evidence_count": evidence_count})
     markdown_files = list(root.rglob("*.md"))
     targets = {p.resolve().with_suffix("") for p in markdown_files}
     for page in markdown_files:
