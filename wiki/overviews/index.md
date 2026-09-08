@@ -1,18 +1,5 @@
-# Topic Overviews
+# Overviews
 
-Explores the shared context and major themes across literature clusters.
+승인된 주제별 종합 페이지를 저장하는 곳입니다.
 
-## Pages
-
-- [[conversational-ai-and-interaction|Conversational AI and Human Interaction]]
-
-## Pages
-
-- [[ai-language-education|ai language education]]
-- [[chatbots-language-learning|chatbots language learning]]
-- [[critical-ai-literacy|critical ai literacy]]
-- [[genai-teacher-education|genai teacher education]]
-
-## Pages
-
-- [[teacher-agency-and-language-technology|teacher agency and language technology]]
+현재 등록된 overview가 없습니다.

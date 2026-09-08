@@ -15,11 +15,8 @@ from typing import Any
 
 from llm_wiki_common import add_root_arg, read_yaml_md, slugify, write_yaml_md
 from rekey_record import rekey_record
-from synthesis_map import related_metadata, render_links
 
 REQUIRED_EVIDENCE_SECTIONS = ("Theory & Literature Review", "Findings", "Discussion")
-MIN_MAJOR_CLAIMS = 3
-REQUIRED_DETAIL_FIELDS = ("unique_contributions", "future_work", "literature_use", "citation_notes")
 PAGE_MARKER = re.compile(r"<!--\s*page:\s*(\d+)\s*-->", re.I)
 
 
@@ -41,31 +38,11 @@ def require_string(value: Any, label: str) -> str:
     return value.strip()
 
 
-def require_detail(value: Any, label: str) -> str:
-    """Accept prose or a concise list while keeping the rendered card readable."""
-    if isinstance(value, str) and value.strip():
-        return value.strip()
-    if isinstance(value, list) and value and all(isinstance(item, str) and item.strip() for item in value):
-        return "\n".join(f"- {item.strip()}" for item in value)
-    raise ValueError(f"{label} must be a non-empty string or list of strings")
-
-
-def canonical_heading(heading: str) -> str:
-    normalized = re.sub(r"\s+", " ", heading).strip().casefold()
-    if normalized in {"results", "findings/results", "findings & results", "findings and results"}:
-        return "Findings"
-    if normalized in {"discussion & implications", "discussion/conclusion", "discussion and conclusion"}:
-        return "Discussion"
-    return heading.strip()
-
-
 def validate_claim(claim: dict[str, Any], source_body: str, pages: dict[int, str]) -> dict[str, Any]:
     if not isinstance(claim, dict):
         raise ValueError("Each claim must be an object")
     text = require_string(claim.get("claim"), "claim")
     quote = require_string(claim.get("quote"), "quote")
-    interpretation = require_string(claim.get("interpretation"), f"interpretation for claim '{text}'")
-    why_it_matters = require_string(claim.get("why_it_matters"), f"why_it_matters for claim '{text}'")
     page, verification = claim.get("page"), claim.get("verification")
     if page in (None, ""):
         page = None
@@ -84,20 +61,10 @@ def validate_claim(claim: dict[str, Any], source_body: str, pages: dict[int, str
             raise ValueError(f"Claim '{text}' declares source page {page}, but that page is unavailable")
         if normalise(quote) not in normalise(pages[page]):
             raise ValueError(f"Quote for claim '{text}' was not found on source page {page}")
-    return {
-        "claim": text,
-        "interpretation": interpretation,
-        "why_it_matters": why_it_matters,
-        "quote": quote,
-        "page": page,
-        "verification": verification,
-    }
+    return {"claim": text, "quote": quote, "page": page, "verification": verification}
 
 
 def validate_evidence(evidence: dict[str, Any], source_body: str) -> list[dict[str, Any]]:
-    depth = evidence.get("summary_depth")
-    if not isinstance(depth, dict) or depth.get("level") != "deep":
-        raise ValueError("Evidence must declare summary_depth.level: deep")
     sections = evidence.get("sections")
     if not isinstance(sections, list):
         raise ValueError("Evidence must contain a sections list")
@@ -105,15 +72,12 @@ def validate_evidence(evidence: dict[str, Any], source_body: str) -> list[dict[s
     for section in sections:
         if not isinstance(section, dict):
             raise ValueError("Each section must be an object")
-        heading = canonical_heading(require_string(section.get("heading") or section.get("name"), "section heading"))
-        overview = require_string(section.get("overview"), f"overview for section '{heading}'")
+        heading = require_string(section.get("heading"), "section heading")
         claims = section.get("claims")
         if not isinstance(claims, list) or not claims:
             raise ValueError(f"Section '{heading}' must contain at least one evidence-backed claim")
-        if heading in REQUIRED_EVIDENCE_SECTIONS and len(claims) < MIN_MAJOR_CLAIMS:
-            raise ValueError(f"Section '{heading}' must contain at least {MIN_MAJOR_CLAIMS} substantive claims")
         headings.add(heading)
-        validated.append({"heading": heading, "overview": overview, "claims": [validate_claim(item, source_body, pages) for item in claims]})
+        validated.append({"heading": heading, "claims": [validate_claim(item, source_body, pages) for item in claims]})
     missing = [heading for heading in REQUIRED_EVIDENCE_SECTIONS if heading not in headings]
     if missing:
         raise ValueError(f"Evidence is missing required deep-summary sections: {', '.join(missing)}")
@@ -121,20 +85,14 @@ def validate_evidence(evidence: dict[str, Any], source_body: str) -> list[dict[s
 
 
 def render_section(section: dict[str, Any]) -> str:
-    lines = [f"## {section['heading']}", "", section["overview"], ""]
+    lines = [f"## {section['heading']}", ""]
     for item in section["claims"]:
         locator = f"p. {item['page']}; source_page-verified" if item["page"] is not None else "page unavailable; source-text-verified"
-        lines += [
-            f"- Claim: {item['claim']}",
-            f"  - Interpretation: {item['interpretation']}",
-            f"  - Evidence: \"{item['quote']}\" ({locator})",
-            f"  - Why it matters: {item['why_it_matters']}",
-            "",
-        ]
+        lines += [f"- {item['claim']}", f"  - Evidence: \"{item['quote']}\" ({locator})", ""]
     return "\n".join(lines).rstrip()
 
 
-def build_body(root: Path, data: dict[str, Any], evidence: dict[str, Any], sections: list[dict[str, Any]]) -> str:
+def build_body(data: dict[str, Any], evidence: dict[str, Any], sections: list[dict[str, Any]]) -> str:
     keywords = evidence.get("keywords", [])
     if not isinstance(keywords, list):
         raise ValueError("keywords must be a list")
@@ -142,10 +100,11 @@ def build_body(root: Path, data: dict[str, Any], evidence: dict[str, Any], secti
     one_sentence = require_string(evidence.get("one_sentence"), "one_sentence")
     limitations = require_string(evidence.get("limitations"), "limitations")
     relevance = require_string(evidence.get("relevance"), "relevance")
-    detail_fields = {
-        field: require_detail(evidence.get(field), field)
-        for field in REQUIRED_DETAIL_FIELDS
-    }
+    rows = ["| Claim | Direct quotation | Page | Verification |", "|---|---|---:|---|"]
+    for section in sections:
+        for item in section["claims"]:
+            page = item["page"] if item["page"] is not None else ""
+            rows.append(f"| {item['claim']} | \"{item['quote']}\" | {page} | {item['verification']} |")
     claims = lambda heading: " ".join(item["claim"] for section in sections if section["heading"] == heading for item in section["claims"])
     return f'''# Quick Card
 
@@ -185,9 +144,9 @@ def build_body(root: Path, data: dict[str, Any], evidence: dict[str, Any], secti
 
 {"\n\n".join(render_section(section) for section in sections)}
 
-## Unique Contributions
+## Directly Citable Evidence
 
-{detail_fields['unique_contributions']}
+{"\n".join(rows)}
 
 ## Limitations
 
@@ -197,23 +156,9 @@ def build_body(root: Path, data: dict[str, Any], evidence: dict[str, Any], secti
 
 {relevance}
 
-## Future Work
-
-{detail_fields['future_work']}
-
-## Possible Use in Literature Review
-
-{detail_fields['literature_use']}
-
 ## Citation Notes
 
-{detail_fields['citation_notes']}
-
-Every substantive claim above is linked to an exact quotation checked against the parsed source. `source_page` denotes a parsed-source page marker; `source_text` denotes an exact source-text match where no reliable page locator was available. PDF re-reading is not part of summary verification; page-level checking is left for manual review.
-
-## Related Synthesis Pages
-
-{render_links(root, data['stem'], '../wiki/') or '- No synthesis mapping is defined for this record.'}
+Every claim above is linked to an exact quotation checked against the parsed source. `source_page` denotes a parsed-source page marker; `source_text` denotes an exact source-text match where no reliable page locator was available. PDF re-reading is not part of summary verification; page-level checking is left for manual review.
 
 ## Related Links
 
@@ -228,7 +173,7 @@ def migrate_card_schema(data: dict[str, Any]) -> dict[str, Any]:
     summary.setdefault("status", data.pop("status", "unsummarized"))
     summary.setdefault("structure_policy", data.pop("structure_policy", "source_structure"))
     data["summary"] = summary
-    for obsolete in ("paper_id", "file_name", "topics", "projects", "review_log"):
+    for obsolete in ("paper_id", "file_name", "topics", "projects", "related", "review_log"):
         data.pop(obsolete, None)
     return data
 
@@ -248,8 +193,6 @@ def build_summary_card(root: Path, source: Path, evidence: dict[str, Any]) -> Pa
         raise ValueError("keywords must be a list")
     for field in ("purpose", "one_sentence", "limitations", "relevance"):
         require_string(evidence.get(field), field)
-    for field in REQUIRED_DETAIL_FIELDS:
-        require_detail(evidence.get(field), field)
     # The finalized summary metadata becomes the final identity of the record.
     # Rekey before writing the canonical card so all downstream rebuilds use
     # the same stem for PDF, source, card, wiki, and generated indexes.
@@ -268,10 +211,9 @@ def build_summary_card(root: Path, source: Path, evidence: dict[str, Any]) -> Pa
             citation_info[field] = evidence[field]
     data.setdefault("provenance", {}).update({"source_path": str(source.relative_to(root))})
     data["summary"].update({"level": "deep", "status": "summarized", "structure_policy": "source_structure"})
-    data["related"] = related_metadata(root, stem)
     quote_status = "partial" if any(item["verification"] == "source_text" for section in sections for item in section["claims"]) else "verified"
     data["verification"] = {"summary_verified": False, "quote_verification_status": quote_status, "quote_verification_pass_rate": 1.0, "claim_verification_pass_rate": 1.0, "requires_human_review": True, "verified_at": ""}
-    write_yaml_md(card_path, data, build_body(root, data, evidence, sections))
+    write_yaml_md(card_path, data, build_body(data, evidence, sections))
     return card_path
 
 

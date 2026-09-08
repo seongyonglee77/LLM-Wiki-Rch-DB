@@ -1,14 +1,5 @@
-# Research Questions
+# Questions
 
-Question-centered entry points for literature review and follow-up research.
+반복되는 연구 질문과 관련 논문·개념 페이지를 연결하는 곳입니다.
 
-## Pages
-
-- [[how-should-ai-support-human-interaction|How should AI support human interaction?]]
-
-## Pages
-
-- [[does-ai-replace-teachers|does ai replace teachers]]
-- [[how-can-ai-support-global-englishes|how can ai support global englishes]]
-- [[how-should-teachers-design-genai-tasks|how should teachers design genai tasks]]
-- [[what-makes-ai-language-learning-effective|what makes ai language learning effective]]
+현재 등록된 question이 없습니다.

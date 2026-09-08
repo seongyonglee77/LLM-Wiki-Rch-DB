@@ -1,19 +1,5 @@
-# Key Concepts
+# Concepts
 
-Connects recurring theoretical and analytical concepts across the literature.
+논문을 읽으며 반복해서 등장하는 개념 페이지를 저장하는 곳입니다.
 
-## Pages
-
-- [[interactional-agency-and-turn-design|Interactional Agency and Turn Design]]
-
-## Pages
-
-- [[critical-ai-literacy|critical ai literacy]]
-- [[design-based-learning|design based learning]]
-- [[global-englishes|global englishes]]
-- [[human-ai-complementarity|human ai complementarity]]
-- [[teacher-agency|teacher agency]]
-
-## Pages
-
-- [[identity-investment-and-generative-ai|identity investment and generative ai]]
+현재 등록된 개념이 없습니다. 승인된 개념 페이지를 만들면 이 인덱스에 링크를 추가합니다.

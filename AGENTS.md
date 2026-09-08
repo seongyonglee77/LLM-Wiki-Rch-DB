@@ -2,12 +2,16 @@
 
 This folder is the active llm-wiki root.
 
+## Public repository profile
+
+This repository uses `km-config.json` with `publication_profile: public-summary-only`. PDFs may exist in a local untracked `papers/` or `inbox/` folder for future ingest, but they must never be committed. Cards, parsed sources, wiki pages, registry/index outputs, and `wiki-site/` are the publishable layers. QC ignores the deliberately absent PDF layer only under this explicit profile; all other required layers and links must still exist.
+
 ## Language contract
 
 - `sources/`, `cards/`, paper summaries, bibliographic metadata, and `refs.bib` use English by default (`paper_language: en`). Preserve original titles, author names, quotations, and citation metadata; do not translate the paper record merely because the wiki language is Korean.
-- `wiki/`, overview/concept/question/project explanations, navigation indexes, and their labels use the configured `wiki_language`. The current project setting is English (`wiki_language: en`).
+- `wiki/`, overview/concept/question/project explanations, navigation indexes, and their labels use the configured `wiki_language`. The current project setting is Korean (`wiki_language: ko`).
 - At setup, ask separately for the paper/card/source language and the wiki/synthesis language when either is unset. Offer English, Korean, or another specified language; never infer the choice from the model, operating-system locale, or chat language.
-- All wiki content is in English. A paper record remains English while the navigation and explanatory synthesis layer is also in English.
+- A Korean wiki does not permit Korean card/source summaries. A paper record remains English while the navigation and explanatory synthesis layer may be localized.
 
 ## Startup
 
@@ -36,7 +40,6 @@ This folder is the active llm-wiki root.
 - `sources/{stem}.md` is the canonical parsed source Markdown.
 - `cards/{stem}.md` is the detailed human-readable research card.
 - `wiki/{stem}.md` is the synthesis/navigation node.
-- `registry/synthesis-links.json` is the canonical many-to-many relationship registry. Each paper must link to at least one relevant `overviews/` or `concepts/` page; `projects/` and `questions/` are optional and must be semantically justified. Relationship metadata is mirrored into card `related` YAML and rendered as bidirectional Markdown links.
 - `refs.bib` is generated output. Do not manually edit it.
 - `registry/legacy/refs.bib` may store old Zotero/Better BibTeX exports, but it is not canonical.
 
@@ -52,75 +55,34 @@ Every ingest, audit, correction, and refresh must resolve an exact `record_id` b
 ## Retrieval Policy
 
 1. Search `indexes/`, `wiki/`, and `cards/` first.
-2. Read `sources/` when the card is incomplete or a claim needs verification. For LLM summary work, first create a temporary sanitized view with `scripts/prepare_summary_input.py`; never modify the canonical source.
-3. Do not read the PDF again solely for summary page verification. Use page markers present in the parsed Markdown; when no reliable page can be inferred, leave the page blank and mark the evidence for manual review. PDF reading remains part of deterministic ingest/extraction and an explicitly requested visual/source audit.
+2. Read `sources/` when the card is incomplete or a claim needs verification.
+3. Read the PDF in `papers/` when parsed text or page/figure context is insufficient.
 4. Use external web or scholarly search only when explicitly requested or when running metadata audit.
 5. If local evidence is missing, say so. Do not invent citations, DOI values, results, or claims.
 
-Deep-summary contract: `summary.status: summarized` requires source-grounded, detailed prose rather than an abstract-length recap. Evidence JSON must declare `summary_depth.level: deep`, provide a developed section overview and at least three substantive claims for Literature Review/Background, Findings/Results, and Discussion/Implications, and attach an exact quotation, interpretation, and why-it-matters explanation to every claim. Evidence is rendered inline under its claim; do not generate a duplicate `## Directly Citable Evidence` table.
-
 ## Ingest Trigger
-
-**Mandatory routing rule:** Any user request whose intent is to ingest, including a bare
-request such as "ingest" or "ingest해 줘", MUST mean: ingest every PDF directly inside
-the active root's `inbox/` folder through the batch ingest pipeline. This rule applies
-even when the terminal was opened at the repository root and even when the request
-mentions a particular file. Never ingest a PDF directly from another folder, scan
-`papers/` or the whole repository for ingest candidates, or reinterpret the request as
-summarizing an existing paper. If a named PDF is not already in `inbox/`, report that it
-is not eligible until it is placed there.
-
-Before running the pipeline, inspect only `inbox/` for top-level `*.pdf` files. When one
-or more PDFs are present, run the following command from this active root (or pass the
-same root explicitly with `--root`):
-
-```powershell
-& 'D:\win-python\master_venv\Scripts\python.exe' scripts\ingest_batch.py --root .
-```
-
-Do not substitute a direct `parse_pdf.py` call or another input path for this command.
-If `inbox/` contains no PDFs, do not call `ingest_batch.py` merely as a smoke test;
-follow the no-ingest validation rule in Runtime Policy instead and report that there
-was nothing to ingest.
 
 When the user says "ingest this file", "ingest all new PDFs in inbox", or equivalent natural language, run the complete workflow:
 
 ```text
-discover top-level inbox/*.pdf files
+discover inbox PDFs
   -> detect duplicates
   -> parse with Docling
   -> validate extracted text
   -> create a provisional parsed source and move valid PDFs to papers/
-  -> summarize the parsed source and finalize author/year/title metadata
-  -> rekey PDF, source, card, and wiki to the final YYYY_Author_ShortTitle stem
-  -> LLM judges synthesis connections: read the new card, identify relevant
-     overviews/concepts/projects/questions, write registry entries with
-     English labels and relation prose
-  -> run scripts/rebuild_all.py --stem {stem}
-     (propagates wiki page, synthesis reverse links, and card YAML in one pass)
-  -> rebuild indexes, refs.bib, QC, and wiki-site from that final stem
+  -> summarize the parsed source and finalize title/author/year metadata
+  -> rekey the PDF, source, card, wiki, and parse manifest to the final stem
+  -> rebuild registry, indexes, refs.bib, QC, and wiki-site
   -> report success, failure, duplicate, excluded, and needs-review items
 ```
 
-### Synthesis auto-propagation
-
-`scripts/rebuild_all.py` is the single entry point for post-ingest cascade. After the LLM writes a registry entry to `synthesis-links.json`, running this script propagates the connection to every affected file:
-
-1. **`build_wiki.py`** — regenerates `wiki/{stem}.md` with Synthesis Links section
-2. **`build_synthesis_links.py`** — appends Related Papers (with relation prose) to every linked overview/concept/project/question page
-3. **`sync_related_metadata.py`** — updates the card YAML `related` block
-
-The LLM judges **what** to connect (which synthesis pages, what relation prose); the scripts execute **how** (deterministic, bidirectional, consistent). No manual registry editing or separate script calls are needed after the LLM writes the registry entry.
-
-For batch ingest, run `rebuild_all.py` without `--stem` to cascade all papers.
-
 The rebuild step also maintains `wiki/{overviews,concepts,projects,questions}/index.md` navigation pages without replacing their curated introductions. It appends newly created pages, and QC must resolve every wikilink to an actual Markdown file; a visible link with a missing target is a failure.
 
-The optional static web layer lives in `wiki-site/`. It is generated from `wiki/` plus linked `cards/` and `sources/` pages by `scripts/build_html_site.py`, must remain separate from canonical Markdown, and must be safe to publish through GitHub Pages. Rebuild it after wiki, card, or source changes and verify that generated local HTML links and assets resolve.
+The optional static web layer lives in `wiki-site/`. It is generated from `wiki/`, `cards/`, and `sources/` by `scripts/build_html_site.py`, must remain separate from canonical Markdown, and must be safe to publish through GitHub Pages. Rebuild it after wiki, card, or source changes and verify that generated local HTML links and assets resolve.
 
 Use `scripts/ingest_batch.py` for deterministic file operations. LLM judgment is used for improving summaries after source extraction; scripts do not call another LLM.
 
-Filename normalization has two stages. Parsing creates a provisional stem so the source can be admitted and passed to the summary skill. After summary metadata is finalized, the canonical writer rekeys the PDF, source, card, wiki, and parse manifest to the final stem. The PDF remains a `.pdf`; the final stem is reused for `sources/`, `cards/`, `wiki/`, registry, and bibliography outputs. The final stem uses `YYYY_Author_ShortTitle`, with at most three author surnames and three meaningful title words; collisions receive deterministic author suffixes (`Lee-a`, `Lee-b`, ...). This rekey uses summary metadata, not a second full-document LLM read.
+Filename normalization has two stages. Parsing creates a provisional stem so the source can be admitted and passed to the summary workflow. After summary metadata is finalized, the canonical writer rekeys the PDF, source, card, wiki, and parse manifest to the final `YYYY_Author_ShortTitle` stem. The same final stem is used by registry, index, bibliography, QC, and HTML outputs. Collisions receive deterministic author suffixes; filename decisions do not require a second full-document LLM read.
 
 PDF extraction order is Docling first, then `opendataloader-pdf`, then `pypdf`, then `pdftotext`. Record the extractor used and any earlier fallback failures in the parse manifest.
 

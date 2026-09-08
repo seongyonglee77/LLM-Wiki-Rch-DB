@@ -45,15 +45,6 @@ verification:
   claim_verification_pass_rate: 0.0
   requires_human_review: true
   verified_at: ""
-
-related:
-  wiki: []
-  overviews: [] # at least one of overviews/concepts is populated after final mapping
-  concepts: [] # at least one of overviews/concepts is populated after final mapping
-  projects: [] # optional; only when semantically relevant
-  questions: [] # optional; only when semantically relevant
-  supersedes: []
-  superseded_by: []
 ---
 
 # Quick Card
@@ -80,18 +71,6 @@ related:
 
 > A card may be marked `summary.status: summarized` only through `scripts/fill_summary_cards.py` with per-paper evidence JSON. Every substantive claim must have an exact direct quotation. Add a positive page number only when the parsed source provides a reliable page marker; otherwise leave it blank, use `source_text`, and require manual page review. Do not invent quotations or page numbers or reopen the PDF solely for summary page verification.
 
-### Deep-summary extraction standard (mandatory)
-
-Deep summary means a sufficiently detailed reconstruction of the paper's reasoning, evidence, and implications—not a short abstract or a list of generic takeaways. Extract as much source-grounded detail as the paper supports, especially for **Theory & Literature Review**, **Findings/Results**, and **Discussion/Implications**. For each of these major sections, provide:
-
-1. a developed overview explaining the section's role in the paper;
-2. at least three distinct substantive claims when the source provides them (more when needed to preserve important comparisons, themes, mechanisms, or quantitative results);
-3. an interpretation of what each claim means;
-4. an exact direct quotation as evidence for each claim, with a reliable page marker when available or `source_text` verification otherwise; and
-5. a brief explanation of why the claim matters for the research question, contribution, limitation, or future work.
-
-Do not compress multiple findings into one vague sentence, replace results with unsupported paraphrase, or repeat the same evidence in a separate evidence table. Evidence belongs inline beneath the claim it supports. Preserve disagreements, null or mixed results, subgroup differences, analytical examples, and author caveats whenever they are present in the source.
-
 ## Summary Mode and Source Structure
 
 - `empirical`: use Methodology and Findings when present.
@@ -106,14 +85,8 @@ Do not create artificial Method, Participants, Data, or Findings sections for a 
 
 ## Theory & Literature Review
 
-### Section synthesis
-
-Write a developed synthesis of the intellectual context: the main constructs, prior-study pattern, theoretical tension, and the gap that motivates this paper. Include at least three distinct evidence-backed claims when the source provides them.
-
-- Claim: state a substantive literature-review claim.
-  - Interpretation: explain how the claim relates to the paper's problem or gap.
+- Claim supported by a direct quotation and page locator.
   - Evidence: "Direct quotation" (p. N; source_page-verified), or (page unavailable; source-text-verified) when no page marker exists
-  - Why it matters: explain its role in the paper's argument.
 
 ## Gaps & Research Questions
 
@@ -133,23 +106,21 @@ Write a developed synthesis of the intellectual context: the main constructs, pr
 
 ## Findings
 
-For empirical papers, report the major findings/results separately rather than compressing them into one paragraph. Preserve distinctions among themes, comparisons, quantitative results, examples, and analytic patterns. Include at least three distinct evidence-backed findings when the source provides them. For review or conceptual papers, use this heading only when the source has a results/argument section; otherwise omit it and explain the omission in `Citation Notes`.
-
-- Finding/result: state the substantive result.
-  - Interpretation: explain what the result shows.
+- Finding supported by a direct quotation and page locator.
   - Evidence: "Direct quotation" (p. N; source_page-verified), or (page unavailable; source-text-verified) when no page marker exists
-  - Why it matters: connect the result to the research question or argument.
 
 ## Key Claims
 
+## Directly Citable Evidence
+
+| Claim or theme | Direct quotation or labelled paraphrase | Relative page | Verification |
+|---|---|---:|---|
+|  |  |  | verified / partial / failed / not_applicable |
+
 ## Discussion
 
-Explain how the authors interpret the findings or argument, what contribution and implications they claim, what caveats shape the interpretation, and how the discussion returns to the stated gap. Include at least three distinct evidence-backed interpretive claims when the source provides them.
-
-- Interpretation: state a substantive discussion claim.
-  - Interpretation: explain the authors' reasoning and implication.
+- Interpretation supported by a direct quotation and page locator.
   - Evidence: "Direct quotation" (p. N; source_page-verified), or (page unavailable; source-text-verified) when no page marker exists
-  - Why it matters: connect the discussion to contribution, limitations, or future work.
 
 ## Conclusion
 
@@ -164,9 +135,5 @@ Explain how the authors interpret the findings or argument, what contribution an
 ## Possible Use in Literature Review
 
 ## Citation Notes
-
-## Related Synthesis Pages
-
-> The summary builder populates this section with links to the applicable `wiki/overviews/`, `wiki/concepts/`, `wiki/projects/`, and `wiki/questions/` pages. A summarized record must not remain a synthesis orphan.
 
 ## Related Links

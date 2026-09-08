@@ -2,11 +2,16 @@
 
 Release: **v0.2.1** — evidence-backed ingest pipeline
 
+## v0.2.1
+
+- Empty-by-default public template; research records are intentionally excluded.
+- Retains the ingest workflow, templates, scripts, navigation, tests, and static HTML shell.
+
 This is a portable llm-wiki-native research knowledge base.
 
-Release: **v0.2.1**
+Language: **EN** · [한국어 README (KO)](README.ko.md)
 
-## v0.2.1
+This repository is a public, empty-by-default llm-wiki template. It contains the workflow, templates, scripts, wiki navigation, and static HTML shell. Personal cards, sources, PDFs, and generated research records are intentionally absent from the initial repository.
 
 The implementation specification is preserved at [`docs/llm-wiki-custom-prd.md`](docs/llm-wiki-custom-prd.md).
 
@@ -61,23 +66,62 @@ python3 -m venv /mnt/d/WSL/llm-wiki-venv
 ```
 
 Keep Windows and WSL environments separate. `km-config.json` is portable and points Obsidian at the repository root; update its local paths only for your machine.
-- Added the Brown et al. (2024) *Trash in Motion* research record and synthesis links.
-- Repaired 17 legacy cards with inline source-text evidence and removed duplicate evidence tables.
-- Added the legacy-card QC repair utility and regenerated indexes, bibliography, QC, and static-site outputs.
 
 ## GitHub publication scope
 
-The repository publishes the English summary cards, parsed source Markdown, Korean wiki layer, indexes, generation scripts, and the static `wiki-site/` presentation. The static site renders linked summary cards and parsed sources as HTML under `wiki-site/cards/` and `wiki-site/sources/`. Original PDFs in `papers/`, `papers-supplementary/`, and intake files in `inbox/` are intentionally excluded.
+After a local ingest and review, the repository can publish English summary cards, parsed source Markdown, the Korean wiki layer, indexes, generation scripts, and the static `wiki-site/` presentation. Personal records are not bundled here, and original PDFs in `papers/`, `papers-supplementary/`, and intake files in `inbox/` are excluded.
+
+The ingest pipeline uses a two-stage filename policy. A parsed paper first receives a provisional stem. After the summary metadata is finalized, the PDF, source, card, wiki node, and parse manifest are rekeyed together to one canonical `YYYY_Author_ShortTitle` stem. This prevents the summary card from having a different identity from the rest of the record.
 
 ## Quick Use
 
-1. Put new PDFs in `inbox/`.
+1. Keep the public repository clean; place approved PDFs in the local `inbox/` only when preparing a new record.
 2. Ask the coding agent: `inbox의 새 PDF를 전부 ingest해 줘.`
-3. Review generated files in `sources/`, `cards/`, `wiki/`, `registry/`, `indexes/`, `qc/`, and `refs.bib`.
+3. Review generated files in `sources/`, `cards/`, `wiki/`, `registry/`, `indexes/`, `qc/`, and `refs.bib` before publishing.
 
-Ingest parses each PDF first, then deterministically renames it to `YYYY_Author_ShortTitle.pdf` (up to three authors and a three-word short title, with `Lee-a`/`Lee-b` collision suffixes). The canonical stem is reused for the source, card, and wiki filenames.
+## Simple user guide
 
-Deep summaries are source-grounded and section-sensitive: Literature Review/Background, Findings/Results, and Discussion/Implications each require a developed overview plus at least three substantive claims when available. Each claim carries its interpretation, why-it-matters context, and exact quotation inline; the deprecated duplicate `Directly Citable Evidence` table is not generated. The implementation PRD is kept at [docs/llm-wiki-custom-prd.md](docs/llm-wiki-custom-prd.md).
+You can work through an LLM in natural language; you do not need to memorize the script names.
+
+1. Open the LLM with this repository as the working folder so it can read `AGENTS.md`.
+2. Put an approved PDF in `inbox/`.
+3. Ask: `Ingest every new PDF in inbox.`
+4. Review the generated `sources/`, `cards/`, `wiki/`, `refs.bib`, and `qc/` files.
+5. Ask for a consistency check when needed: `Check this card's claims and direct quotations against the source, and verify the wiki links.`
+6. Commit only reviewed records. Keep PDFs and private working notes outside the public repository.
+
+Useful requests:
+
+```text
+Find papers about my topic inside llm-wiki.
+Audit open-card metadata and report differences without changing locked records.
+Update the registry, indexes, refs.bib, and QC after my approved card changes.
+Propose wiki links for this paper without duplicating its card or source.
+```
+
+For the full natural-language command guide, see the Korean and English guide used as the project reference: the workflow is designed around one canonical paper record, evidence-backed summaries, explicit wiki links, generated bibliography, and QC before publication.
+
+## Ingest and rebuild
+
+Place an approved PDF in the local `inbox/` directory and run the complete workflow from the repository root:
+
+```powershell
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\ingest_batch.py
+```
+
+The workflow parses the PDF, creates the English source/card layers, creates the configured wiki-language layer, finalizes the canonical filename after summary metadata is known, and rebuilds the registry, indexes, bibliography, QC report, and static HTML site. The site includes generated pages for `wiki/`, `cards/`, and `sources/`; PDFs remain local and are excluded from GitHub. Review the generated files and QC report before committing.
+
+For an empty-repository validation or a rebuild without ingesting a PDF:
+
+```powershell
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\build_registry.py
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\build_indexes.py
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\export_refs_bib.py
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\qc_report.py
+& 'D:\win-python\llm-wiki-venv\Scripts\python.exe' scripts\build_html_site.py --output wiki-site
+```
+
+The paper/source language and wiki language are independent settings in `km-config.json`. The public template defaults to English paper records and Korean wiki explanations; change `paper_language` and `wiki_language` before ingest if needed.
 
 ## Runtime Rule
 
@@ -114,6 +158,10 @@ Example ingest command from PowerShell:
 - `qc/` contains validation and audit reports.
 
 Do not manually edit generated bibliography files. Correct the relevant card, then ask the agent to refresh that paper's registry, indexes, `refs.bib`, and QC records.
+
+## GitHub Pages
+
+The workflow in `.github/workflows/pages.yml` publishes the checked-in `wiki-site/` directory when `main` is pushed. In the GitHub repository, enable Pages with **GitHub Actions** as the source if it is not enabled automatically. The initial site is intentionally an empty public shell; only reviewed records should be committed.
 
 ## Status Model
 

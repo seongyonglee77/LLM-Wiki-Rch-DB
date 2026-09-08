@@ -25,11 +25,15 @@ inbox/
 logs/
 .obsidian/
 
+# Keep empty intake/storage folders visible in the template without tracking content.
+!inbox/
+!inbox/.gitkeep
+!cards/
+!cards/.gitkeep
+!sources/
+!sources/.gitkeep
+
 # Legacy root-level placeholder notes; canonical versions live under wiki/.
-/design-based-learning.md
-/global-englishes.md
-/human-ai-complementarity.md
 /index.md
 /sources 1.md
 /sources.md
-/teacher-agency.md

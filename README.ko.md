@@ -10,9 +10,8 @@ Release: **v0.2.1** · 근거 기반 논문 ingest 파이프라인
 
 ## v0.2.1 변경 사항
 
-- Brown et al. (2024) *Trash in Motion* 논문 record와 synthesis 링크를 추가했습니다.
-- 기존 카드 17개의 inline source-text evidence를 보충했습니다.
-- 중복 Directly Citable Evidence 섹션을 제거하고 index, bibliography, QC, static site를 재생성했습니다.
+- 연구 레코드를 포함하지 않는 빈 공개용 템플릿으로 유지합니다.
+- ingest workflow, template, script, navigation, test, static HTML shell만 포함합니다.
 
 ## v0.2.0 변경 사항
 

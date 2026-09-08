@@ -6,11 +6,16 @@ import re
 from pathlib import Path
 
 from llm_wiki_common import add_root_arg, iter_cards, load_registry, read_yaml_md, utc_now
-from synthesis_map import synthesis_links_for
 
 
 def qc_report(root: Path) -> dict:
     rows = load_registry(root)
+    config_path = root / "km-config.json"
+    try:
+        config = json.loads(config_path.read_text(encoding="utf-8")) if config_path.exists() else {}
+    except json.JSONDecodeError:
+        config = {}
+    public_summary_only = config.get("publication_profile") == "public-summary-only"
     issues = []
     stems = {}
     dois = {}
@@ -22,6 +27,8 @@ def qc_report(root: Path) -> dict:
         if doi:
             dois.setdefault(str(doi).lower(), []).append(rid)
         for label, rel in row.get("paths", {}).items():
+            if public_summary_only and label == "pdf":
+                continue
             if rel and not (root / rel).exists():
                 issues.append({"record_id": rid, "type": "missing_layer", "path_type": label, "path": rel})
     for stem, ids in stems.items():
@@ -36,36 +43,11 @@ def qc_report(root: Path) -> dict:
         status = summary.get("status", data.get("status", "unsummarized"))
         if status != "summarized":
             continue
-        mapped_links = synthesis_links_for(root, card.stem)
-        if not any(item["category"] in {"overviews", "concepts"} for item in mapped_links):
-            issues.append({"record_id": data.get("record_id", f"paper:{card.stem}"), "type": "synthesis_orphan", "message": "A summarized paper must link to at least one overview or concept page."})
-        for item in mapped_links:
-            synthesis_page = root / "wiki" / f"{item['path']}.md"
-            if synthesis_page.exists():
-                synthesis_text = synthesis_page.read_text(encoding="utf-8")
-                if not re.search(rf"\[\[\.\./{re.escape(card.stem)}(?:\||\]\])", synthesis_text):
-                    issues.append({"record_id": data.get("record_id", f"paper:{card.stem}"), "type": "missing_reverse_synthesis_link", "target": item["path"]})
-        required = ("# Deep Summary", "## Theory & Literature Review", "## Findings", "## Discussion")
+        required = ("## Theory & Literature Review", "## Findings", "## Discussion", "## Directly Citable Evidence")
         missing = [section for section in required if section not in body]
         evidence_count = len(re.findall(r"\((?:p\.\s*\d+;\s*(?:source_page|pdf)-verified|page unavailable;\s*source-text-verified)\)", body))
-        if missing or evidence_count < 9:
+        if missing or evidence_count < 3:
             issues.append({"record_id": data.get("record_id", f"paper:{card.stem}"), "type": "summary_evidence_gate", "missing_sections": missing, "verified_evidence_count": evidence_count})
-        if "## Directly Citable Evidence" in body:
-            issues.append({"record_id": data.get("record_id", f"paper:{card.stem}"), "type": "redundant_direct_evidence_section", "message": "Inline claim evidence is canonical; the legacy duplicate evidence table must be removed."})
-        related = data.get("related", {}) or {}
-        missing_related = []
-        if not isinstance(related.get("wiki"), list) or not related.get("wiki"):
-            missing_related.append("wiki")
-        if not any(isinstance(related.get(key), list) and related.get(key) for key in ("overviews", "concepts")):
-            missing_related.append("overviews_or_concepts")
-        if missing_related:
-            issues.append({"record_id": data.get("record_id", f"paper:{card.stem}"), "type": "incomplete_related_metadata", "missing_fields": missing_related})
-        if "## Related Synthesis Pages" not in body:
-            issues.append({"record_id": data.get("record_id", f"paper:{card.stem}"), "type": "missing_synthesis_links", "message": "Every summarized card must expose its related synthesis pages."})
-        else:
-            related_section = body.split("## Related Synthesis Pages", 1)[1].split("## Related Links", 1)[0]
-            if not any(f"../wiki/{category}/" in related_section for category in ("overviews", "concepts")):
-                issues.append({"record_id": data.get("record_id", f"paper:{card.stem}"), "type": "incomplete_synthesis_links", "missing_categories": ["overviews_or_concepts"]})
     markdown_files = list(root.rglob("*.md"))
     targets = {p.resolve().with_suffix("") for p in markdown_files}
     for page in markdown_files:

@@ -5,7 +5,6 @@ import re
 from pathlib import Path
 
 from llm_wiki_common import add_root_arg, read_yaml_md, slugify, write_yaml_md
-from synthesis_map import related_metadata
 
 
 def parse_title(source_body: str, stem: str) -> str:
@@ -39,7 +38,7 @@ def create_or_update_card(root: Path, source: Path) -> Path:
     summary.setdefault("status", data.pop("status", "unsummarized"))
     summary.setdefault("structure_policy", data.pop("structure_policy", "source_structure"))
     data["summary"] = summary
-    for field in ("paper_id", "file_name", "topics", "projects", "review_log"):
+    for field in ("paper_id", "file_name", "topics", "projects", "related", "review_log"):
         data.pop(field, None)
     data.update(
         {
@@ -50,7 +49,6 @@ def create_or_update_card(root: Path, source: Path) -> Path:
             "metadata_status": data.get("metadata_status") or "open",
         }
     )
-    data["related"] = related_metadata(root, stem)
     provenance = data.setdefault("provenance", {})
     provenance.update(
         {
