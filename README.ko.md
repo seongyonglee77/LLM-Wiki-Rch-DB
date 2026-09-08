@@ -2,11 +2,17 @@
 
 Language: [English README (EN)](README.md) · **한국어 (KO)**
 
-Release: **v0.2.0** · 근거 기반 논문 ingest 파이프라인
+Release: **v0.2.1** · 근거 기반 논문 ingest 파이프라인
 
 이 저장소는 논문 PDF를 로컬에서 파싱하고, 영어 source·summary card·한국어 wiki·검색 인덱스·참고문헌·정적 HTML 사이트를 생성하는 공개용 `llm-wiki` 템플릿입니다. 저장소에는 개인 논문 기록과 원본 PDF가 포함되지 않습니다.
 
 구현 사양은 [llm-wiki Custom PRD](docs/llm-wiki-custom-prd.md)에 있습니다.
+
+## v0.2.1 변경 사항
+
+- Brown et al. (2024) *Trash in Motion* 논문 record와 synthesis 링크를 추가했습니다.
+- 기존 카드 17개의 inline source-text evidence를 보충했습니다.
+- 중복 Directly Citable Evidence 섹션을 제거하고 index, bibliography, QC, static site를 재생성했습니다.
 
 ## v0.2.0 변경 사항
 

@@ -1,0 +1,249 @@
+---
+title: "Educating Dora: Teaching a conversational agent to talk"
+authors:
+  - "Adam Brandt"
+  - "Spencer Hazel"
+  - "Rory McKinnon"
+  - "Kleopatra Sideridou"
+  - "Joe Tindale"
+  - "Nikoletta Ventoura"
+year: "2024"
+doi: "10.1177/17504813241267109"
+source_title: "Discourse & Communication"
+stem: 2024_Brandt_Educating-Dora-Teaching
+pdf_path: papers\2024_Brandt_Educating-Dora-Teaching.pdf
+source_path: sources\2024_Brandt_Educating-Dora-Teaching.md
+source_hash: 705a55ee9478a56e2ea5d98f791642f7b15f3f1264d00b095e4d3e0bf6b9095a
+parsed_with: docling
+parsed_at: '2026-09-08T00:01:42+00:00'
+warnings: []
+record_id: paper:2024_Brandt_Educating-Dora-Teaching
+---
+2024
+
+arch-article DCM
+
+[0010.1 77/17504813241267109Discourse &amp; Communication](http://crossmark.crossref.org/dialog/?doi=10.1177%2F17504813241267109&domain=pdf&date_stamp=2024-10-02)
+
+Brandt et al.
+
+<!-- image -->
+
+## Article
+
+## Educating Dora: Teaching a conversational agent to talk
+
+## Adam Brandt
+
+Newcastle University, UK
+
+## Spencer Hazel
+
+Newcastle University, UK
+
+## Rory McKinnon
+
+Ufonia, UK
+
+## Kleopatra Sideridou
+
+Newcastle University, UK
+
+## Joe Tindale
+
+Ufonia, UK
+
+## Nikoletta Ventoura
+
+Ufonia, UK
+
+## Abstract
+
+Many organisations are witnessing the introduction of automated systems to mediate between them and their clients, often designed as dialogic user interfaces which are conversational in nature. Despite calls for the design of AI-powered conversational agents to draw on Ethnomethodological Conversation  Analysis  (EMCA),  how  an  EMCA-informed  conversation  design  can  improve interactions between humans and conversational agents is yet to be empirically examined. This paper  reports  on  a  collaboration  between  EMCA  researchers  and  AI  conversation  designers
+
+## Corresponding author:
+
+Adam Brandt, School of Education, Communication and Language Sciences, Newcastle University,
+
+<!-- image -->
+
+<!-- image -->
+
+at digital health company Ufonia to develop Dora, a pre-existing 'automated clinical assistant' that  provides  telephone  consultations  for  patients  of  the  UK's  National  Health  Service.  Our analysis identified differences between the conversation design of the product and conversational practices  found  in  equivalent  activities  involving  human  clinicians,  relevant  to  implementing changes to improve user experience. We demonstrate that users are prompted to recalibrate their practices (such as for turn-taking) in situ as they engage with a system which does not match their prior experiences of this activity type. Such insights can be leveraged to adapt system design so that it more closely approximates users' prior experiences of such engagements.
+
+## Keywords
+
+Conversation analysis, conversation design, conversational AI, paralinguistics, product development, text-to-speech technology
+
+## Introduction
+
+While text-based interfaces such as ChatGPT and other forms of chatbots are widely recognised, another form of conversational technology which is increasingly prevalent is the voice user interface (VUI). Such AI-powered conversation-framed technology enables users to engage with automated systems through talk. The most well-known VUIs are 'command and response' voice assistants, such as Amazon's Alexa, Apple's Siri and Google Assistant, with which users generally engage in short, simple, back-and-forth exchanges (user summons, assistant response, user request, assistant response). There are also, however, more complex VUI systems, typically used for telephone-based customer service transactions by large organisations such as banks. Users and organisations can  use  such  'conversational  agents'  to  perform  more  complex  tasks  through  longer stretches of spoken interaction.
+
+At the time of writing, the talk produced by VUIs is generated through scripts written by conversation designers. Guidance generally encourages conversation designers to produce such scripts based on their imaginings of how humans might speak in that particular context, and then to test the scripts through, for example, table reads with colleagues.
+
+Since conversation designers report an aim to emulate 'natural conversation' (e.g. Choi et al., 2020), and leading tech companies aspire to (for example) 'craft conversations  that  are  natural  and  intuitive  for  users'  (Google,  2023),  we  have  argued  that empirical examination of equivalent human-human interactions should be fed into the conversation design process (Brandt et al., 2023; Hazel and Brandt, 2023). Further, we align with others (e.g. Moore, 2018; Stokoe et al., 2021) who have argued that the social scientific approach of Ethnomethodological Conversation Analysis (henceforth EMCA), with its emphasis on the detailed examination of naturally occurring talk(and-other-conduct)-in-interaction, is a particularly well-placed tool to enable VUIs to more accurately leverage human social interaction.
+
+A handful of recent EMCA studies have examined how members engage with Voice User Interfaces (VUIs). Due and Lüchow (forthcoming) demonstrate how humans have to adapt their practices in the use of Google Home devices. Similarly, Avgustis et al. (2021)  compared  how  callers  to  a  Russian  municipal  call  centre  formulated  their enquiries differently, resembling conversational input into a web search engine. Although not surprising that using a VUI is different from having a conversation, it has also been demonstrated that in some contexts people using conversational agents like Alexa do draw  upon  practices  found  in  human-human  interaction  (Albert  and  Hamann,  2021; Korbut, 2023).
+
+The research presented in this paper is part of a larger collaboration between EMCA researchers and a team of conversation designers from Ufonia, a digital health start-up. Ufonia has developed Dora, an 'automated clinical assistant' which provides telephone clinical  consultations  for  patients  of  the  United  Kingdom's  National  Health  Service (hereafter NHS) across various counties in the UK. The aim of the collaboration is to explore the extent to which EMCA insights and analyses can inform the design of Dora's conversational interface, and ultimately to generate some guiding principles for effective conversation design of VUIs more broadly. We focus here specifically on the openings of the telephone calls to demonstrate how EMCA insight has informed the further development of the design of Dora.
+
+## Conversation analysis and telephone openings
+
+An EMCA approach to social interaction begins with the understanding that talk (and other conduct) is highly systematic; that interlocutors build social actions through their talk, and that these social actions are sequentially organised in ways that are recognisable and reproducible by social members.
+
+Schegloff  (1986)  pointed  to  how  the  perfunctory,  routine  nature  of  telephone  call openings made this a sequential environment especially interesting for study, including 'in ' artificial intelligence ' studies on the production and processing of natural language use'  (p.  113,  italics  added).  Indeed,  drawing  on  his  earlier  work  on  call  openings (Schegloff, 1968, 1979), he describes these action sequences as 'routines that the parties 'go through' in a virtually automatic or even automated fashion' (1986, p. 113). This does not imply that all call openings are identical, but rather that there are particular 'routine ritual[s] of conversational openings' (Schegloff, 2007) through which speakers transition into the call.
+
+In this sequential environment, interlocutors monitor one another's contributions and tailor their own to establish the grounds for the call, and how to proceed. Relevant actions that  might  be  included  include  greeting  sequences,  'howareyou'  sequences,  speakers identifying themselves in a range of ways, displaying recognition and articulating the reason for the call (e.g. Schegloff, 1968, 1979, 1986, 2002; Stokoe, 2014; though see Mlynář and Arminen, 2023 for an historical perspective). Depending on the type of call, any of these features may also be omitted. It is through the choice of what to include that interlocutors display their understanding of the purpose of the call, and through which they subsequently can coordinate their contributions.
+
+In institutionally oriented call openings, for example, we may find an absence of 'howareyou' sequences, and identification may include the name of the organisation rather  than  the  personal  name  of  the  caller  (e.g.  Raymond  and  Zimmerman,  2016; Whalen and Zimmerman, 1987). For service providers, it is essential that the opening of the telephone call is efficient and effective. Stokoe (2014, p. 258) points out that openings are one key element in institutional telephone calls, in which '[e]xplaining a service one way may lead to higher client uptake; it can be the difference between winning and losing the race'. In the case of Ufonia, the Dora VUI must be sufficiently effective in the opening moments if the patient is to engage with the service and proceed through the call.
+
+For the Conversation Analyst, one methodological challenge is that members treat their  intricate  coordinated  efforts  as  simply  a  by-product  of  their  participation  in  the event, rather than the event being the minutely coordinated assembly of their co-participation. However, for conversation designers of VUIs the problem is doubly challenging. First, they must be able to identify those finer constituent features that are oriented to as witnessable but common-sense indices of the pattern inventory for a particular action sequence. But they then must build a user interface that gives the semblance of the VUI co-participating with the human client in the production of this event.
+
+In establishing a collaboration between analysts and designers, the current partnership sought to overcome these challenges by developing a novel set of design procedures that allowed EMCA methods and findings to form part of the product development of the conversational agent.
+
+## Method
+
+Recordings of thousands of trial calls and calls to patients who consent to be recorded are securely  stored  on  Ufonia's  servers  for  research  and  product  development  purposes. With ethical approval, the research team were given access to anonymised recordings, in which  all  personal  information  about  patients  was  removed.  A  random  selection  of around 50 calls were transcribed, using conventions developed by Jefferson (2004) and updated for the digital  transcription  interface  CLAN  (e.g.  MacWhinney  and Wagner, 2010). In particular, we use arrows rather than typewriter-based punctuation markers to indicate turn-final intonation contours (i.e. to indicate falling, slight rising, strong rising intonation, etc.). This allows for greater clarity in differentiating between punctuation markers included in the conversation design scripts, and the intonation contouring of the speech production.
+
+An equivalent data set of a small handful of calls between patients and human clinicians were also transcribed and subjected to a sequential analysis. Differences were subsequently identified between the turn formatting of the human clinicians and the Dora outputs. From here, aspects of the Dora system's scripted prompts were revised through manipulation of text-to-speech (TTS) software (for discussion, see Hazel and Brandt, 2023).
+
+## Analysis
+
+Here we examine how a Dora script produced by the conversation design team is converted into spoken output, and how this ultimately plays out in an engagement with the human patient. Before doing so, however, we present and consider the patient's interactional conduct at the onset of a Dora phone call.
+
+For the post-cataract operation calls presented here, patients are notified in their discharge letter that they will receive a Dora follow-up call three weeks later; and receive a text message a day in advance as a reminder that they will receive a call from Dora at a specified time. However, what they do not know in advance is how a call with Dora may differ from a conversation with a human interlocutor. One example of this is the timing of turn transitions. Typically, turn transition between speakers is almost immediate, with gaps of only up to 0.2 seconds between speakers (Sacks et al., 1974). However, Dora can take up to a few seconds to process a patient utterance, determine an appropriate textual response, and convert that response to talk through TTS. Especially in the initial adjacency pairs of the calls (namely a summons-response in the form of the phone 'ringing' and being 'picked up' followed by a greetings exchange), we find patients repeating their initial turns.
+
+```
+Extract 1 01 ((rings)) 02 PAT:	 hell - o: " 03 (1.6) 04 DOR:	 good [morning " ]= 05 PAT:	        [hell - o: " ] Extract 2 01 ((rings)) 02 PAT:	 hello: " 03 (0.9) 04 PAT:	 [  he - llo: " ] 05 DOR:	 [  good morning 3 ]
+```
+
+In Extracts 1 and 2 above, we see the patient produce a canonical response to the phone-ringing summons (Schegloff, 1986), namely they 'pick up' the phone and produce a greeting (line 01). The next slot is where the call taker might expect a prompt greeting and self-identification (e.g. Schegloff, 1979, 1986). Instead, due to system latency, this is not immediately forthcoming and is therefore treated as 'noticeably absent' (Schegloff, 1968). With this breaching an expected pattern for call openings, the patient is unable to pursue the normative trajectory for the activity, and each responds to this by repeating their greeting. This ends up being produced now in overlap with the beginning of Dora's 'delayed' opening utterance.
+
+Having encountered the system latency in the very first exchange of utterances in the call opening, patients may display a shift in the formatting of their own talk, cancelling one set of expectations (tied to a competent human interlocutor being at the other end of the 'line'), and resetting the set of expectations according to them speaking into an automated system with unforeseen system limitations. We find that the majority of patients appear  to  adjust  the  amount  of  time  they  allow  before  pursuing  progression  through repetition of their turn. This is evidenced in the following few lines of transcript of both calls, with only the first example repeated below for brevity:
+
+## Extract 3
+
+```
+05 DOR:	 =i'm calling from oxford university hospitals nhs 06 foundation trust to follow up after your cataract surgery 4 07 (0.6) 08 DOR:	 am i speaking to mister red 3 09 (1.0)
+```
+
+```
+10 PAT:	 y:es " 11 (2.0) 12 DOR:	 great 4 (.) 13 i'm dora 4 (.) an automated assistant 4 (.) 14 is this a good time to chat 3 15 (1.4) 16 PAT:	 y:es " 17 (3.2) 18 DOR:	 oh good 4
+```
+
+At  lines  11  and  17,  we  see  lengthy  gaps  between  the  patient's  confirmations  and Dora's follow-on utterance. These are in fact longer than the gaps we saw following the patients' earlier summons responses. However, the patient no longer treats the ensuing silence as a potential indication of trouble, requiring repair. This suggests that there has already been a recalibration, adjusting his expectancy regarding turn-transition to the speed at which the Dora system works.
+
+Where members have been socialised into the intricate work of a particular activity, here answering a phone call, they are able to produce this again on a next occasion. What the above shows, is that where the automated conversational agent does not perform in line with this expectation, even in terms of the timing of delivery of turns, it leads to a disruption in the flow of the activity and an orientation to the patients having to actively work at discovering the order for this interaction simulation.
+
+The timing of interactional flow as seen here results from the latency introduced by the technological constraints of the system, and VUI designers have little to no control over this  issue.  However,  they  can  inadvertently  introduce  silences  into  the  interface where they use text-based punctuation symbols such as commas and full stops in the scriptwriting. We turn to this next, while considering also the ordering of the different types of utterance in these action sequences. Below is an early script for call openings to a cataract surgery follow-up call, as written by Ufonia's conversation designers:
+
+```
+Good afternoon, I'm calling from Trentwood University Hospitals NHS Foundation Trust to follow-up after your cataract surgery. Is this Mrs X speaking? ((Patient confirmation required)) Great, I'm Dora, an automated assistant. Is this a good time to chat? ((Patient confirmation required))
+```
+
+When the Dora system processes the text through the TTS synthesiser, it necessarily translates the written grammatical elements into features of talk. Pearl (this issue) highlights how different punctuation marks in the TTS script lead the speech synthesiser to generate pauses of varying lengths. We recognise this too, and in addition, note how they can  prompt  particular  intonation  contours  that  are  at  odds  with  human  speech:  so  a comma is  translated  into  a  short  pause  (variably  0.2-0.4  seconds);  a  full-stop  into  a slightly longer pause (variably 0.5-0.8 seconds) while prompting turn-final falling intonation in the just prior speech, and a question mark into a similar pause along with rising intonation in the just prior speech. When processed through TTS, we observe that there are multiple places where speaker transition might be heard to be relevant (Sacks et al., 1974), in addition to the two which are accounted for and required by the system. The first is the silence triggered by the full stop following the disclosure of the purpose of the call. The second is that triggered after the self-introduction. For the Dora system as it is designed, neither of these sequential positions requires a response. But inadvertently, each  of  these  may  potentially  project  a  confirmation  of  recognition,  or  a  go-ahead response  to  a  pre-sequence  as  relevant  next-action  on  the  part  of  the  call-taker  (e.g. Schegloff, 1979).
+
+Indeed, we see this in instances of NHS patients' engagement with Dora. Extract 4 is the opening of a pre-cataract surgery call, and displays features that we witness across the data set.
+
+```
+Extract 4 01 ((rings)) 02 PAT:	 hell - o: " 03 (0.9) 04 DOR:	 good morning 4 (0.2) i'm calling from trentwood 05 university hospitals about your referral to the 06 ophthalmology department 4 07 (0.7) 08 DOR:	 is [this mis]ter brown speaking 3 09 PAT:	      [  yes " ] 10 (0.4) 11 PAT:	 yes: " 12 (0.5) 13 PAT:	 (yeah)=speaking " 14 (2.4) 15 DOR:	 great 4 (0.2) I'm dora 4 (0.2) an automated assistant 4 16 (0.4) 17 PAT:	 [yes 4 ] 18 DOR:	 [ is ] this a good time to chat 3 19 (0.4) 20 PAT:	 yes carry on 4 21 (6.3) 22 PAT:	 yes 4 23 (2.7) 24 DOR:	 oh good 4
+```
+
+The patient produces 'yes' in overlap with the beginning of Dora's identification confirmation request (line 09). Given the placement of this, it is likely to be a go-ahead in response to Dora's prior utterance, the disclosing of the purpose of the call. Subsequently, Dora's self-identification (line 15), produced with turn-final falling intonation, is followed by a 0.4 second silence, and the patient produces an acknowledgement, 'yes' (line 17). However, it is not a requirement of the system that the patient responds at this juncture, and so this turn is again produced in overlap with Dora's next utterance.
+
+To summarise, the use of punctuation (commas, question marks and full stops) in the design of the code for TTS introduces intonation contours and silences into the interface speech production that patients treat as indexing possible transition relevance. This leads them to produce utterances in response to Dora. However, as the design does not require these responses, it continues after the short delay, and the patients find their turns being overlapped by a system that has moved on regardless.
+
+In addition to patients finding themselves needing to adjust to the latency of the system and responding to the speech exchange in places where this is unexpected, they may also be faced with a particular order of actions that do not align with those experienced elsewhere in their interactions with human interlocutors. Taking the above cases as an example, we note that the sequence of actions that make up the call opening follows a particular trajectory. We find one after the other: a greeting token, a self-identification, a mention of the reason for the call, a name confirmation request, an introduction (name and role) and then a permission request to proceed. While all these actions may be relevant, the order of the elements may not align with previous patient experience, and this may prompt a patient to have to adjust to a new pattern.
+
+By comparison, here is one illustrative example of how a human clinician opens such a telephone consultation:
+
+## Extract 5
+
+```
+(please note that we do not have permission to share patient contributions in transcripts) 01 ((rings)) 02 DOC: ↑ hi:. 03 good afternoo:n " 04 it's . doctor grey calling from the trentwood u:h ↑ cataract 05 clinic ⇗ ·h [i'm looking for:           ]= 06 PAT:	              [((acknowledgement token))] 07 DOC:	 =missus ethel green → 08 (0.4) 09 PAT:	 ((acknowledgement token)) 10 (0.2) 11 DOC: oh hi missus green → 12 thanks for picking up → 13 um: so my name is jamie → 14 one of the surgeons just doing u:h follow up calls today ⇗
+```
+
+Although no call can ever be expected to match equivalent others in every detail, we do find similarities across the cases to which we have access, and which feature different clinicians. Comparing these calls with the Dora design highlights several differences, ones which oblige Dora's call-takers to adjust the order of their own contributions, by diverging from the sequence organisation they might expect. For example, the clinician here  confirms  the  patient's  identity  before  announcing  the  reason  for  the  call.  This ensures that confidential information is provided only to the relevant person and not someone else; this early Dora design, however, announces the reason for the call before ascertaining the identity of the speaker. Further, the clinician's intonation contours follow different patterning than that of Dora. Faced with a pre-programmed conversational agent, the speech of which behaves differently from that to which they are accustomed, patients must themselves adapt their talk to fit the design of the user interface.
+
+In studying the patterns that participants produce in similar clinician-patient interactions, we can identify areas for further development in the conversational design of these equivalent engagements. By focusing on what the patient co-constructs with the clinician we are better able to identify what each party does to produce the pattern that is recognisable to them as embodying this particular activity. This enables us to identify places of divergence and to ensure that the design is developed to further align with the patterns identified  in  the  source  data,  including  at  the  level  of  sequence  organisation,  lexical choice and intonation contouring (see also Hazel and Brandt, 2023).
+
+Having explicated the formatting features of the human clinician calls, the following modified script can be developed:
+
+```
+Good morning? this is Dora the automated assistant from Trentwood University Hospital. Is this Mrs X speaking. ((Patient confirmation required)) Hi, I'm calling to follow up after your cataract surgery? Would this be a good time to talk. ((Patient confirmation required))
+```
+
+Using the modified script, the team can trial Dora in its next iteration. An example of how the Dora call opening looks post-intervention, with the design modelled on the clinician data, is the following:
+
+```
+Extract 6 01 PAT:	  (*) 02 DOR:	 good morning 3 (0.3) this is dora the automated assistant 03 from trentwood university hospital > 04 (0.4) 05 DOR:	 is this missus green speaking 4 06 (0.4) 07 PAT:	 yes it is 3 08 (2.3) 09 DOR:	 hi 4 10 (0.4) 11 DOR:	 i'm ca[lli]ng to follow up after your cataract surgery 3 12 PAT:	        [hi-] 13 (0.2) 14 DOR:	 would this be a good time to talk 4 15 (0.4) 16 PAT:	 yes 4
+```
+
+The speech synthesiser is now behaving differently, and is more closely aligned with the patterns produced by our (human) clinicians in equivalent calls. This in turn allows for greater interactional flow with the patient able to project more easily what response is required and when.
+
+## Discussion
+
+By their very nature, engagements with AI systems are not the same as human-human interactions. For example, where in human-human calls 'speakers constantly monitor each other's behaviours to tailor their contributions in an appropriate and timely manner'
+
+(Pallotti, 2007, p. 10), such complex monitoring and tailoring by the Dora system is not possible. But for the patient, we still see that they engage in the same kind of monitoring and tailoring with Dora as they would be expected to do with a human interlocutor. Avgustis et al. (2021) argue that this shows what humans expect the agents to be capable of processing: they 'orient to their assumption about an artificial agent's conversational competence and (in)capabilities, and they adjust their utterances to this knowledge' (p. 170).
+
+The argument and analysis presented in this paper supports the position that  users engage with the system as they would in a human-human interaction, but that there is already a preparedness to adapt when the design of the system diverges from the organisational features of natural social interaction. In such cases, users adapt to the limitations of the system on the fly , for example during the initial moments of the engagement. If the conversation design sector, led by tech companies that advocate that we 'craft conversations that are natural and intuitive for users' (Google, 2023), is being tasked with providing a conversational user experience that demands less adjustment on the part of the user, then it needs to adopt a new set of design practices. Rather than imagining how conversation works, and developing our designs on this basis, we must design in a way that is informed by how people talk to each other in that particular setting (Brandt et al., 2023), allowing users to draw on their member's knowledge of such types of encounters.
+
+By bringing together the examination of natural talk from a human-human equivalent, understandings of EMCA, and using some basic manipulation of TTS and the use of Speech Synthesis Markup Language (SSML), VUIs can be designed to more closely simulate talk produced by humans. 1  The extent to which this is desirable may depend on the type of VUI and the interactional setting. Where, however, EMCA-informed design can afford these calls a greater level of interactional flow, we would expect to find a greater level of acceptance from the users of the systems.
+
+## Acknowledgements
+
+We would like to thank the editorial team and anonymous reviewers for their very helpful comments on an earlier draft of this paper, and Cathy Pearl for providing a commentary on the article.
+
+## Declaration of conflicting interests
+
+The author(s) declared no potential conflicts of interest with respect to the research, authorship, and/or publication of this article.
+
+## Funding
+
+The author(s) disclosed receipt of the following financial support for the research, authorship, and/ or publication of this article: This project is supported by a British Academy Innovation Fellowship (IF2223/230141).
+
+## Note
+
+1. We have proposed elsewhere a step-by-step workflow (CADENCE - Conversation Analytic Design for Enhanced Natural Conversation Experience) as a design approach for developing a conversational model and improving the functionality and user experience of VUIs (Hazel and Brandt, 2023).
+
+## References
+
+- Albert S and Hamann M (2021) Putting wake words to bed. In: CUI 2021 - 3rd Conference on Conversational User Interfaces . New York: ACM Press.
+- Avgustis I, Shirokov A and Iivari N (2021) 'Please connect me to a specialist': Scrutinising 'recipient  design'  in  interaction  with  an  artificial  conversational  agent.  In:  Ardito  C,  Lanzilotti R,  Malizia  A,  et  al.  (eds) Human-Computer  Interaction  -  INTERACT  2021 .  Heidelberg: Springer, pp.155-176.
+- Brandt A, Hazel S, Mckinnon R, et al. (2023) From writing dialogue to designing conversation: Considering the potential of conversation analysis for voice user interfaces. In: Proceedings of  the  5th  International Conference on Conversational User Interfaces .  New York: ACM Press.
+- Choi Y, Shin H, Monserrat T-JK, et al. (2020) Supporting an iterative conversation design process. In: Extended Abstracts of the 2020 CHI Conference on Human Factors in Computing Systems . New York: ACM Press.
+- Due BL and Lüchow L (forthcoming) VUI-speak: There is nothing conversational about 'conversational  user  interfaces'.  In:  Muhle  F  and  Bock  I  (eds) Social  Robots  In  Institutional Interaction . Bielefeld: Bielefeld University Press.
+- Google (2023) Conversation design . Available at: https://developers.google.com/assistant/conversation-design/welcome.
+- Hazel S and Brandt A (2023) Enhancing the natural conversation experience through conversation analysis - A design method. In: HCI International 2023 - Late Breaking Papers . Cham: Springer Nature Switzerland, pp.83-100.
+- Jefferson  G  (2004)  Glossary  of  transcript  symbols  with  an  introduction.  In:  Lerner  G  (ed) Conversation  Analysis:  Studies  from  First  Generation .  Amsterdam:  John  Benjamins, pp.13-34.
+- Korbut A (2023) How conversational are 'conversational agents'? Evidence from the study of users' interaction with a service telephone Chatbot. Social Interaction. Video-Based Studies of Human Sociality , 6(1). https://doi.org/10.7146/si.v6i1.137249
+- MacWhinney B and Wagner J (2010) Transcribing, searching and data sharing: The CLAN software and the TalkBank data repository. Gespraechsforschung 11: 154-173.
+- Mlynář J and Arminen I (2023) Respecifying social change: The obsolescence of practices and the transience of technology. Frontiers in Sociology , 8, 1222734.
+- Moore RJ (2018) A natural conversation framework for conversational UX design. In: Moore R, Szymanski M and Arar R (eds) Human-Computer Interaction Series . Heidelberg: Springer, pp.181-204.
+- Pallotti G (2007) Conversation analysis: Methodology, machinery and application to specific settings. In: Bowles H and Seedhouse P (eds) Conversation Analysis and Language for Specific Purposes . Bern: Peter Lang.
+- Raymond  G  and  Zimmerman  DH  (2016)  Closing  matters:  Alignment  and  misalignment  in sequence and call closings in institutional interaction. Discourse Studies 18(6): 716-736.
+- Sacks H, Schegloff EA and Jefferson G (1974) A simplest systematics for the organization of turn-taking for conversation. Language 50(4): 696-735.
+- Schegloff  EA  (1968)  Sequencing  in  conversational  openings. American  Anthropologist 70: 1075-1095.
+- Schegloff EA (1979) Identification and recognition in telephone openings. In: Psathas G (ed.) Everyday Language . New York: Erlbaum, pp.23-78.
+- Schegloff EA (1986) The routine as achievement. Human Studies 9: 111-151.
+
+- Schegloff EA (2002) Reflections on research on telephone conversation: Issues of cross-cultural scope  and  scholarly  exchange,  interactional  import  and  consequences.  In:  Luke  KK  and Pavlidou TS (eds) Telephone Calls: Unity and Diversity in Conversational Structure Across Languages and Cultures . Amsterdam: John Benjamins, pp.249-281.
+- Schegloff EA (2007) Sequence Organisation in Interaction: A Primer in Conversation Analysis . Cambridge: Cambridge University Press.
+- Stokoe E (2014) The conversation analytic role-play method (CARM): A method for training communication skills as an alternative to simulated role-play. Research on Language and Social Interaction 47(3): 255-265.
+- Stokoe E, Albert S, Parslow S, et al. (2021) Conversation design and conversation analysis: Where the moonshots are. Available at: https://elizabeth-stokoe.medium.com/conversation-designand-conversation-analysis-c2a2836cb042 (accessed 2023).
+- Whalen MR and Zimmerman DH (1987) Sequential and institutional contexts in calls for help. Social Psychology Quarterly 50: 172-185.
+
+## Author biographies
+
+Adam Brandt is  Senior  Lecturer  in  Applied  Linguistics  at  Newcastle  University.  His  research covers a range of areas concerned with human social interaction, including settings that involve technologies such as video-conferencing and conversational AI. He received a British Academy Innovation Fellowship to explore communication in autonomous clinical telephone consultations.
+
+Spencer Hazel is Reader in Applied Linguistics and Communication at Newcastle University. His research focuses predominantly on social interaction in linguistically dynamic settings, including international workplaces, language classrooms, interactions involving people living with dementia and interaction involving technologies such as conversational AI. He is Co-Editor of the journal Social Interaction .
+
+Rory McKinnon is an AI Conversation Engineer at health-tech start-up Ufonia. He graduated from the University of Oxford with a degree in Engineering Science, where he focussed on the mechanics,  materials and information engineering behind healthcare. His Masters research was on the mechanics of soft robots, inspired by Japanese paper-cutting techniques.
+
+Kleopatra Sideridou is a PhD candidate at Newcastle University, and a research assistant on the Dora project. Her PhD project is a Multimodal Conversation Analytic study of social interaction in dental consultations.
+
+Joe Tindale works at the intersection of health and technology, making AI systems available to patients around the world. Scaling, integration and security are his current focus as Lead Software Engineer at Ufonia. He's worked at innovative startups in Germany and the UK, including the disruptive fintech company Klarna.
+
+Nikoletta Ventoura is a linguist in tech, passionate about data-driven development of impactful applications. She is working on optimising Ufonia's product, aiming to develop inclusive, easy-touse and efficient user experiences. She has an MPhil in Speech and Language Processing, and a BA in Philology/Linguistics.

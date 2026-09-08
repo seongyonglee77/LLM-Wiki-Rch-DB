@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quick Card · LLM Wiki / Research Archive</title><link rel="stylesheet" href="../styles.css"></head>
+<body><div class="layout"><aside class="rail"><a class="brand" href="../index.html">LLM WIKI</a><p class="rail-note">RESEARCH ARCHIVE · 2026</p>
+<nav><a href="../index.html">Home</a><a href="../index.html#catalog">Catalog</a><a href="../index.html#about">About</a></nav></aside>
+<main class="content"><div class="eyebrow">ARCHIVE / cards/2024_Addlesee-Eshghi_You-Have-Interrupted.md</div><p>with incremental clarification' authors:</p>
+<ul>
+<li>Angus Addlesee</li>
+<li>Arash Eshghi</li>
+<p>recovery pipelines and LLM-generated incremental clarification requests. citation_info: source_type: journal article source_title: Front. Dement. editors: [] volume: '3' issue: '' pages: '1343052' article_number: '' publisher: '' tags:</p>
+<li>dementia</li>
+<li>voice assistant</li>
+<li>accessibiity</li>
+<li>artificial intellegence</li>
+<li>conversational AI</li>
+<p>provenance: pdf_path: papers\2024_Addlesee-Eshghi_You-Have-Interrupted.pdf source_path: sources\2024_Addlesee-Eshghi_You-Have-Interrupted.md parsed_with: docling source_hash: ad3723998e016b609acb7667f3c9f8c8535cac517621688c140e56dcefad4f49 metadata_checked_at: '' metadata_sources: [] verification: summary_verified: false quote_verification_status: partial quote_verification_pass_rate: 1.0 claim_verification_pass_rate: 1.0 requires_human_review: true verified_at: '' summary: level: deep status: summarized structure_policy: source_structure related: wiki:</p>
+<li>wiki/2024_Addlesee-Eshghi_You-Have-Interrupted</li>
+<p>overviews:</p>
+<li>wiki/overviews/conversational-ai-and-interaction</li>
+<p>concepts:</p>
+<li>wiki/concepts/interactional-agency-and-turn-design</li>
+<p>projects:</p>
+<li>wiki/projects/ai-mediated-language-and-care-interaction</li>
+<p>questions:</p>
+<li>wiki/questions/how-should-ai-support-human-interaction</li>
+<p>supersedes: [] superseded_by: []</p>
+</ul>
+<h1>Quick Card</h1>
+<h2>Bibliographic Metadata</h2>
+<ul>
+<li>Authors: Angus Addlesee; Arash Eshghi</li>
+<li>Year: 2024</li>
+<li>Design: Corpus construction and computational evaluation of interruption recovery pipelines and LLM-generated incremental clarification requests.</li>
+</ul>
+<h2>One-sentence Summary</h2>
+<p>The article argues that clarification-based interruption recovery can preserve downstream task performance and that larger LLMs, when prompted with examples, can generate and interpret incremental clarification exchanges in ways that could make voice assistants more accessible for people with dementia.</p>
+<h2>Keywords</h2>
+<p>dementia; voice assistant; accessibiity; artificial intellegence; conversational AI</p>
+<h1>Structured Summary</h1>
+<h2>Purpose</h2>
+<p>To evaluate whether incremental clarification requests can help everyday voice assistants recover from interrupted or paused utterances, with a particular accessibility motivation for people with dementia.</p>
+<h2>Findings</h2>
+<p>Prediction-based recovery performs worse than interactive recovery because predicted completions often amount to arbitrary guesses. The interactive QA pipeline nearly preserves complete-question performance. The best AMR interruption recovery pipeline loses only a small amount of semantic graph similarity. SLUICE-CR contributes 3,000 human-produced clarification requests tied to interrupted questions. The strongest iCR generation results are concentrated in larger models exposed to examples from SLUICE-CR.</p>
+<h2>Discussion & Conclusion</h2>
+<p>The combined experiments indicate that several strong LLMs can treat clarification exchanges similarly to uninterrupted turns. The authors argue that EVAs should be adapted to natural user speech rather than training users to suppress natural speech phenomena. The paper explicitly limits the present contribution because it must be implemented in a full EVA and validated with users. Privacy concerns prevent using GPT-4 in the planned hospital deployment, motivating on-premise LLM use.</p>
+<h1>Deep Summary</h1>
+<h2>Research Problem and Purpose</h2>
+<p>To evaluate whether incremental clarification requests can help everyday voice assistants recover from interrupted or paused utterances, with a particular accessibility motivation for people with dementia.</p>
+<h2>Theory & Literature Review</h2>
+<p>The literature review frames voice assistants as potentially autonomy-enhancing tools whose accessibility failures are partly caused by assumptions about fluent, average-user speech. It connects dementia-related pausing and disfluency to theories of incremental language processing and clarification requests, then argues that current systems should adapt to natural speech phenomena rather than requiring users to speak in system-friendly ways.</p>
+<ul>
+<li>Claim: Existing dementia-friendly EVA work demonstrates value for users and caregivers, but it leaves the underlying speech-processing problem largely unresolved.</li>
+<li>Interpretation: The authors distinguish between application-level dementia-friendly features and deeper interactional robustness. Their target is not another skill or reminder function but the speech-understanding layer that mishandles natural pauses.</li>
+<li>Evidence: "As illustrated, there is an abundance of work to create EVAs that have dementia-friendly features and show that they can be used to benefit both PwDs and their caregivers. This work is both important and commendable, but a gap remains, as they all use offthe-shelf speech processing ." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This justifies the article's focus on interruption recovery as an accessibility problem rather than a convenience feature.</li>
+</ul>
+<ul>
+<li>Claim: The paper grounds its approach in the idea that human language comprehension and production are incremental.</li>
+<li>Interpretation: Because speakers and listeners process partial utterances as they unfold, a voice assistant that waits only for complete clean turns will miss a central property of everyday talk.</li>
+<li>Evidence: "Spoken language unfolds over time. People process each token as it is uttered, maintaining a partial representation of what has been said (Marslen-Wilson, 1973; Madureira and Schlangen, 2020a; Kahardipraja et al., 2021)." (page unavailable; source-text-verified)</li>
+<li>Why it matters: Incrementality supplies the theoretical basis for treating mid-sentence clarification as natural interaction rather than system error handling.</li>
+</ul>
+<ul>
+<li>Claim: Mid-utterance pauses are especially consequential for people with dementia because current EVAs often treat short silences as turn completion.</li>
+<li>Interpretation: The accessibility problem arises when a normal or dementia-associated speech pattern is interpreted by the system as a signal that the user has finished speaking.</li>
+<li>Evidence: "When interacting with voice assistants, however, this short silence often triggers end-of-turn detection-interrupting and frustrating the user (Nakano et al., 2007; Jiang et al., 2013; Panfili et al., 2021; Liang et al., 2022)." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This connects the technical problem of endpointing and dialogue management to user frustration and repeated utterance burden.</li>
+</ul>
+<ul>
+<li>Claim: Incremental clarification requests are defined as mid-sentence, split-utterance continuations that ask how the speaker would have completed a truncated turn.</li>
+<li>Interpretation: The target phenomenon is narrower than clarification in general: iCRs are syntactically tied to the interrupted utterance and probe the missing continuation.</li>
+<li>Evidence: "Throughout this article, we focus on incremental surface CRs (henceforth iCRs; Healey et al., 2011; Howes and Eshghi, 2021): those that (1) occur mid-sentence; (2) are constructed as a split utterance (Purver et al., 2009), that is, a continuation or completion of the truncated sentence; and (3) are intended to elicit how the speaker would have gone on to complete their partial turn [see Figures 2A-C, which does not satisfy (2)]." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This definition shapes the corpus annotation, model-evaluation criteria, and claim that iCRs test incremental processing in LLMs.</li>
+</ul>
+<h2>Findings</h2>
+<p>The findings show that interactive recovery pipelines outperform prediction-based recovery, that SLUICE-CR provides a human reference corpus for iCR generation, and that larger LLMs perform best when prompted with corpus examples. The paper reports strong preservation of QA and AMR performance under interactive recovery and strong GPT-4 performance on generation and clarification-exchange interpretation.</p>
+<ul>
+<li>Claim: Prediction-based recovery performs worse than interactive recovery because predicted completions often amount to arbitrary guesses.</li>
+<li>Interpretation: Completing a partial utterance without user input can sound plausible but still recover the wrong missing content.</li>
+<li>Evidence: "The two T5 prediction models perform poorly compared to the interactive approach, with the model fine-tuned on SLUICE outperforming the SQuAD v1.1 model. From a manual inspection, this poor performance is caused by arbitrary guesses (e.g., completing 'Who wrote')." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This supports the design choice to ask a clarification request rather than silently guessing what the user intended.</li>
+</ul>
+<ul>
+<li>Claim: The interactive QA pipeline nearly preserves complete-question performance.</li>
+<li>Interpretation: The system can recover the missing information through interaction while losing less than one percentage point relative to a baseline that receives the full question.</li>
+<li>Evidence: "The interactive pipeline is the best of our IRPs-answering only 0.77% fewer questions correctly than the baseline given complete questions." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This is the central evidence that clarification-based recovery can maintain downstream utility rather than merely improve conversational naturalness.</li>
+</ul>
+<ul>
+<li>Claim: The best AMR interruption recovery pipeline loses only a small amount of semantic graph similarity.</li>
+<li>Interpretation: Interactive recovery generalizes beyond QA into broader sentence-level semantic parsing, though it still involves measurable loss.</li>
+<li>Evidence: "Looking at only the Smatch Loss, the 'Split' pipeline performed the best, only losing 1.6% graph similarity f-score." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This broadens the result from a task-specific KBQA pipeline to a more general account of recovering disrupted sentences.</li>
+</ul>
+<ul>
+<li>Claim: SLUICE-CR contributes 3,000 human-produced clarification requests tied to interrupted questions.</li>
+<li>Interpretation: The corpus gives the authors a human reference set for evaluating whether LLM outputs resemble natural iCRs.</li>
+<li>Evidence: "SLUICE-CRcontains 250 interrupted questions, each paired with 12 CRs elicited from AMT annotators, yielding a total of 3, 000 CRs." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This corpus contribution is necessary for both the model-generation experiments and future work on interruption recovery.</li>
+</ul>
+<ul>
+<li>Claim: The strongest iCR generation results are concentrated in larger models exposed to examples from SLUICE-CR.</li>
+<li>Interpretation: The paper does not claim that all LLMs naturally produce useful iCRs; performance depends on model capacity and prompt context.</li>
+<li>Evidence: "Table 6 is broadly consistent with the standard metrics reported in Table 5: GPT-4, Llama-70-b-chat, and Vicuna-13b-v1.5 were the leading models in generating appropriate CRs when given only a few examples from SLUICE-CR in the Annotation and Reasoning prompt conditions." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This qualifies the technological optimism and identifies prompting with human examples as an important condition for success.</li>
+</ul>
+<h2>Discussion</h2>
+<p>The discussion translates the technical results back into accessibility implications. It argues that clarification requests can reduce the need for full repetition, but also stresses that the contribution must be embedded in a full EVA, tested with people with dementia, and deployed under strict privacy and safety constraints.</p>
+<ul>
+<li>Claim: The combined experiments indicate that several strong LLMs can treat clarification exchanges similarly to uninterrupted turns.</li>
+<li>Interpretation: The paper's end-to-end argument depends on both generating an iCR and interpreting the user's completion afterward.</li>
+<li>Evidence: "Finally, we combined all this work to show that GPT-4, Llama-2-70b-chat, and Vicuna-13b-v1.5 can interpret clarification exchanges as if they were simply one uninterrupted turn." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This shows how the recovery strategy could become a practical dialogue-system behavior rather than a standalone corpus task.</li>
+</ul>
+<ul>
+<li>Claim: The authors argue that EVAs should be adapted to natural user speech rather than training users to suppress natural speech phenomena.</li>
+<li>Interpretation: The accessibility stance is system-centered: conversational technology should change to fit vulnerable users' interaction patterns.</li>
+<li>Evidence: "Instead of teaching people to adapt their speech to EVAs (O'Connor et al., 2023), EVAs should be adapted to understand natural speech phenomena." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This makes the work relevant to inclusive design and not only to model benchmarking.</li>
+</ul>
+<ul>
+<li>Claim: The paper explicitly limits the present contribution because it must be implemented in a full EVA and validated with users.</li>
+<li>Interpretation: The experiments demonstrate feasibility, but they do not yet prove real-world accessibility benefit in deployed dementia-care contexts.</li>
+<li>Evidence: "The work in this article has one major limitation: it is not practically useful in isolation. It must, therefore, be implemented within a full EVA to improve EVA accessibility. In order to determine whether this work improves accessibility in practice, a user study must be carried out." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This is the main boundary on how strongly the paper can be cited for practical impact.</li>
+</ul>
+<ul>
+<li>Claim: Privacy concerns prevent using GPT-4 in the planned hospital deployment, motivating on-premise LLM use.</li>
+<li>Interpretation: The best-performing model in experiments is not automatically the deployable model in healthcare settings.</li>
+<li>Evidence: "Unfortunately, there is no way to use GPT-4 without sending data to OpenAI's servers. As our planned deployment is in a hospital, we cannot do this due to data privacy concerns." (page unavailable; source-text-verified)</li>
+<li>Why it matters: This is an important implementation constraint for dementia and hospital contexts where users may disclose personal information.</li>
+</ul>
+<h2>Unique Contributions</h2>
+<ul>
+<li>Establishes interactive clarification requests as an effective interruption recovery strategy using QA and AMR-based recovery pipelines.</li>
+<li>Creates and analyzes SLUICE-CR, a corpus of 3,000 crowdsourced human incremental clarification requests for interrupted questions.</li>
+<li>Evaluates several LLMs under different prompting conditions for generating iCRs and processing clarification exchanges.</li>
+</ul>
+<h2>Limitations</h2>
+<p>The authors state that the work is not practically useful by itself and must be embedded in a full everyday voice assistant, evaluated through user studies with people with dementia, and adapted to privacy-sensitive deployment constraints because GPT-4 cannot be used in their planned hospital setting without sending data to OpenAI servers.</p>
+<h2>Relevance to My Study</h2>
+<p>This paper is relevant to dementia-friendly conversational AI because it links a common interactional problem, mid-utterance pausing, to a concrete recovery strategy and evaluates that strategy across semantic parsing, corpus collection, LLM generation, and clarification-exchange interpretation.</p>
+<h2>Future Work</h2>
+<p>The authors plan to deploy the integrated system in a hospital memory clinic with real patients, conduct end-to-end user studies with people with dementia, use an on-premise LLM for privacy-sensitive settings, and encourage broader work adapting speech processing to other user groups and natural speech phenomena.</p>
+<h2>Possible Use in Literature Review</h2>
+<p>The paper uses prior work on disability and voice-assistant accessibility, dementia-related speech phenomena, incremental language processing, clarification requests, semantic formalisms such as AMR/RDF/SPARQL, and LLM prompting/evaluation to motivate and structure its experiments.</p>
+<h2>Citation Notes</h2>
+<p>The source citation and DOI are present in the sanitized source. The parsed source contains no reliable page markers, so all quote evidence uses source_text verification with page set to null.</p>
+<p>Every substantive claim above is linked to an exact quotation checked against the parsed source. <code>source_page</code> denotes a parsed-source page marker; <code>source_text</code> denotes an exact source-text match where no reliable page locator was available. PDF re-reading is not part of summary verification; page-level checking is left for manual review.</p>
+<h2>Related Synthesis Pages</h2>
+<ul>
+<li><a href="../wiki/overviews/conversational-ai-and-interaction.html">Conversational AI and Human Interaction</a></li>
+<li><a href="../wiki/concepts/interactional-agency-and-turn-design.html">Interactional Agency and Turn Design</a></li>
+<li><a href="../wiki/projects/ai-mediated-language-and-care-interaction.html">AI-Mediated Language and Care Interaction</a></li>
+<li><a href="../wiki/questions/how-should-ai-support-human-interaction.html">How Should AI Support Human Interaction?</a></li>
+</ul>
+<h2>Related Links</h2>
+<ul>
+<li>Source: <a href="../sources/2024_Addlesee-Eshghi_You-Have-Interrupted.html">parsed source</a></li>
+<li>Wiki: <a href="../wiki/2024_Addlesee-Eshghi_You-Have-Interrupted.html">synthesis node</a></li>
+</ul>
+<footer>Static research wiki · generated from Markdown · paper records remain in English; wiki layer is localized.</footer></main></div></body></html>

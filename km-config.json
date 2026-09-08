@@ -2,24 +2,31 @@
   "llm_wiki_root": ".",
   "paper_language": "en",
   "paper_language_name": "English",
-  "wiki_language": "ko",
-  "wiki_language_name": "한국어",
-  "publication_profile": "public-summary-only",
-  "publish_pdfs": false,
+  "wiki_language": "en",
+  "wiki_language_name": "English",
   "storage": {
     "primary": "obsidian",
     "obsidian": {
       "enabled": true,
-      "vaultPath": ".",
+      "vaultPath": "D:/OneDrive/2_rch_db",
       "defaultFolder": "wiki"
     },
     "local": {
       "enabled": true,
-      "outputPath": "agenda/km-inbox"
+      "outputPath": "D:/OneDrive/2_rch_db/agenda/km-inbox"
     }
   },
-  "search_paths": ["indexes", "wiki", "cards", "sources"],
-  "write_safe_paths": ["agenda/km-inbox", "agenda/search-notes", "materials/km-captures"],
-  "canonical_ingest_handoff": "Place approved PDFs in inbox/ locally and run scripts/ingest_batch.py from the repository root.",
-  "secrets_policy": "Do not store API keys, credentials, or original PDFs in this repository."
+  "search_paths": [
+    "indexes",
+    "wiki",
+    "cards",
+    "sources"
+  ],
+  "write_safe_paths": [
+    "agenda/km-inbox",
+    "agenda/search-notes",
+    "materials/km-captures"
+  ],
+  "canonical_ingest_handoff": "Place approved PDFs in inbox/ and run scripts/ingest_batch.py from the root.",
+  "secrets_policy": "Do not store API keys or credentials in this repository."
 }

@@ -1,2 +1,33 @@
 # Paper Index
 
+- [[../wiki/2025_Darvin_Identity-Investment-Age|Identity and investment in the age of generative AI]] - `@Darvin2025` - `open`
+- [[../wiki/2015_Kitade_Second-Language-Teacher|Second Language Teacher Development through CALL Practice: The Emergence of Teachers' Agency]] - `@Kitade2015CALL` - `open`
+- [[../wiki/2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers|Preparing preservice teachers to teach with digital technologies: An update of effective SQD-strategies]] - `@Tondeur2025SQD2` - `open`
+- [[../wiki/2024_Addlesee-Eshghi_You-Have-Interrupted|You have interrupted me again! : making voice assistants more dementia friendly with incremental clarification]] - `@addlesee-2024-interrupted` - `open`
+- [[../wiki/2024_Ahn-Kim-Lee_How-Do-Ai|How do AI and human users interact? Positioning of AI and human users in customer service]] - `@ahn-2024-ai-human-interact` - `open`
+- [[../wiki/2023_Albert-Hamann-Stokoe_Conversational-User-Interfaces|Conversational User Interfaces in Smart Homecare Interactions: A Conversation Analytic Case Study]] - `@albert-2023-cui-homecare` - `open`
+- [[../wiki/2024_Albert-Hall_Distributed-Agency-Smart|Distributed agency in smart homecare interactions: A conversation analytic case study]] - `@albert-2024-distributed-agency` - `open`
+- [[../wiki/2020_Baidya-Das-Gao_Behavior-Gap-Evaluating|The Behavior Gap: Evaluating Zero-shot LLM Agents in Complex Task-Oriented Dialogs]] - `@baidya-2020-behavior-gap` - `open`
+- [[../wiki/2011_Bangerter-Mayor-Doehler_Reported-Speech-Conversational|Reported Speech in Conversational Storytelling During Nursing Shift Handover Meetings]] - `@bangerter-2011-reported-speech` - `open`
+- [[../wiki/2011_Barraja-Rohan_I-Told-You|'I told you': Storytelling development of a Japanese learning English as a Second Language]] - `@barraja-rohan-2011-storytelling` - `open`
+- [[../wiki/0000_Barthel_Alexa-You-Are|Alexa, you are too slow! Invariant turn-transition times and conversational flow in natural human - voice agent interaction]] - `@barthel-alexa-too-slow` - `open`
+- [[../wiki/0000_Bozb-y-k-Sert-Bacanak_Veo-Integrated-Imdat-Pre-Service|VEO-integrated IMDAT in Pre-service Language Teacher Education: A Focus on Change in Teacher Questioning Practices]] - `@bozbyik-sert-bacanak-veo-imdat` - `open`
+- [[../wiki/2023_Brandt-Hazel-Mckinnon_From-Writing-Dialogue|From Writing Dialogue to Designing Conversation: Considering the potential of Conversation Analysis for Voice User Interfaces]] - `@brandt-2023-writing-dialogue` - `open`
+- [[../wiki/2024_Brandt_Educating-Dora-Teaching|Educating Dora: Teaching a conversational agent to talk]] - `@brandt2024dora` - `open`
+- [[../wiki/2024_Brown-Bu-Mandel_Trash-Motion-Emergent|Trash in Motion: Emergent Interactions with a Robotic Trashcan]] - `@brown-2024-trash-motion` - `open`
+- [[../wiki/2024-hwang-et-al|Innovation in Language Learning and Teaching]] - `@innovationinlanguagelear` - `open`
+- [[../wiki/20260115-jeon-et-al-literacy|The AI turn in literacy practices: toward an inclusive educational framework]] - `@jeon2026ailiteracy` - `open`
+- [[../wiki/2023-09-jeon-lee-eait-chatgpt|Large language models in education: A focus on the complementary relationship between human teachers and ChatGPT]] - `@jeonlee2023llm` - `open`
+- [[../wiki/2024-08-jeon-lee-ets|The impact of a chatbot-assisted flipped approach on EFL learner interaction]] - `@jeonlee2024flipped` - `open`
+- [[../wiki/2024-09-05-jeon-lee-coronel-molina-elt|Rethinking AI: bias in speech-recognition chatbots for ELT]] - `@jeonlee2024gebias` - `open`
+- [[../wiki/2025-08-29-jeon-et-al-applied-linguistics|Generative AI and its dilemmas: exploring AI from a translanguaging perspective]] - `@jeonlee2025transling` - `open`
+- [[../wiki/2024-05-jeon-lee-choi-ile|Speech-recognition chatbots for language learning: A systematic review]] - `@jeonleechoi2024speech` - `open`
+- [[../wiki/20250909-seongyong-et-al-aral|Generative AI and English language teaching: A global Englishes perspective]] - `@lee2025gefeedback` - `open`
+- [[../wiki/2025-04-genai-and-agency-eltj|Generative AI (GenAI) and preservice teacher agency in ELT]] - `@lee2025genaiagency` - `open`
+- [[../wiki/20260131-lee-et-al-review-ile|Generative AI in language learning: A systematic review of classroom-based empirical research]] - `@lee2025genaireview` - `open`
+- [[../wiki/2024-04-lee-jeon-system|Teacher agency and ICT affordances in classroom-based language assessment: The return to face-to-face classes after online teaching]] - `@leejeon2024agency` - `open`
+- [[../wiki/2024-05-jeon-lee-eait|Can learners benefit from chatbots instead of humans? A systematic review of human-chatbot comparison research in language education]] - `@leejeon2024humanai` - `open`
+- [[../wiki/2024-11-05-lee-jeon-llt|The growing interest in AI chatbots for language learning: Teacher professional development and pedagogical use]] - `@leejeon2024teacherpd` - `open`
+- [[../wiki/20260606-lee-jeon-llt|Generative AI and metaverse in developing pre-service teachers’ content knowledge]] - `@leejeon2026ck` - `open`
+- [[../wiki/2025-03-lee-jeon-choe-tq|Enhancing Pre-Service Teachers' Global Englishes Awareness with Technology: A Focus on AI Chatbots in 3D Metaverse Environments]] - `@leejeonchoe2025tesol` - `open`
+- [[../wiki/20260905-lee-et-al-tesol-journal|Multimodal GenAI for Communicative Language Teaching: Gemini Live]] - `@leejeonlee2026gemini` - `open`

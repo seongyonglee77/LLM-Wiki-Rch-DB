@@ -1,0 +1,281 @@
+---
+stem: 2024_Ahn-Kim-Lee_How-Do-Ai
+pdf_path: papers\2024_Ahn-Kim-Lee_How-Do-Ai.pdf
+source_path: sources\2024_Ahn-Kim-Lee_How-Do-Ai.md
+source_hash: 9328b35f31e8448df35d86fa440a9b348cced46edab8432f13d5afad1e963bb1
+parsed_with: docling
+parsed_at: '2026-09-07T14:24:10+00:00'
+warnings: []
+record_id: paper:2024_Ahn-Kim-Lee_How-Do-Ai
+---
+So-Yeon Ahn*, Seonghoon Kim, Eun-Young Lee, Hyunjong Lee, Eun-Young Song, Junehwa Song and Jongseo Won
+
+## How do AI and human users interact? Positioning of AI and human users in customer service
+
+[https://doi.org/10.1515/text-2023-0116](https://doi.org/10.1515/text-2023-0116)
+
+Received June 2, 2023; accepted September 6, 2024; published online September 27, 2024
+
+Abstract: Situated at the intersection of language, discourse, and communication studies, the present study delves into the dynamics of human-arti fi cial intelligence (AI) interactions. Our study centers on AI-based voice assistants which employ natural language processing to communicate with human users. With a dataset derived from 200 recorded interactions between human users and AI-based voice assistants of a leading Korean telecommunications provider, we investigate the intricate dialogue patterns that emerge within these exchanges. Employing the lens of conversation analysis, especially focusing on adjacency pairs, fi rst pair-part (FPP) and second pair-part (SPP), our analysis elucidates how AI agents and human users negotiate meaning and interactional roles. We identify four distinct response types from the users ' SPP, revealing a variety of interactional patterns. The fi ndings reveal that the users frequently respond to AI-initiated prompts with keywords, re fl ecting a strategy to e ffi ciently retrieve information, and highlight instances of no verbal response. Additionally, the use of honori fi cs in Korean AI voice assistants underlines the in fl uence of linguistic and cultural norms on the dynamics of human-AI interaction, emphasizing the need for AI systems to navigate social hierarchies e ff ectively. Our study underscores the importance of enhancing human-AI dialogue and provides valuable implications for interdisciplinary research and practice in the rapidly evolving fi eld of AI-based communication.
+
+*Corresponding author: So-Yeon Ahn , School of Digital Humanities and Computational Social Sciences, KAIST, 291 Daehak-ro, Yuseong-gu, 34141, Daejeon, Republic of Korea, E-mail: ahnsoyeon@kaist.ac.kr. https://orcid.org/0000-0003-2718-0999
+
+Seonghoon Kim, Hyunjong Lee and Junehwa Song, School of Computing, KAIST, Daejeon, Republic of Korea, E-mail: shkim@nclab.kaist.ac.kr (S. Kim), hyunjong@nclab.kaist.ac.kr (H. Lee), junesong@nclab.kaist.ac.kr (J. Song)
+
+Eun-Young Lee, Eun-Young Song and Jongseo Won, KT (Korea Telecom), Seoul, Republic of Korea, E-mail: lee.eunyoung@kt.com (E.-Y. Lee), eunyoung.song@kt.com (E.-Y. Song), jongseo.won@kt.com
+
+(J. Won)
+
+Open Access. © 2024 the author(s), published by De Gruyter. This work is licensed under the cc BY
+
+Creative Commons Attribution 4.0 International License.
+
+<!-- image -->
+
+Keywords: arti fi cial intelligence; voice assistant system; adjacency pair; discourse analysis; positionality; human-machine interaction
+
+## 1 Introduction
+
+In the wake of rapid advancements in arti fi cial intelligence (AI), a shift is underway within service industries, marked by a proliferation of innovative AI-based service agents. These agents, manifested in live chat interfaces or voice assistant systems, utilize natural language processing to facilitate two-way communication with human users (Gnewuch et al. 2017). As an increasingly integral component of technologymediated communication, numerous South Korean organizations and companies such as SK Telecom, Korea Telecom, and Naver are now leveraging these AI-based service agents to meet customer needs, thus replacing human agents. AI service agents have emerged as a potent source of service revolution, o ff ering interactions of scale and consistent quality (Rust and Huang 2014; Wirtz et al. 2018).
+
+These agents have also been observed to elicit feelings of warmth in human users (Kim et al. 2019). Wirtz et al. (2018) have explored perceptions, beliefs, and ethical implications of robot-delivered services, and other studies have also begun to examine the quality of communication, user perceptions, consumer attitudes, satisfaction, and repurchase/revisit patterns (Mero 2018). Kim et al. (2019) have found that the anthropomorphism of consumer robots increased psychological warmth but decreased positive attitudes, suggesting a balance to avoid the ' uncanny valley ' phenomenon.
+
+Amid these developments, this study aims to explore how human users communicate with AI-based voice assistants. Unlike research focusing on the e ff ects of AI-based service agents, our study delves into the interactional patterns between human users and AI-based voice assistants. Our methodology builds upon the principles of conversation analysis (CA), a research tradition that interprets social interaction in terms of sequences of actions. The study considers how the AI-based voice assistants manage the balance between pre-programmed responses and the need to adapt to unpredictable elements of human communication. It also probes how these agents use linguistic and discursive strategies to maintain a ' natural ' conversation fl ow.
+
+## 2 Literature review
+
+Many studies have sought to understand the possibilities of AI, concentrating primarily on its accuracy (Coniam 2014) as well as its e ff ective use for resource management in the workplace, including applicant screening during the hiring process (Mehta et al. 2013; Park et al. 2021; Van Esch et al. 2019), and customer service (Følstad and Skjuve 2019; Xu et al. 2017). Conversational AI agents, both text-based and voicebased, emerge as pivotal in streamlining operations and reducing costs, with voicebased agents extending emotional support in specialized fi elds such as healthcare and therapy (Cha et al. 2021; Elgarf et al. 2021). Fuoli et al. (2021) extend this understanding to social media platforms, revealing how companies ' responses to customer feedback on Twitter, particularly those employing an a ff ective style, can e ff ectively manage customerrelations and mitigate reputational risks. Liao and Sundar (2021) also explore how AI maintains conversation with customers based on their collected personal information. The role of AI in digital customer engagement, particularly through webcare, emphasizes the importance of communication styles in managing customer relations. Companies ' engagement in webcare to address online feedback highlights the evolving landscape of customer service, where digital interactions are becoming increasingly signi fi cant (Fuoli and Bednarek 2022; Van Noort and Willemsen 2012).
+
+In addressing the distinct nature of human-computer interactions compared to natural conversations, it becomes evident that the former lacks the spontaneity and depth of human-to-human exchange. AI service agents, as actors in this domain, are designed to simulate these natural conversational patterns to bridge this gap. The imitation of natural dialogue is crucial in enhancing user experience and trust, making interactions with AI more intuitive and less mechanical (Chandra et al. 2022). This endeavor to replicate natural conversational dynamics is especially pertinent in service encounters over the telephone, where the absence of visual cues makes verbal interaction the sole medium of communication.
+
+The debate over informal versus formal communication styles in this context reveals a preference for a conversational tone that fosters a more personal and engaging customer experience (Kelleher 2009; Schamari and Schaefers 2015; Sung and Kim 2018). However, the e ff ectiveness of these styles may vary across cultural contexts and brand familiarity, suggesting a complex interplay between communication style, customer perception, and brand identity (Gretry et al. 2017; Steinmann et al. 2015). While many previous studies explore the perception and use of AI-based conversational agents, a closer scrutiny of how these conversations unfold employing a conversation analytic lens can provide deeper insights into the nuances of human-AI communication.
+
+## 2.1 Interaction and conversation in AI and human customer care contexts
+
+Interactions not only serve the purpose of exchanging information among interlocutors but also help them establish and maintain relationships. In doing so, interlocutors inevitably shape identities, where they position the self and the other interactively, emerging in the contingencies of unfolding discourse with temporary participant roles and transitory interactional positions. Drawing on a socio-cultural linguistic framework, Bucholtz and Hall (2005) o ff er fi ve principles centered on the concept of identity: emergence, positionality, indexicality, relationality, and partialness. Among these, relationality highlights the extent to which identities are constructed in relation to other social actors. Here, identity is ' intersubjectively constructed through several, often overlapping, complementary relations, including similarity/di ff erence, genuineness/ arti fi ce and authority/delegitimacy ' (p. 598). Thus, relationality underpins identity to be an intersubjective accomplishment between the self and the other. In other words, interlocutors are involved in the joint ongoing process of construction and negotiation of identities within a particular interaction. As interlocutors participate in this collaborative endeavor, they actively use and interpret verbal and nonverbal forms of communication in the meaning-making and sense-making process (Ahn 2019).
+
+## 3 Data and methodology
+
+We gathered data logs of customer service encounters between human customers and AI-based voice assistants provided by Korea Telecom, one of Korea ' s largest telecommunications service providers. Currently, South Korea is experiencing a rapid integration of AI into customer service, making Korea Telecom an ideal site for examining the cutting-edge dynamics of human-AI communication in the telecommunications industry. Our dataset comprises transcripts of 200 telephone interactions, all originally conducted in Korean and subsequently translated into English. These 200 telephone interactions were randomly selected by the service provider, with 100 representing successful cases and 100 representing failed cases. The determination of success or failure is based on the company ' s assessment of how the AI succeeded or failed to capture the intent and provide an appropriate subsequent turn. Customers are informed at the outset that their calls may be monitored and used for varying purposes. To further ensure individual privacy, all personally identi fi able information except age was anonymized by the provider prior to analysis. The data had to be screened by the provider, and nonverbal cues were thereby excluded from our consideration.
+
+Each interaction began with the human customer calling the service center, typically seeking resolution for an issue or soliciting information, with AI-based service agents o ff ering immediate reception and guidance. The data, collected from January to June of 2022, comprises calls with longer scripts and extended dialogues, typically lasting over 3 min, while shorter interactions are estimated to last between one and 2 min. This methodological approach enables us to dissect the intricate dialogue patterns that emerge between human users and AI agents, revealing the challenges and successes of AI in replicating human-like conversation dynamics.
+
+Employing this framework, the investigation draws on over 200 verbal interactions between AI and human users, o ff ering insights into the multifaceted dialogue patterns that emerge in human-AI communication.
+
+## 3.1 Analytical framework
+
+In conversation analysis, it is understood that actions occur in pairs: the fi rst speaker ' s actions in fl uence the actions of the one that follows, contributing to the turn-taking system and social actions (Levinson 2013). According to Scheglo ff (2007), the basic unit of such collaborative action is the adjacency pair with fi rst pair-part (FPP) and a second pair-part (SPP), in which two parties cooperate with initiation and response. FPP initiates an exchange in the form of a question, invitation, or announcement. SPP responds to this prior turn with an answer, acceptance/decline, and acknowledgment. Such a base adjacency pair can be expanded with insertions and additions, forming overall sequences that become part of a universal infrastructure for social interaction (Scheglo ff 2006). In discussions about the relationship betweenFPPandSPP,thenotionofpreference explains why certain second pair-part actions ' embody an alignment with the fi rst pair part ' (Scheglo ff 2007: 59). SPP can take place in either preferred seconds (e.g., acceptance to an invitation) or dispreferred responses (e.g., disagreements).
+
+As organizations and companies increasingly o ff er customer support using AI-based service agents, our study explores how human users and AI-based voice assistants interact to meet users ' communication needs, with particular emphasis on FPP and SPP. While not all interaction consists of adjacency pairs and expansions, we attempt to examine the fi rst two turns of interaction between human users and AI-based service agents. With clear demarcation by turn as the interaction takes place over the phone, we mainly observe how human users and AI-based service agents interact, each positioning itself and the other. Employing CA, we investigate how these AI-based service agents and human users collaborate in constructing a dialogue to achieve the communicative goal. In this vein, the purpose of this paper is two-fold: (1) to examine how an AI-based service agent constructs the FPP and positions the relationship with human users, and (2) to explore how human users form SPP in an encounter driven by speci fi c purposes.
+
+The analysis followed the CA framework, focusing on the detailed examination of the sequential organization of interactions. Our analysis began with a meticulous, turn-by-turn review of the dataset, where each transcript was scrutinized to identify the structure and fl ow of the interactions between AI-based service agents and human users. We focused on identifying key interactional features, such as the structure of adjacency pairs (e.g., question-response, request-grant) and how participants oriented to and managed these sequences during the service encounters. We also paid special attention to how these turns were produced and responded to, noting the timing, overlap, and any interruptions or hesitations. This allowed us to see how both AI and human participants oriented to the interaction, managed transitions, and handled moments of potential misunderstanding or miscommunication. The linguistic elements, such as verb endings and honori fi cs in the Korean language, were also analyzed within the framework to understand how they contributed to the interactional dynamics, including the levels of politeness and formality. To enhance the reliability of our analysis, the data were independently examined by multiple researchers, each applying the CA framework to identify interactional patterns. These analyses allowed us to distill signi fi cant patterns and trends from the data, facilitating a deeper understanding of how human users and AI-based service agents engage, communicate, andestablish relationships within the context of customer service encounters. In doing so, we were able to uncover the micro-level details of how human users and AI-based service agents engage with each other, highlighting the intricate interplay of actions that constitute the fabric of these customer service encounters.
+
+## 4 Analysis
+
+In an e ff ort to gain a nuanced understanding of how these human and non-human interlocutors position each other and form relationships, our analytical focus is on the initial adjacency pair, speci fi cally the sequence of the FPP and SPP, to understand the relational dynamics initiated by AI agents and the corresponding user responses. This examination sheds light on the strategic construction of FPP by AI to induce speci fi c SPPs from users, thereby facilitating a study on the relational positioning between human and AI interlocutors. Moreover, we explore the varied responses from human users as they navigate and formulate their SPP, o ff ering a rich analysis of the interactional patterns that emerge between humans and AI in service contexts. With the conversation undertaken as a collaborative endeavor, we observe dialogic engagement and cooperation between the human users and the AI-based service agents as they attempt to negotiate meaning. With the conversation being driven by the customer ' s needs at hand, whether the customer was seeking information or assistance for problem-solving, our fi ndings yield insights into the variety of patterns among their SPP.
+
+## 4.1 Positioning of AI and human users
+
+In these encounters, FPP is always performed by the AI-based service agents, articulating the identical remark regardless of the counterpart and their needs. This standardized FPP is conveyed through a distinctly female voice, re fl ecting a broader industry trend of designing AI products, such as chatbots and robots, with feminine characteristics. This design choice suggests an underlying preference for female over male bots, where the former is perceived as warmer and more emotionally expressive (Borau et al. 2021). Opening the conversation with a greeting, the AI-based service agent announces the name of the customer, both con fi rming and personalizing the conversation, and further provides them with a sample speech method, instructing how to talk to the agent to successfully partake in conversation and achieve the goal of the communication.
+
+## Excerpt 1: Opening remark of AI-based service agents
+
+[NAME] 고객 님 , 반 갑 습 니다 . 저 는 KT AI 상 담 사 지 니 예요 . 원 하 시 는 상 담 을 , ' 인 터 넷 납 부 방법 을 변 경 해 줘 . ' 와 같 이 말 씀 해 주 시 면 바 로 도 와 드 릴 게 요 .
+
+[NAME] nice to meet you, sir. I ' m Genie, KT AI consultant. Please tell me the consultation you want, as in ' Change the payment method of my phone. '
+
+In the opening, AI-based service agents perform multiple functions by greeting human users, introducing oneself, and suggesting how human users should participate in the following turn. Here, the FPP of the AI-based service agent attempts to govern the preferred SPP by providinganexample of a recommendedspeechstyletohumanusers.
+
+This opening is of particular importance, as this FPP not only in fl uences and structures the subsequent SPP, but also positions both the AI-based service agent and the human users in a certain way, granting permission to and limiting the human users to certain acts in the subsequent interaction. First, with the main language of communication being Korean, the AI-based service agent uses honori fi cs, signaling politeness, deference, formality, distance, and power (Brown 2011). In fl uenced by Confucianism, Korean has a set of honori fi c morphemes, terms of address, and grammaticalized politeness forms, signaling a relational, social structure in society. Here, the customer ' s name is followed by the word 고객 님 , with gogaeg meaning ' customer, ' accompanied by a su ffi x, -nim . This su ffi x is commonly attached to people ' s names or titles, translated as ' Mr. ' or ' Madam. ' Indexing the relationship between the speaker and the hearer, the verb endings also encode honori fi cation.
+
+In addition to the su ffi x used in calling the hearer, the speaker - addressee relationship is re fl ected in a ' mandatorysentence- fi nal verbal morphology ' in Korean (Rhee and Koo 2017: 101). Here, hearer honori fi cation is further accompanied by a system of in fl ectional endings, ' - eyo ' in this case, attached to the predicate. Such addressee-related honori fi cs are re fl ected in the choice of verbal su ffi x as a sentence ending. Another use of the expression would be ' 저 , ' aself-e ff acing pronoun used to describe oneself. While the use of honori fi cs puts the hearer in a higher position, this humble form is used to lower oneself. Therefore, interweaving both polite and humble forms contributes to establishing a hierarchy between the human users and the AI-based voice assistants.
+
+In stark contrast to this tone of politeness that AI exhibits, the remark in the quotation that is o ff ered as a recommended speech style to human users appropriates the non-honori fi c panmal . The suggestion that the human users use non-honori fi c forms while the AI-based voice assistant uses honori fi cs further signals the hierarchical relationship between the two interlocutors. That is, we can examine how nonhonori fi cs are suggested for human interlocutors, indexing social superiority and potential closeness (Potts 2005). Moreover, the suggested phrase is in an imperative form, straightforwardly giving a demand that the AI do the task. Overall, with the hearer empowered touse non-honori fi cs and the AI-based voice assistant ' s continuous use of honori fi cs, a hierarchical relationship is formed in which the human consumer obtains a socially superior position, and the AI-based agent has an inferior position. This fi nding is important as such a way of speaking may, in fact, in fl uence how human users participate in subsequent turns with AI-based voice assistants. From the opening to the closing of the conversation, we observe the constant use of honori fi c morphemes and the humble form of the AI-based voice assistant, whereas the human users demonstrate mixed responses in terms of the use of honori fi cs.
+
+## 4.2 Four types of human user responses
+
+In responding to the AI ' s FPP, four main types of SPP are observed: (1) no verbal input orresponse, (2) keywords, (3) natural and casual conversation, and (4) giving a demand as suggested by the AI. The most frequently observed reaction from the human users was the use of keywords. Among the total 200 instances, there were 106 cases (54 %) in which the human users answered with topics or keywords without any other syntactical elements. Despite the AI suggesting a particular speech style in Excerpt 1, the least frequent type of SPP was, in fact, the adoption of this suggested speech style, occurring in only 10 % of cases. Natural and casual conversation was noted in 14 % of instances, and no response was observed in 12 %. However, noncompliance with the AI-suggested speech style did not automatically lead to the suspension of the interaction. Notably, the general trend across the four types of reactions observed was consistent regardless of whether the cases were deemed successful or failures.
+
+## 4.2.1 No input, no response?
+
+The second most frequently observed SPPs produced by the human users, following enunciating keywords, was to show no response. The system allows users to pause for 5 s, and the next pair-part begins with the AI-based voice assistant when no sound is captured. In conversation, pause or silence carry multiple meanings, including hesitation, confusion, and disagreement. In the case of a phone conversation, the human user might have dropped the phone as the AI-based voice assistant began the talk. Thus, without having full access to the context in which the human users engage in the conversation, it is di ffi cult to conclude that no response determines the lack of interaction.
+
+Though challenges remain in interpreting the pause to examine SPP, the data suggest how the AI-based voice assistant is guided to interpret the fi ve-second pause. That is, following the SPP of no verbal input, the AI-based voice assistant encapsulates how the human interlocutor needs to interact. As shown in Excerpt 2, instead of repeating the same utterance with a suggestion of how to make a request, the AIbased voice assistant recommends inquiring freely as one would to a consultant.
+
+Excerpt 2: No verbal input as SPP
+
+AI: [NAME] 고객 님 , 반 갑 습 니다 . 저 는 KTAI 상 담 사 지 니 예요 . 원 하 시 는 상 담 을 , ' 인 터 넷 납 부 방 법 을 변 경 해 줘 . ' 와 같 이 말 씀 해 주 시 면 바 로 도 와 드 릴 게 요 .
+
+HU: (No input)
+
+AI: [NAME] 고객 님 , 편 안 하 게 상 담 사 에 게 말 씀 하 시 듯 문 의 사 항 을 말 씀 해 주 세 요 .
+
+AI: [NAME] nice to meet you, sir. I ' mGenie, KT AI consultant. Please tell me the consultation you want as in ' Change the payment method of my phone. '
+
+HU: (No input)
+
+AI: [NAME] Please feel free to ask questions as you would speak to a consultant .
+
+Though the AI-based voice assistant introduces itself as an ' AI consultant ' in the opening, the remark no longer includes ' AI ' in the next pair-part. Here, the elimination of the abbreviation ' AI ' may be a way to encourage the human user to examine the matter as if one is conversing with a human consultant. The expansion of interaction indicates the AI-based voice assistant ' s decision to acknowledge the absence of response to further guide the human users ' comprehension, instead of closing the conversation. Moreover, the system waits for 5 s, which suggests that the time for turn-taking to occur is adequate. Thus, considering the rules for turn-taking, the AI-based voice assistant proceeds to regain the fl oor, acquiring rights to a turn, as the counterpart does not take the fl oor.
+
+We further examine the subsequent turn by the human user when there is no initial verbal response. In these cases, consistent with the general trend, the most frequent interaction is the use of succinct keywords, followed by natural and casual conversations (see Excerpt 3). This pattern suggests that the human users may default to keyword-based communication when previous prompts are unmet, potentially as a strategy to simplify the interaction and steer it towards successful resolution.
+
+Excerpt 3: Following no verbal input
+
+AI: [NAME] 고객 님 , 반 갑 습 니다 . 저 는 KTAI 상 담 사 지 니 예요 . 원 하 시 는 상 담 을 , ' 인 터 넷 납 부 방 법 을 변 경 해 줘 . ' 와 같 이 말 씀 해 주 시 면 바 로 도 와 드 릴 게 요 .
+
+HU: (No input)
+
+AI: [NAME] 고객 님 , 편 안 하 게 상 담 사 에 게 말 씀 하 시 듯 문 의 사 항 을 말 씀 해 주 세 요 . HU: tv
+
+AI: [NAME] nice to meet you, sir. I ' mGenie, KT AI consultant. Please tell me the consultation you want as in ' Change the payment method of my phone. '
+
+HU: (No input)
+
+AI: [NAME] Please feel free to ask questions as you would speak to a consultant.
+
+HU: tv
+
+## 4.2.2 Enunciating keywords
+
+The SPP that the human users most frequently used is enunciating keywords. As showninExcerpt 4, the SPP to the AI-based voice assistant ' s FPP include an utterance of one or two keywords, succinctly describing the customer ' s communication need or direct demand. In responding to the FPP, the human user articulates the word ' consultant ' indicating that the user ' s intention is to converse with a consultant.
+
+```
+AI: *** 고객 님 , 반 갑 습 니다 . 저 는 KTAI 상 담 사 지 니 예요 . 원 하 시 는 상 담 을 ' 인 터 넷 납 부 방법 을 변 경 해 줘 . ' 와 같 이 말 씀 해 주 시 면 바 로 도 와 드 릴 게 요 . HU: 상 담 사
+```
+
+Excerpt 4: Enunciating keywords as SPP
+
+AI: [NAME] nice to meet you, sir. I ' mGenie, KT AI consultant. Please tell me the consultation you want, as in ' Change the internet payment method, ' and I ' ll help you right away . HU: Consultant
+
+Here, the human user neither uses a full sentence nor an imperative form as the AI suggests. Such articulation of keywords could be interpreted in multiple ways. One potential reason may suggest the informality of talk, where speakers may respond to a question or a remark while omitting a su ffi x. While the elimination of the su ffi x is possible when answering a question (e.g., ' What ' s your favorite dish? ' ) and given the closeness between interlocutors, the FPP in Excerpt 4 is not in the form of a question, but a request to express one ' s needs.
+
+Such use of keywords may depend on the human user ' s attitudes toward AIbased voice assistants. That is, the experience of human users with AI-based voice assistants or their preconceived awareness of AI-based voice assistants may function similarly to how human users interact. In other words, if human users are aware that they are interacting with an AI, their engagement in communication may be driven by their belief of how AI understands and participates in conversation. For instance, if human users consider AI to be a type of computer, they may communicate with AIbased voice assistants as if they would search the web, entering keywords for intended results.
+
+Moreover, the human user ' s perception of the AI-based voice assistant is also noteworthy. While the introduction in the opening identi fi es the role of the assistant as ' AI consultant, ' the human user requests a ' consultant. ' This request for a ' consultant ' indicates how the human user may not consider the role of the AI-based voice assistant to fall under a consultant ' s responsibilities, where this reference only pertains to human beings. In this regard, an exploration of the underlying reasons behind their SPP and their perceptions toward AI-based voice assistants is needed.
+
+## 4.2.3 Maintaining a natural and casual style or following AI ' s suggestion
+
+In some cases, SPP of the human users react to the FPP as if they are maintaining a natural or casual conversation with another human being, explaining the situation and not using an imperative form as suggested by the AI. As shown in Excerpts 5 and 6, the human user tries to explain the situation or predicament. Without making a direct request in an imperative form, the human users often begin the SPP by describing a situation or a problem. Fillers, including expressions of hesitation, are also included in these cases as shown in Excerpt 5.
+
+## Excerpt 5: Talking naturally
+
+AI: *** 고객 님 , 반 갑 습 니다 . 저 는 KTAI 상 담 사 지 니 예요 . 원 하 시 는 상 담 을 ' 인 터 넷 납 부 방법 을 변 경 해 줘 . ' 와 같 이 말 씀 해 주 시 면 바 로 도 와 드 릴 게 요 . HU: 휴 대 폰 요 금 이 두 번 결 제 돼 서
+
+AI: [NAME] nice to meet you, sir. I ' mGenie, KT AI consultant. Please tell me the consultation you want, as in ' Change the internet payment method, ' and I ' ll help you right away . HU: My phone bill was charged twice In Excerpt 5, the human user ' s SPP can be viewed to further support the naturalness of the talk. That is, similar to the instance of eliminating the su ffi x in Excerpt 4, the SPP in Korean may appear like a dependent clause, waiting for the main request to follow. This un fi nished SPP may again contribute to the informality of the conversation. On the other hand, while maintaining a natural and casual speech style, we also observe the use of honori fi cs. In Excerpt 6, the human customer attaches the in fl ectional ending ' - eyo ' to the predicate.
+
+Excerpt 6: Talking naturally using honori fi cs
+
+AI: *** 고객 님 , 반 갑 습 니다 . 저 는 KTAI 상 담 사 지 니 예요 . 원 하 시 는 상 담 을 ' 인 터 넷 납 부 방법 을 변 경 해 줘 . ' 와 같 이 말 씀 해 주 시 면 바 로 도 와 드 릴 게 요 . HU: 아 저 기 그 전 화 요 금 입 금 했 는 데 요
+
+AI: [NAME] nice to meet you, sir. I ' mGenie, KT AI consultant. Please tell me the consultation you want, as in ' Change the internet payment method, ' and I ' ll help you right away . HU: Ah, about that phone bill, I ' ve made the payment .
+
+In Korean, this form of address-related honori fi c is often used when interlocutors meet each other for the fi rst time, signaling politeness, deference, formality, distance, and power (Brown 2011). The use of honori fi cs in addressing AI suggests that the users may perceive these interactions as akin to human-to-human communication, re fl ecting an underlying expectation of social norms and respect in their engagement with AI. Additionally, among the 28 cases of natural conversations, the users over the age of 50 were predominantly (72 %) the ones who used such a speech style, potentially indicating a di ff erent recognition or perception of the AI-based voice assistants compared to other younger age groups. Such insights are crucial for designing AI interfaces that are not only technologically advanced but also culturally and generationally inclusive, enhancing the overall user experience across diverse user groups.
+
+However, in other cases, the human users produce SPP in a way that is recommended by the AI-based voice assistant. While the least frequently observed, these SPP involve imperative forms, where they make a direct request, mostly without the use of honori fi cs. In contrast to the honori fi cs that the AI-based voice assistants used, the human users ' imperative form and panmal both comply with the way of speech recommendedbytheAI-based voice assistants and take a superordinate position in a hierarchy. Thus, the human users participate in meeting their needs by framing their requests as the AI does. One thing to note is the use of honori fi cs in making the request. While not frequently observed, some human users adhere to the suggested speech style by the AI-based voice assistant, while not using panmal . Future studies investigating the undergirding reasons for the use of panmal and honori fi cs in SPP could provide greater insights into the interactional pattern between AI and human users.
+
+## 5 Conclusions
+
+As interactions involve the collaborative endeavor of interlocutors, the present study has sought to examine how AI-based service agents and human users participate in interactions to meet the needs of the human user. The study has paid particular attention to the fi rst pair-part (FPP), the opening led by the AI-based voice assistants, and the second pair-part (SPP) of the human users. While the AI ' s FPP created a certain hierarchical relationship between the two, the SPP of the human users indicated their view and expectation of the AI-based voice assistants. Among the four types of SPP observed, the human users most frequently responded to the AI ' s FPP with keywords, potentially signaling their underlying beliefs in how they should communicate with AI-based service agents, providing keywords as if searching online to most e ff ectively and e ffi ciently retrieve and access the information they wanted and meet their needs. That is, the pre-existing belief and attitude of human users toward these AI-based voice assistants may play a signi fi cant role in their engagement in communication. Following the enunciation of keywords, the second most frequently observed SPPs was to show no response. Without much contextual information, it is challenging to understand how no verbal input took place. Still, this fi nding suggests the need to question whether the fi ve-second wait is su ffi cient and the following response by AI is adequate.
+
+This brings us to the broader cultural context that underpins these interactions. In fl uenced by Confucianism, Korea has a set of honori fi c morphemes, address terms, and grammaticalized polite forms. Here, the linguistic indexicality, particularly the use of honori fi cs and address terms, contributed to the positioning and distance betweentheAI-based voice assistants and the human users as well as the formality of the conversation. These linguistic elements do more than signal relational and social structures within society; they encode a complex matrix of expectations and norms that extend into the realm of human-AI interaction. Such indexical politeness signals the relationships between the speaker and referents in the sentence (Brown 2011).
+
+The present study has focused on production and formatting of utterances in both FPP and SPP between the interlocutors as their exchange in fl uences how they dynamically establish the relationship and participate in the remaining interaction. As the AI-based voice assistants establish a hierarchical relationship with the human users through the mixture of polite and humble forms, we can understand that the service provider aims to provide the human users with more power, social superiority and potential closeness. By embedding hierarchical and polite forms in AI communication, service providers may inadvertently reinforce social structures, thus a ff ecting users ' perceptions of and interactions with technology. However, such positioning of interlocutors may constantly be in fl ux depending on how human users participate in a conversation.
+
+The fi ndings o ff er important implications for AI research for conversational interfaces and applied linguistics, as they demonstrate that the understanding of interactional pragmatics and conversation patterns may further enhance the quality of machine-to-human interaction. The study suggests that service providers need to pay attention to how their AI-based service agents interact with and engage in conversations with their customers in a more systematic manner. Similar to other human-to-human conversations, it is important to understand that these interactions operate in the social, cultural, and ideological worlds, in fl uenced by the language at hand. As interests and attempts to create more human-like AI agents and to o ff er more human-to-human-like interactions continue or reinforce the commitment to the development of such technology, the present study has a signi fi cant applied value, as it can inform the design of conversational interfaces in machine-tohuman interaction. In an environment characterized by more interactions between humanoid service robots or AI-based service agents, more research into the conversational pattern is needed, as early experiences of such a communication system would in fl uence how human users adhere to the norms and develop rules of conversation, including turn-taking organization, adjacency pairs, and repair, thus contributing to the consolidation of a shared set of conversational principles with these AI-based service assistants.
+
+While the Korean language has an honori fi c system that re fl ects the social relationships among participants, future studies could examine how human users and AI-based service agents interact in languages without the honori fi c system. Moreover, as mentioned previously, with the conversation being held over the phone, the human user might have dropped the phone when the AI-based voice assistant began talking. Thus, without having full access to the context in which human users maintain the conversation, it is di ffi cult to conclude that there is no response, signaling the lack of participation in interaction. Finally, the present study calls for further research on how ' natural ' AI-based service agents should be. Unveiling how human consumers envision and prefer AI-based service agents to talk, whether like humans or like AIs, would yield deeper insights into the understanding of human - AI dialogue. Such an understanding of perception is signi fi cant, as their preconceived notions and beliefs a ff ect the unfolding interaction. Further research is needed insofar as the shift, indicative of growing reliance on AI in customer service, is projected to see substantial investment growth, underscoring the pivotal role of human-AI communication.
+
+Research funding: This work was supported by a grant of the KAIST-KT joint research project through AI2XL Laboratory, Institute of convergence Technology, funded by KT [G01210694, AI-based customer service: investigating the completion of tasks and enhancing UX of AI].
+
+## References
+
+- Ahn, So-Yeon. 2019. Decoding ' Good language teacher ' (GLT) identity of native-English speakers in South Korea. Journal of Language, Identity, and Education 18. 297 - 310.
+- Borau, Sylvie, Tobias Otterbring, Sandra Laporte &amp; Samuel Fosso Wamba. 2021. The most human bot: Female gendering increases humanness perceptions of bots and acceptance of AI. Psychology &amp; Marketing 38(7). 1052 - 1068.
+- Brown, Lucien. 2011. Korean honorifics and politeness in second language learning . Philadelphia, PA: John Benjamins.
+- Bucholtz, Mary &amp; Kira Hall. 2005. Identity and interaction: A sociocultural linguistic approach. Discourse Studies 7. 584 - 614.
+- Cha, Inha, Sung-In Kim, Hwajung Hong, Heejeong Yoo &amp; Youn-kyung Lim. 2021. Exploring the use of a voice-based conversational agent to empower adolescents with autism spectrum disorder. In Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems , 1 - 15.
+- Chandra, Shalini, Anuragini Shirish &amp; Shirish C. Srivastava. 2022. To be or not to be … human? Theorizing the role of human-like competencies in conversational arti fi cial intelligence agents. Journal of Management Information Systems 39(4). 969 - 1005.
+- Coniam, David. 2014. The linguistic accuracy of chatbots: Usability from an ESL perspective. Text &amp; Talk 34(5). 545 - 567.
+- Elgarf, Maha, Natalia Calvo-Barajas, Ana Paiva, Ginevra Castellano &amp; Christopher Peters. 2021. Reward seeking or loss aversion? Impact of regulatory focus theory on emotional induction in children and their behavior towards a social robot. In Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems , 1 - 11.
+- Følstad, Asbjørn &amp; Marita Bjaaland Skjuve. 2019. Chatbots for customer service: User experience and motivation. In Proceedings of the 1st International Conference on Conversational User Interfaces , 1 - 9.
+- Fuoli, Matteo, Isobelle Clarke, Viola Wiegand, Hendrik Ziezold &amp; Michaela Mahlberg. 2021. Responding e ff ectively to customer feedback on Twitter: A mixed methods study of webcare styles. Applied Linguistics 42(3). 569 - 595.
+- Fuoli, Matteo &amp; Monika Bednarek. 2022. Emotional labor in webcare and beyond: A linguistic framework and case study. Journal of Pragmatics 191. 256 - 270.
+- Gnewuch,Ulrich, Stefan Morana Morana &amp; Alexander Maedche. 2017. Towards designing cooperative and social conversational agents for customer service. In Proceedings of the 38th International Conference on Information Systems (ICIS) . Seoul: AISel.
+- Gretry, Anaïs, Csilla Horváth, Nina Belei &amp; Allard C. R. van Riel. 2017. ' Don ' t pretend to be my friend! ' Whenan informal brand communication style back fi res on social media. Journal of Business Research 74. 77 - 89.
+- Kelleher, Tom. 2009. Conversational voice, communicated commitment, and public relations outcomes in interactive online communication. Journal of Communication 59. 172 - 188.
+- Kim, Seo Young, Bernd H. Schmitt &amp; Nadia M. Thalmann. 2019. Eliza in the uncanny valley: Anthropomorphizing consumer robots increases their perceived warmth but decreases liking. Marketing Letters 30(1). 1 - 12.
+
+- Levinson, Stephen C. 2013. Action formation and ascription. In Jack Sidnell &amp; Tanya Stivers (eds.), The handbook of conversation analysis , 101 - 130. Malden: Blackwell Publishing Ltd.
+- Liao, Mengqi &amp; S. Shyam Sundar. 2021. How should AI systems talk to users when collecting their personal information? E ff ects of role framing and self-referencing on human-AI interaction. In Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems , 1 - 14.
+- Mehta, Sameep, Rakesh Pimplikar, Amit Singh, Lav R. Varshney &amp; Karthik Visweswariah. 2013. E ffi cient multifaceted screening of job applicants. In Proceedings of the 16th International Conference on Extending Database Technology , 661 - 671.
+- Mero, Joel. 2018. The e ff ects of two-way communication and chat service usage on consumer attitudes in the e-commerce retailing sector. Electronic Markets 28(2). 205 - 217.
+- Park, Hyanghee, Daehwan Ahn, Katrik Hosanagar &amp; Joonhwan Lee. 2021. Human-AI interaction in human resource management: Understanding why employees resist algorithmic evaluation at workplaces and how to mitigate burdens. In Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems , 1 - 15.
+- Potts, Christopher. 2005. The logic of conventional implicatures . Oxford: Oxford University Press.
+- Rhee, Seongha &amp; Hyun Jung Koo. 2017. Audience-blind sentence-enders in Korean: A discourse-pragmatic perspective. Journal of Pragmatics 120. 101 - 121.
+- Rust, Roland T. &amp; Ming-Hui Huang. 2014. The service revolution and the transformation of marketing science. Marketing Science 33(2). 206 - 221.
+- Scheglo ff , Emanuel Abraham. 2006. Interaction: The infrastructure for social institutions, the natural ecological niche for language, and the arena in which culture is situated. In Nicholas James En fi eld &amp; Stephen Curtis Levinson (eds.), Roots of human sociality: Culture, cognition and interaction , 70 - 96. Berg: Oxford.
+- Schamari, Julia &amp; Tobias Schaefers. 2015. Leaving the home turf: How brands can use webcare on consumer-generated platforms to increase positive consumer engagement. Journal of Interactive Marketing 30. 20 - 33.
+- Scheglo ff , Emanuel Abraham. 2007. Sequence organization in interaction: A primer in conversation analysis . Cambridge: Cambridge University Press.
+- Steinmann, Sascha, Gunnar Mau &amp; Hanna Schramm-Klein. 2015. Brand communication success in online consumption communities: An experimental analysis of the e ff ects of communication style and brand pictorial representation. Psychology &amp; Marketing 32. 356 - 371.
+- Sung, Kang Hoon &amp; Sora Kim. 2018. Do organizational personi fi cation and personality matter? The e ff ect of interaction and conversational tone on relationship quality in social media. International Journal of Business Communication 58(4). 582 - 606.
+- van Esch, Patrick, J. Stewart Black &amp; Joseph Ferolie. 2019. Marketing AI recruitment: The next phase in job application and selection. Computers in Human Behavior 90. 215 - 222.
+- Van Noort, Guda &amp; Lotte M. Willemsen. 2012. Online damage control: The e ff ects of proactive versus reactive webcare interventions in consumer-generated and brand-generated platforms. Journal of Interactive Marketing 26(3). 131 - 140.
+- Wirtz, Jochen, Paul G. Patterson, Werner H. Kunz, Thorsten Gruber, Vinh Nhat Lu, Stefanie Paluch &amp; Antje Martins. 2018. Brave new world: Service robots in the frontline. Journal of Service Management 29(5). 907 - 931.
+- Xu, Anbang, Zhe Liu, Yufan Guo, Vibha Sinha &amp; Rama Akkiraju. 2017. A new chatbot for customer service on social media. In Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems , 3506 - 3510.
+
+## Bionotes
+
+## So-Yeon Ahn
+
+School of Digital Humanities and Computational Social Sciences, KAIST, Daejeon, Republic of Korea ahnsoyeon@kaist.ac.kr
+
+[https://orcid.org/0000-0003-2718-0999](https://orcid.org/0000-0003-2718-0999)
+
+So-Yeon Ahn is an Associate Professor at KAIST, South Korea, where she conducts research on intercultural communicative competence, language play and awareness, and social and cultural approaches to language learning. She is particularly interested in areas such as classroom interaction, discourse analysis, multimodal analysis, and language teaching and learning. Her recent work has appeared in Language Awareness , Applied Linguistics Review , Journal of Language, Identity, and Education , and Journal of Multilingual and Multicultural Development .
+
+## Seonghoon Kim
+
+School of Computing, KAIST, Daejeon, Republic of Korea
+
+[shkim@nclab.kaist.ac.kr](mailto:shkim@nclab.kaist.ac.kr)
+
+Seonghoon Kim is pursuing his PhD in the School of Computing at KAIST. His research interests include mobile, ubiquitous and social computing.
+
+## Eun-Young Lee
+
+KT (Korea Telecom), Seoul, Republic of Korea
+
+[lee.eunyoung@kt.com](mailto:lee.eunyoung@kt.com)
+
+Eun-Young Lee is an Assistant Manager at KT, specializing in AI-powered communication app development. She recently planned a metaverse app for twinning Korean apartments and is now leading the creation of a phone-focused app for the telecom industry.
+
+## Hyunjong Lee
+
+School of Computing, KAIST, Daejeon, Republic of Korea
+
+[hyunjong@nclab.kaist.ac.kr](mailto:hyunjong@nclab.kaist.ac.kr)
+
+Hyunjong Lee is working toward his PhD degree in the School of Computing, Korea Advanced Institute of Science and Technology, Daejeon, South Korea. His research interests include mobile and social computing.
+
+## Eun-Young Song
+
+KT (Korea Telecom), Seoul, Republic of Korea
+
+[eunyoung.song@kt.com](mailto:eunyoung.song@kt.com)
+
+Eun-Young Song is a former employee of KT, where she played a crucial role in developing innovative AI solutions. Her work included leading projects such as the creation of a multilingual AI assistant for the hospitality industry, the development of an advanced conversation engine for KT ' s call center, and the design of a conversational media recommendation engine.
+
+## Junehwa Song
+
+School of Computing, KAIST, Daejeon, Republic of Korea junesong@nclab.kaist.ac.kr
+
+Junehwa Song received the PhD degree in computer science from the University of Maryland at College Park. He is a professor in the School of Computing, KAIST. His research interests include social and interactional computing and mobile and ubiquitous systems.
+
+## Jongseo Won
+
+KT (Korea Telecom), Seoul, Republic of Korea
+
+[jongseo.won@kt.com](mailto:jongseo.won@kt.com)
+
+Jongseo Won is a PhD graduate from the graduate school of Yonsei University Management of Technology(MOT), South Korea. He is currently a ffi liated with the KT AI2X Lab, where he focuses on AI technology commercialization and Large Language Model (LLM) technology strategy. His research interests include the intersection of AI technology and business development, with an emphasis on creating strategic frameworks for the deployment and growth of AI-driven innovations.

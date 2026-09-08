@@ -1,10 +1,17 @@
-# llm-wiki
+# llm-wiki Starting Point
 
-이 폴더는 공개 템플릿의 wiki 탐색 시작점입니다.
+This wiki's explanatory text and navigation labels are in English. Paper originals, sources, detailed cards, summaries, and bibliographic metadata remain in English.
 
-- [[concepts/index|개념]]
-- [[overviews/index|Overview]]
+## First Places to Look
+
+- [[../indexes/papers|Full Paper Index]]
+- [[overviews/index|Topic Overviews]]
+- [[concepts/index|Key Concepts]]
+- [[questions/index|Research Questions]]
 - [[projects/index|Projects]]
-- [[questions/index|Questions]]
 
-새 논문을 ingest하면 논문 wiki 노드와 관련 synthesis 페이지가 이 구조에 추가됩니다.
+## How to Study a Paper
+
+Pick a paper from the `Paper Index` to navigate to its `wiki/paper-name.md` page.
+The `detailed summary and evidence` link on that page leads to the detailed card in `cards/`,
+and the `full parsed text` link leads to the extracted source in `sources/`.

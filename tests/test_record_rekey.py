@@ -19,16 +19,43 @@ class RecordRekeyTests(unittest.TestCase):
 
             old = "provisional-paper"
             source = root / "sources" / f"{old}.md"
-            write_yaml_md(source, {"stem": old, "record_id": f"paper:{old}", "pdf_path": f"papers/{old}.pdf", "source_path": f"sources/{old}.md"}, "## Old title\n\nSource text.\n")
-            write_yaml_md(root / "cards" / f"{old}.md", {"stem": old, "record_id": f"paper:{old}", "provenance": {"pdf_path": f"papers/{old}.pdf", "source_path": f"sources/{old}.md"}}, f"- Source: [[../sources/{old}|parsed source]]\n")
-            write_yaml_md(root / "wiki" / f"{old}.md", {"stem": old, "record_id": f"paper:{old}"}, f"- Card: [[../cards/{old}|summary card]]\n")
+            write_yaml_md(
+                source,
+                {
+                    "stem": old,
+                    "record_id": f"paper:{old}",
+                    "pdf_path": f"papers/{old}.pdf",
+                    "source_path": f"sources/{old}.md",
+                },
+                "## Old title\n\nSource text.\n",
+            )
+            write_yaml_md(
+                root / "cards" / f"{old}.md",
+                {
+                    "stem": old,
+                    "record_id": f"paper:{old}",
+                    "provenance": {"pdf_path": f"papers/{old}.pdf", "source_path": f"sources/{old}.md"},
+                },
+                f"- Source: [[../sources/{old}|parsed source]]\n",
+            )
+            write_yaml_md(
+                root / "wiki" / f"{old}.md",
+                {"stem": old, "record_id": f"paper:{old}"},
+                f"- Card: [[../cards/{old}|summary card]]\n",
+            )
             (root / "papers" / f"{old}.pdf").write_bytes(b"pdf")
-            (root / "logs" / f"parse-{old}.json").write_text(json.dumps({"stem": old, "record_id": f"paper:{old}"}), encoding="utf-8")
+            (root / "logs" / f"parse-{old}.json").write_text(
+                json.dumps({"stem": old, "record_id": f"paper:{old}"}), encoding="utf-8"
+            )
 
-            evidence = {"title": "Preparing Future Teachers", "authors": ["Miller, Ada", "Chen, Bo", "Patel, Cara"], "year": "2025"}
+            evidence = {
+                "title": "Preparing Preservice Teachers",
+                "authors": ["Tondeur, Jo", "Trevisan, Ottavia", "Howard, Sarah K."],
+                "year": "2025",
+            }
             new_source, new_stem, new_record_id = rekey_record(root, source, evidence)
 
-            self.assertEqual(new_stem, "2025_Miller-Chen-Patel_Preparing-Future-Teachers")
+            self.assertEqual(new_stem, "2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers")
             self.assertEqual(new_record_id, f"paper:{new_stem}")
             for folder, suffix in (("papers", ".pdf"), ("sources", ".md"), ("cards", ".md"), ("wiki", ".md")):
                 self.assertTrue((root / folder / f"{new_stem}{suffix}").exists())

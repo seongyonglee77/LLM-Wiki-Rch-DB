@@ -1,0 +1,237 @@
+---
+record_id: paper:2024_Brown-Bu-Mandel_Trash-Motion-Emergent
+stem: 2024_Brown-Bu-Mandel_Trash-Motion-Emergent
+title: 'Trash in Motion: Emergent Interactions with a Robotic Trashcan'
+authors:
+- Barry Brown
+- Fanjun Bu
+- Ilan Mandel
+- Wendy Ju
+year: '2024'
+type: paper
+research_design: Ethnomethodological and conversation-analytic field study using a
+  Wizard-of-Oz deployment of two mobile robotic trashcans and fine-grained video analysis.
+citation_key: brown-2024-trash-motion
+doi: 10.1145/3613904.3642610
+url: 10.1145/3613904.3642610
+metadata_status: open
+metadata_authority: publisher_pdf
+publication_stage: ''
+citation_info:
+  source_type: conference
+  source_title: Proceedings of the CHI Conference on Human Factors in Computing Systems
+    (CHI '24)
+  editors: []
+  volume: ''
+  issue: ''
+  pages: 17 pages
+  article_number: ''
+  publisher: ACM, New York, NY, USA
+tags:
+- public interaction
+- human-robot interaction
+- ethnomethodology
+- urban robotics
+- video analysis
+provenance:
+  pdf_path: papers\2024_Brown-Bu-Mandel_Trash-Motion-Emergent.pdf
+  source_path: sources\2024_Brown-Bu-Mandel_Trash-Motion-Emergent.md
+  parsed_with: docling
+  source_hash: 0ae143b075e738342bfaa1f38d656ee07a151ff18b9ba28caea8b89bb84b66c7
+  metadata_checked_at: ''
+  metadata_sources: []
+verification:
+  summary_verified: false
+  quote_verification_status: partial
+  quote_verification_pass_rate: 1.0
+  claim_verification_pass_rate: 1.0
+  requires_human_review: true
+  verified_at: ''
+related:
+  wiki:
+  - wiki/2024_Brown-Bu-Mandel_Trash-Motion-Emergent
+  overviews:
+  - wiki/overviews/conversational-ai-and-interaction
+  concepts:
+  - wiki/concepts/interactional-agency-and-turn-design
+  projects: []
+  questions: []
+  supersedes: []
+  superseded_by: []
+summary:
+  level: deep
+  status: summarized
+  structure_policy: source_structure
+---
+# Quick Card
+
+## Bibliographic Metadata
+
+- Authors: Barry Brown; Fanjun Bu; Ilan Mandel; Wendy Ju
+- Year: 2024
+- Design: Ethnomethodological and conversation-analytic field study using a Wizard-of-Oz deployment of two mobile robotic trashcans and fine-grained video analysis.
+
+## One-sentence Summary
+
+Through five hours of Wizard-of-Oz deployment and video analysis, the paper shows how people and mobile robotic trashcans spontaneously develop systematic, sequential, simple, and contextually intelligible practices for disposal, navigation, and demonstration in a public square.
+
+## Keywords
+
+public interaction; human-robot interaction; ethnomethodology; urban robotics; video analysis
+
+# Structured Summary
+
+## Purpose
+
+The paper asks how people respond to non-anthropomorphic robots deployed in public spaces and examines how movement becomes a practical medium through which robot operators, robots, and passersby coordinate action.
+
+## Findings
+
+Users spontaneously developed an 'offer and release' sequence in which a visible offer of trash prompted the robot to approach, followed by mutual adjustment and disposal. Robot-initiated 'ask and receive' interactions taught users that the trashcans were responsive and available for use. 'Driveby' disposal let seated users or passing pedestrians use the robot's existing trajectory to dispose of trash with minimal interaction. People and the robot coordinated movement through yielding, trajectory adjustment, and interpretation of pauses, although ambiguity could produce brief hesitation. Participants used the robots as objects of demonstration and testing, often recording interactions for audiences beyond the immediate square.
+
+## Discussion & Conclusion
+
+The observed practices were systematic because they recurred across users and uses while emerging from the interaction of operators, robots, the square, and its inhabitants. The interactions were sequential because each action set up conditions for the next and gained part of its meaning from what followed. Simplicity is contextual intelligibility: actions are easy to understand because they fit the setting and the robot's recognizable affordances. Spontaneous interaction relied on taken-for-granted knowledge of what a trashcan is for, allowing users to learn new possibilities without formal instruction. Robot motion should be designed not only for safety and efficiency but also for how it can be interpreted as a particular social action. Urban robots are more likely to fit public life when they align with existing environmental infrastructure and community purposes rather than treating public space as a neutral route.
+
+# Deep Summary
+
+## Research Problem and Purpose
+
+The paper asks how people respond to non-anthropomorphic robots deployed in public spaces and examines how movement becomes a practical medium through which robot operators, robots, and passersby coordinate action.
+
+## Theory & Literature Review
+
+The background positions the study at the intersection of urban robotics, ethnomethodology and conversation analysis, and the social organization of waste. Rather than treating public deployment as a simple test of whether a robot is accepted, the authors foreground emergent interactional practices and the infrastructural context that makes those practices intelligible.
+
+- Claim: Urban robotics research should examine emergent properties of interactions among system elements, including untrained bystanders and passersby.
+  - Interpretation: The relevant unit is not only the robot's technical capability or a user's attitude but the unintended forms of coordination that arise when a robot enters an already organized public environment.
+  - Evidence: "The urban robotics perspective brings a diferent perspective to human-robot interaction, a focus on the "emerging properties" that result from the interaction between system elements [65]." (page unavailable; source-text-verified)
+  - Why it matters: This reframes the research gap from controlled acceptance testing toward discovery of situated, publicly available interactional practices.
+
+- Claim: Movement is an important communication modality for robots in everyday settings because it can remain in the attentional periphery rather than demanding a focal dialogue.
+  - Interpretation: The authors build on implicit-interaction and EMCA traditions to treat bodily orientation, motion, gaze, pauses, and trajectory as publicly interpretable resources.
+  - Evidence: "Communication through movement has been a central part of ethnomethodological and conversation analysis (jointly referred to as 'EMCA') work on robotics, which we drew upon for this paper." (page unavailable; source-text-verified)
+  - Why it matters: It supplies the theoretical basis for studying a non-anthropomorphic trashcan whose interactional meaning is produced primarily through movement rather than speech or facial expression.
+
+- Claim: Waste disposal in public is already a socially organized and collaborative practice rather than a purely individual act of placing an object in a bin.
+  - Interpretation: Prior sociology and video-analysis work gives the authors a way to connect robotic trash collection to shared responsibility, turn-taking, instruction, and disputes over what counts as matter out of place.
+  - Evidence: "This work underlines that there is social understanding of our joint responsibility and interest in waste disposal." (page unavailable; source-text-verified)
+  - Why it matters: The robot is introduced into an existing social and infrastructural order, so its success depends on fitting recognizable disposal practices rather than adding an isolated technical function.
+
+## Methodology
+
+The authors deployed two remotely controlled trash barrel robots in a busy urban square for five one-hour sessions across five days. They recorded the square from robot-mounted 360-degree cameras and fixed cameras, built a corpus of more than five hours of video, selected 164 interaction highlights, and then conducted group analysis of 20 clips using an EMCA-informed close-reading approach.
+
+- Claim: The study used a naturalistic Wizard-of-Oz field deployment to observe unprimed public interaction.
+  - Interpretation: Operators controlled the robots, allowing the researchers to explore a broad range of responsive motion without pretending that current autonomous systems could already understand the environment.
+  - Evidence: "Using a "Wizard of Oz" deployment gave us a powerful tool for answering questions like 'how do people respond to non-anthropomorphic robots deployed in public spaces?,' 'How do people respond to this motion?,' and 'How do human Wizards respond to, or improvise with, common participant responses?' [43, 83]" (page unavailable; source-text-verified)
+  - Why it matters: The design isolates the interactional possibilities of robot motion while preserving the unpredictability of a busy public setting.
+
+- Claim: The corpus contained more than five hours of video, over 300 estimated interactions, and 164 selected highlights covering 135 minutes or 32% of the trial time.
+  - Interpretation: The analysis began broadly across the deployment and then narrowed to moments that were smooth, problematic, unusual, or typical.
+  - Evidence: "Interactions in the square with the trashcans were very frequent, and while interactions overlapped or were simultaneous, we estimated over 300 or so interactions across the fve days. Our 164 interaction highlights spanned 135 minutes or 32% of the overall trial time." (page unavailable; source-text-verified)
+  - Why it matters: These selection figures clarify that the paper is a qualitative account of interactional patterns, not a prevalence estimate of all robot encounters.
+
+- Claim: The final analysis selected 20 clips for two group data sessions and focused on what happened in interaction rather than on frequency or formal quantitative coding.
+  - Interpretation: Each clip was treated as a unique incident and also examined for patterns that could inform a broader account of emergent robotic interaction.
+  - Evidence: "For this reason, in our results, our focus is not on how frequent or common diferent actions were, but instead to ofer an informed analysis of what happened with the robots in the square." (page unavailable; source-text-verified)
+  - Why it matters: The analytic stance explains why the results present detailed sequences and design concepts instead of counts, experimental comparisons, or statistical generalization.
+
+## Findings
+
+The findings identify recurring interactional systematics in three domains: giving and receiving trash, coordinating movement in the square, and demonstrating or testing the robot's abilities. These practices developed quickly from the robot's movement, the operators' responses, the material setting, and participants' taken-for-granted knowledge of trashcans and public navigation.
+
+- Claim: Users spontaneously developed an 'offer and release' sequence in which a visible offer of trash prompted the robot to approach, followed by mutual adjustment and disposal.
+  - Interpretation: The held-out trash made the object, destination, and intended action legible; the robot's approach displayed acceptance, while delay or redirection could be understood as refusal and lead the user to retract the offer.
+  - Evidence: "While this use of the robotic trashcan is perhaps not the most advanced of operations, it is notable how it spontaneously arose, without any instructions, training, or prompting by ourselves." (page unavailable; source-text-verified)
+  - Why it matters: The sequence demonstrates that a robot can participate in an intelligible multi-step exchange without speech, instructions, or prior training.
+
+- Claim: Robot-initiated 'ask and receive' interactions taught users that the trashcans were responsive and available for use.
+  - Interpretation: Hovering near a table, tapping lightly, and waiting could be interpreted as requesting trash; users then learned both that disposal was encouraged and that the robot was not moving randomly.
+  - Evidence: "This 'asking' can be seen not as simply a way of collecting trash but also a way of instructing users that they are allowed to, and encouraged to use the trashcans" (page unavailable; source-text-verified)
+  - Why it matters: The finding shows how a system can instruct through situated action rather than through an explicit interface tutorial.
+
+- Claim: 'Driveby' disposal let seated users or passing pedestrians use the robot's existing trajectory to dispose of trash with minimal interaction.
+  - Interpretation: Users predicted the robot's future path, changed their own trajectory or hand position, and timed the disposal so that the encounter could be completed while continuing their journey.
+  - Evidence: "This means that a pedestrian needs to make predictions about where the trashcan is moving to, what its likely future motion will be, to be able to intersect the trashcan, and also to choose the right moment to drop the trash." (page unavailable; source-text-verified)
+  - Why it matters: This pattern makes clear that the robot's movement reorganizes ordinary pedestrian activity and can reduce the distance or effort required for disposal.
+
+- Claim: People and the robot coordinated movement through yielding, trajectory adjustment, and interpretation of pauses, although ambiguity could produce brief hesitation.
+  - Interpretation: The operator's decision to slow or stop before a narrow gap communicated that the pedestrian could proceed, while pedestrians adapted their paths around the moving object; rotation and unclear stopping behavior sometimes made right-versus-left passage uncertain.
+  - Evidence: "The operator, by slowing and stopping the trashcan at the chair on the left preempts the future path of the pedestrian and yields not just for where they are now, but also leaves space for their future path." (page unavailable; source-text-verified)
+  - Why it matters: The result extends robot navigation beyond collision avoidance: motion has to be readable as a social action such as yielding, waiting, or going.
+
+- Claim: Participants used the robots as objects of demonstration and testing, often recording interactions for audiences beyond the immediate square.
+  - Interpretation: A visible offer, approach, disposal, and disengagement formed a self-contained instructional unit that showed what the robot could recognize and how it moved; phone recording extended the demonstration to remote viewers.
+  - Evidence: "Applying this to the uses of our robot lets us explore how participants often managed and arranged their use of the trashcan in small 'instructional units' that served the purpose of demonstrating both how this robotic trashcan could be used, but also more broadly some of its basic abilities (such as recognition and movement), to hint at use more broadly." (page unavailable; source-text-verified)
+  - Why it matters: Public interaction includes social learning and play, not only functional trash disposal, so the robot's novelty becomes part of how its affordances are communicated.
+
+## Discussion
+
+The discussion consolidates the observations into SSSS—Spontaneous Simple Sequential Systematics—and uses the framework to propose a design orientation for urban robots. The authors argue that intelligible motion should be designed as communicative, context-sensitive action and that robots should participate in existing public infrastructures rather than merely pass through them.
+
+- Claim: The observed practices were systematic because they recurred across users and uses while emerging from the interaction of operators, robots, the square, and its inhabitants.
+  - Interpretation: Systematic does not mean preprogrammed: orderliness arose from situated social activity and became recognizable as offers, demonstrations, requests, and trajectory coordination.
+  - Evidence: "These systematics were not designed as features of the trashcan by ourselves or the operators but emerged from the interactions of the robot operators, the robot, the city square, and those inhabiting the square." (page unavailable; source-text-verified)
+  - Why it matters: This gives designers a vocabulary for analyzing regularity that is produced in use rather than specified in advance as a feature.
+
+- Claim: The interactions were sequential because each action set up conditions for the next and gained part of its meaning from what followed.
+  - Interpretation: A user waves trash before depositing it, a robot approaches after an offer, and a pedestrian proceeds after the robot yields; timing and order are therefore part of the interaction's meaning.
+  - Evidence: "This is, our actions can, at times, be divided into individual elements with each action setting up the conditions for the next, and the previous getting its sense in some ways refexively from what happens after." (page unavailable; source-text-verified)
+  - Why it matters: Robot behavior cannot be designed as isolated movements when users interpret motion in relation to prior actions and anticipated next actions.
+
+- Claim: Simplicity is contextual intelligibility: actions are easy to understand because they fit the setting and the robot's recognizable affordances.
+  - Interpretation: A trash offer makes sense in a food-and-waste setting, while the same gesture with a phone would not; users' actions are designed to be legible to others at a glance.
+  - Evidence: "This simplicity means that our actions are often simple enough to be seen and understood 'at a glance'." (page unavailable; source-text-verified)
+  - Why it matters: Designers should borrow reasonableness from the environment rather than assume that a technically simple motion will be socially understandable everywhere.
+
+- Claim: Spontaneous interaction relied on taken-for-granted knowledge of what a trashcan is for, allowing users to learn new possibilities without formal instruction.
+  - Interpretation: The moving robot was different enough to be novel but familiar enough for people to infer how to offer trash, respond to a request, or use a passing trajectory.
+  - Evidence: "As ordinary city inhabitants we know how to use a trashcan, and having a moving robotic trashcan, while quite diferent is close enough that we can almost instantaneously decide how to make use of this." (page unavailable; source-text-verified)
+  - Why it matters: Novel systems can reduce onboarding demands when their form and behavior connect to ordinary public practices, although learning can still occur through observing others.
+
+- Claim: Robot motion should be designed not only for safety and efficiency but also for how it can be interpreted as a particular social action.
+  - Interpretation: The authors distinguish motion that is merely collision-free from motion that is readable as going, looking, yielding, responding, or waiting in a specific context.
+  - Evidence: "In terms of design, we would underlie the importance of designing robot motion not just in terms of safety, or efciency, but in terms of how it can be understood by those around." (page unavailable; source-text-verified)
+  - Why it matters: This is the paper's central design implication: interaction quality depends on communicative timing and legibility, not only successful navigation.
+
+- Claim: Urban robots are more likely to fit public life when they align with existing environmental infrastructure and community purposes rather than treating public space as a neutral route.
+  - Interpretation: The trashcan robots were recognizable as municipal infrastructure and became part of the square's background activity, even while their novelty produced playful demonstrations.
+  - Evidence: "The trashcan robots are therefore not passing through but are a mode of automating the infrastructure that is already embedded in the environmental context." (page unavailable; source-text-verified)
+  - Why it matters: The argument connects interaction design to civic and infrastructural design: robots should participate in the social character of places, not merely occupy them.
+
+## Unique Contributions
+
+It names and develops the sensitizing framework of Spontaneous Simple Sequential Systematics (SSSS), connects ethnomethodological video analysis to urban robotics design, and shows how a familiar object form can support novel but immediately intelligible public interaction.
+
+## Limitations
+
+The Wizard-of-Oz design captures a best-case form of human-controlled robot motion rather than autonomous performance; the trial lasted only five one-hour sessions in one public square; post-interaction consent could reveal the researchers' affiliation and affect the interactional illusion; and the analysis prioritizes theoretically informative clips over frequency or population-level prevalence.
+
+## Relevance to My Study
+
+The paper offers a strong interaction-centered comparator for AI and robotic system design: evaluation should examine how actions are sequentially understood in context, how systems communicate through timing and movement, and how users' adaptation work is distributed across people, operators, technology, and environment.
+
+## Future Work
+
+Future work should investigate how SSSS-informed motion can be implemented by autonomous systems, how these practices generalize across urban settings and robot forms, and how long-term deployments affect public-space infrastructure, conviviality, and participation.
+
+## Possible Use in Literature Review
+
+Use this paper to support claims that human-robot interaction is situated and sequential rather than reducible to acceptance attitudes or task completion; that motion can function as a communicative resource; and that familiar forms and public demonstrations can make novel technologies learnable without formal instruction.
+
+## Citation Notes
+
+This is a CHI '24 conference paper published by ACM with DOI 10.1145/3613904.3642610. The parsed source contains no reliable page markers, so every quotation is validated against the canonical parsed source as source-text evidence; page-level verification remains for manual review.
+
+Every substantive claim above is linked to an exact quotation checked against the parsed source. `source_page` denotes a parsed-source page marker; `source_text` denotes an exact source-text match where no reliable page locator was available. PDF re-reading is not part of summary verification; page-level checking is left for manual review.
+
+## Related Synthesis Pages
+
+- [[../wiki/overviews/conversational-ai-and-interaction|Conversational AI and Human Interaction]]
+- [[../wiki/concepts/interactional-agency-and-turn-design|Interactional Agency and Turn Design]]
+
+## Related Links
+
+- Source: [[../sources/2024_Brown-Bu-Mandel_Trash-Motion-Emergent|parsed source]]
+- Wiki: [[../wiki/2024_Brown-Bu-Mandel_Trash-Motion-Emergent|synthesis node]]

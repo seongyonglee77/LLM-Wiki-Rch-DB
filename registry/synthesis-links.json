@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "policy": {
+    "mandatory_any_of": [
+      "overviews",
+      "concepts"
+    ],
+    "optional": [
+      "projects",
+      "questions"
+    ],
+    "bidirectional": true,
+    "note": "A paper receives only semantically justified links. Empty optional categories are valid. Every overview/concept relationship must have a reverse Related Papers link and contextual prose."
+  },
+  "papers": {
+    "2023-09-jeon-lee-eait-chatgpt": {
+      "overviews": [
+        "overviews/ai-language-education"
+      ]
+    },
+    "2024-04-lee-jeon-system": {
+      "overviews": [
+        "overviews/genai-teacher-education"
+      ]
+    },
+    "2024-05-jeon-lee-choi-ile": {
+      "overviews": [
+        "overviews/chatbots-language-learning"
+      ]
+    },
+    "2024-05-jeon-lee-eait": {
+      "overviews": [
+        "overviews/chatbots-language-learning"
+      ]
+    },
+    "2024-08-jeon-lee-ets": {
+      "overviews": [
+        "overviews/chatbots-language-learning"
+      ]
+    },
+    "2024-09-05-jeon-lee-coronel-molina-elt": {
+      "overviews": [
+        "overviews/critical-ai-literacy"
+      ]
+    },
+    "2024-11-05-lee-jeon-llt": {
+      "overviews": [
+        "overviews/genai-teacher-education"
+      ]
+    },
+    "2025-03-lee-jeon-choe-tq": {
+      "overviews": [
+        "overviews/critical-ai-literacy",
+        "overviews/genai-teacher-education"
+      ]
+    },
+    "2025-04-genai-and-agency-eltj": {
+      "overviews": [
+        "overviews/genai-teacher-education"
+      ]
+    },
+    "2025-08-29-jeon-et-al-applied-linguistics": {
+      "overviews": [
+        "overviews/critical-ai-literacy"
+      ]
+    },
+    "20250909-seongyong-et-al-aral": {
+      "overviews": [
+        "overviews/critical-ai-literacy"
+      ]
+    },
+    "20260115-jeon-et-al-literacy": {
+      "overviews": [
+        "overviews/critical-ai-literacy"
+      ]
+    },
+    "20260131-lee-et-al-review-ile": {
+      "overviews": [
+        "overviews/ai-language-education"
+      ]
+    },
+    "20260606-lee-jeon-llt": {
+      "overviews": [
+        "overviews/genai-teacher-education"
+      ]
+    },
+    "20260905-lee-et-al-tesol-journal": {
+      "overviews": [
+        "overviews/ai-language-education"
+      ]
+    },
+    "2015_Kitade_Second-Language-Teacher": {
+      "overviews": [
+        "overviews/teacher-agency-and-language-technology"
+      ]
+    },
+    "2025_Darvin_Identity-Investment-Age": {
+      "concepts": [
+        "concepts/identity-investment-and-generative-ai"
+      ]
+    },
+    "2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers": {
+      "overviews": [
+        "overviews/genai-teacher-education",
+        "overviews/ai-language-education"
+      ]
+    },
+    "2024_Addlesee-Eshghi_You-Have-Interrupted": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Connects interruption recovery and accessibility as a core interactional challenge for conversational AI."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Concrete concept that systems must adapt to user turns through clarification requests and repair."
+        }
+      ],
+      "projects": [
+        {
+          "path": "projects/ai-mediated-language-and-care-interaction",
+          "label": "AI-Mediated Language and Care Interaction",
+          "relation": "Provides the real-world deployment challenge of dementia-friendly voice assistants."
+        }
+      ],
+      "questions": [
+        {
+          "path": "questions/how-should-ai-support-human-interaction",
+          "label": "How Should AI Support Human Interaction?",
+          "relation": "Asks about repair design that does not demand repetition from users."
+        }
+      ]
+    },
+    "2024_Ahn-Kim-Lee_How-Do-Ai": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Extends customer-service dialogue to social interaction."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Shows how adjacency pairs and positioning constitute roles in AI service dialogue."
+        }
+      ],
+      "questions": [
+        {
+          "path": "questions/how-should-ai-support-human-interaction",
+          "label": "How Should AI Support Human Interaction?",
+          "relation": "Connects cultural pragmatics and user expectations to service agent design."
+        }
+      ]
+    },
+    "2024_Albert-Hall_Distributed-Agency-Smart": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Extends AI interaction in care settings into a distributed relational network."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Provides the mechanism by which agency is distributed across people, devices, and environments."
+        }
+      ],
+      "projects": [
+        {
+          "path": "projects/ai-mediated-language-and-care-interaction",
+          "label": "AI-Mediated Language and Care Interaction",
+          "relation": "Provides cases of smart-home care design and evaluation."
+        }
+      ],
+      "questions": [
+        {
+          "path": "questions/how-should-ai-support-human-interaction",
+          "label": "How Should AI Support Human Interaction?",
+          "relation": "Asks about the arrangement of care agency and accountability."
+        }
+      ]
+    },
+    "2023_Albert-Hamann-Stokoe_Conversational-User-Interfaces": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Connects real-world interactions with care-oriented CUIs to the overview of conversational AI."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Shows how CUIs coordinate participation and next actions."
+        }
+      ],
+      "projects": [
+        {
+          "path": "projects/ai-mediated-language-and-care-interaction",
+          "label": "AI-Mediated Language and Care Interaction",
+          "relation": "Specifies CUI design challenges in care contexts."
+        }
+      ],
+      "questions": [
+        {
+          "path": "questions/how-should-ai-support-human-interaction",
+          "label": "How Should AI Support Human Interaction?",
+          "relation": "Asks under what conditions automation adjusts rather than replaces care relationships."
+        }
+      ]
+    },
+    "2020_Baidya-Das-Gao_Behavior-Gap-Evaluating": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Frames dialogue-agent evaluation as a matter of task success and behavioral appropriateness."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Summarizes the behavior gap and accountability issues of LLM agents."
+        }
+      ],
+      "questions": [
+        {
+          "path": "questions/how-should-ai-support-human-interaction",
+          "label": "How Should AI Support Human Interaction?",
+          "relation": "Sharpens the question of what agent behavior should be evaluated against."
+        }
+      ]
+    },
+    "2011_Bangerter-Mayor-Doehler_Reported-Speech-Conversational": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Shows how utterance and accountability are organized in institutional dialogue."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Shows how reported speech performs professional accountability and positioning."
+        }
+      ],
+      "questions": [
+        {
+          "path": "questions/how-should-ai-support-human-interaction",
+          "label": "How Should AI Support Human Interaction?",
+          "relation": "Asks about the conditions for AI support and accountability in institutional interaction."
+        }
+      ]
+    },
+    "2011_Barraja-Rohan_I-Told-You": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Connects storytelling with the development of interactional competence."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Provides how story turns and repair constitute L2 interactional competence."
+        }
+      ]
+    },
+    "0000_Barthel_Alexa-You-Are": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Connects voice-agent response timing with naturalness."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Provides backchannel and turn timing as interactional design concepts."
+        }
+      ],
+      "questions": [
+        {
+          "path": "questions/how-should-ai-support-human-interaction",
+          "label": "How Should AI Support Human Interaction?",
+          "relation": "Asks what conditions make a voice agent turn natural."
+        }
+      ]
+    },
+    "0000_Bozb-y-k-Sert-Bacanak_Veo-Integrated-Imdat-Pre-Service": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Connects teacher questioning and video-mediated interaction to a dialogue-design problem."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Shows the relationship between question types and teacher agency."
+        }
+      ],
+      "projects": [
+        {
+          "path": "projects/ai-mediated-language-and-care-interaction",
+          "label": "AI-Mediated Language and Care Interaction",
+          "relation": "Provides the project context of using video and interactive tools in preservice teacher education."
+        }
+      ],
+      "questions": [
+        {
+          "path": "questions/how-should-ai-support-human-interaction",
+          "label": "How Should AI Support Human Interaction?",
+          "relation": "Asks how AI can support teachers' question design."
+        }
+      ]
+    },
+    "2023_Brandt-Hazel-Mckinnon_From-Writing-Dialogue": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Connects VUI dialogue design with the analysis of actual interaction."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Explains SSML and turn design as an implementation of interactional agency."
+        }
+      ],
+      "projects": [
+        {
+          "path": "projects/ai-mediated-language-and-care-interaction",
+          "label": "AI-Mediated Language and Care Interaction",
+          "relation": "Provides methodology for context-sensitive VUI design projects."
+        }
+      ],
+      "questions": [
+        {
+          "path": "questions/how-should-ai-support-human-interaction",
+          "label": "How Should AI Support Human Interaction?",
+          "relation": "Asks what conditions VUI turns must meet to fit context."
+        }
+      ]
+    },
+    "2024_Brandt_Educating-Dora-Teaching": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Connects EMCA-informed conversational-agent design to timing, sequence organization, prosody, and user adaptation in clinical telephone interactions."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Shows how latency, TTS punctuation, turn timing, and sequence design distribute interactional work between a voice agent and its users."
+        }
+      ],
+      "projects": [
+        {
+          "path": "projects/ai-mediated-language-and-care-interaction",
+          "label": "AI-Mediated Language and Care Interaction",
+          "relation": "Provides an empirical design workflow for improving an automated clinical assistant through comparison with human care interactions."
+        }
+      ],
+      "questions": [
+        {
+          "path": "questions/how-should-ai-support-human-interaction",
+          "label": "How Should AI Support Human Interaction?",
+          "relation": "Shows why conversational AI should reduce users’ repair and adaptation burden rather than merely complete the task."
+        }
+      ]
+    },
+    "2024_Brown-Bu-Mandel_Trash-Motion-Emergent": {
+      "overviews": [
+        {
+          "path": "overviews/conversational-ai-and-interaction",
+          "label": "Conversational AI and Human Interaction",
+          "relation": "Extends interaction-centered analysis from conversational interfaces to situated human-robot coordination, showing why system behavior must be intelligible in context."
+        }
+      ],
+      "concepts": [
+        {
+          "path": "concepts/interactional-agency-and-turn-design",
+          "label": "Interactional Agency and Turn Design",
+          "relation": "Shows how agency is distributed across robot motion, operator judgment, pedestrian responses, timing, and the public environment through sequential action."
+        }
+      ]
+    }
+  }
+}

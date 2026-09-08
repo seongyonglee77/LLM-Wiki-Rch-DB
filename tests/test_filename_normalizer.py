@@ -11,40 +11,40 @@ class FilenameNormalizerTests(unittest.TestCase):
     def test_extracts_year_first_three_authors_and_three_word_title(self):
         source = """## The impact of a chatbot-assisted flipped approach on EFL learner interaction
 
-## Alex Morgan 1 and Taylor Chen 2* and Dana Kim 3
+## Jaeho Jeon 1 and Seongyong Lee 2* and Mira Kim 3
 
 (Accepted May 10, 2024)
 """
-        self.assertEqual(canonical_stem(source), "2024_Morgan-Chen-Kim_Impact-Chatbot-Assisted-Flipped")
+        self.assertEqual(canonical_stem(source), "2024_Jeon-Lee-Kim_Impact-Chatbot-Assisted-Flipped")
 
     def test_uses_body_metadata_and_skips_journal_boilerplate(self):
-        first_fixture = """---
+        darvin = """---
 stem: provisional
 parsed_at: 2026-09-06
 ---
 ## RESEARCH ARTICLE
 
-## Identity and investment in digital learning
+## Identity and investment in the age of generative AI
 
-Riley Morgan
+Ron Darvin
 
-The Author(s), 2025.
+©TheAuthor(s), 2025.
 """
-        second_fixture = """---
+        roblin = """---
 stem: provisional
 ---
 ## Computers &amp; Education
 
 [journal homepage](https://example.test)
 
-## Preparing novice teachers to teach with digital tools: An update of effective strategies
+## Preparing preservice teachers to teach with digital technologies: An update of effective SQD-strategies
 
-Alex Rivera a , Casey Park b , Jordan Smith c,* , Morgan Lee d
+Jo Tondeur a , Ottavia Trevisan b , Sarah K. Howard c,* , Johan van Braak d
 
-2025 The Authors.
+© 2025 The Authors.
 """
-        self.assertEqual(canonical_stem(first_fixture), "2025_Morgan_Identity-Investment-Digital")
-        self.assertEqual(canonical_stem(second_fixture), "2025_Rivera-Park-Smith_Preparing-Novice-Teachers")
+        self.assertEqual(canonical_stem(darvin), "2025_Darvin_Identity-Investment-Age")
+        self.assertEqual(canonical_stem(roblin), "2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers")
 
     def test_collision_suffix_is_deterministic(self):
         self.assertEqual(collision_stem("2024_Lee_AI_Teacher_Agency", set()), "2024_Lee_AI_Teacher_Agency")

@@ -1,1 +1,924 @@
-[]
+[
+  {
+    "authors": [
+      "Darvin, Ron"
+    ],
+    "citation_key": "Darvin2025",
+    "doi": "https://doi.org/10.1017/S0267190525100135",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2025_Darvin_Identity-Investment-Age.md",
+      "pdf": "papers\\2025_Darvin_Identity-Investment-Age.pdf",
+      "source": "sources\\2025_Darvin_Identity-Investment-Age.md",
+      "wiki": "wiki/2025_Darvin_Identity-Investment-Age.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2025_Darvin_Identity-Investment-Age.pdf",
+      "source_hash": "66cdf7ce02545cd7719c3ce975636b3d4d9a6076da511b2e2a8c45be07311a4b",
+      "source_path": "sources\\2025_Darvin_Identity-Investment-Age.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2025_Darvin_Identity-Investment-Age",
+    "stem": "2025_Darvin_Identity-Investment-Age",
+    "title": "Identity and investment in the age of generative AI",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2025"
+  },
+  {
+    "authors": [
+      "Kitade, Keiko"
+    ],
+    "citation_key": "Kitade2015CALL",
+    "doi": "https://doi.org/10.1558/cj.v32i3.26637",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2015_Kitade_Second-Language-Teacher.md",
+      "pdf": "papers\\2015_Kitade_Second-Language-Teacher.pdf",
+      "source": "sources\\2015_Kitade_Second-Language-Teacher.md",
+      "wiki": "wiki/2015_Kitade_Second-Language-Teacher.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2015_Kitade_Second-Language-Teacher.pdf",
+      "source_hash": "c4620226447843c03d92f790eeba799d701ad202be9ba38a56a5689360254ba9",
+      "source_path": "sources\\2015_Kitade_Second-Language-Teacher.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2015_Kitade_Second-Language-Teacher",
+    "stem": "2015_Kitade_Second-Language-Teacher",
+    "title": "Second Language Teacher Development through CALL Practice: The Emergence of Teachers' Agency",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2015"
+  },
+  {
+    "authors": [
+      "Tondeur, Jo",
+      "Trevisan, Ottavia",
+      "Howard, Sarah K.",
+      "van Braak, Johan"
+    ],
+    "citation_key": "Tondeur2025SQD2",
+    "doi": "https://doi.org/10.1016/j.compedu.2025.105262",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers.md",
+      "pdf": "papers\\2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers.pdf",
+      "source": "sources\\2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers.md",
+      "wiki": "wiki/2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers.pdf",
+      "source_hash": "17372e10994314675d3e24f9e1de88590a78b838900ff6e17670e6cf790208de",
+      "source_path": "sources\\2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers",
+    "stem": "2025_Tondeur-Trevisan-Howard_Preparing-Preservice-Teachers",
+    "title": "Preparing preservice teachers to teach with digital technologies: An update of effective SQD-strategies",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2025"
+  },
+  {
+    "authors": [
+      "Angus Addlesee",
+      "Arash Eshghi"
+    ],
+    "citation_key": "addlesee-2024-interrupted",
+    "doi": "10.3389/frdem.2024.1343052",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024_Addlesee-Eshghi_You-Have-Interrupted.md",
+      "pdf": "papers\\2024_Addlesee-Eshghi_You-Have-Interrupted.pdf",
+      "source": "sources\\2024_Addlesee-Eshghi_You-Have-Interrupted.md",
+      "wiki": "wiki/2024_Addlesee-Eshghi_You-Have-Interrupted.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2024_Addlesee-Eshghi_You-Have-Interrupted.pdf",
+      "source_hash": "ad3723998e016b609acb7667f3c9f8c8535cac517621688c140e56dcefad4f49",
+      "source_path": "sources\\2024_Addlesee-Eshghi_You-Have-Interrupted.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2024_Addlesee-Eshghi_You-Have-Interrupted",
+    "stem": "2024_Addlesee-Eshghi_You-Have-Interrupted",
+    "title": "You have interrupted me again! : making voice assistants more dementia friendly with incremental clarification",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "So-Yeon Ahn",
+      "Seonghoon Kim",
+      "Eun-Young Lee",
+      "Hyunjong Lee",
+      "Eun-Young Song",
+      "Junehwa Song",
+      "Jongseo Won"
+    ],
+    "citation_key": "ahn-2024-ai-human-interact",
+    "doi": "10.1515/text-2023-0116",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024_Ahn-Kim-Lee_How-Do-Ai.md",
+      "pdf": "papers\\2024_Ahn-Kim-Lee_How-Do-Ai.pdf",
+      "source": "sources\\2024_Ahn-Kim-Lee_How-Do-Ai.md",
+      "wiki": "wiki/2024_Ahn-Kim-Lee_How-Do-Ai.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2024_Ahn-Kim-Lee_How-Do-Ai.pdf",
+      "source_hash": "9328b35f31e8448df35d86fa440a9b348cced46edab8432f13d5afad1e963bb1",
+      "source_path": "sources\\2024_Ahn-Kim-Lee_How-Do-Ai.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2024_Ahn-Kim-Lee_How-Do-Ai",
+    "stem": "2024_Ahn-Kim-Lee_How-Do-Ai",
+    "title": "How do AI and human users interact? Positioning of AI and human users in customer service",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "Saul Albert",
+      "Magnus Hamann",
+      "Elizabeth Stokoe"
+    ],
+    "citation_key": "albert-2023-cui-homecare",
+    "doi": "10.1145/3571884.3597140",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2023_Albert-Hamann-Stokoe_Conversational-User-Interfaces.md",
+      "pdf": "papers\\2023_Albert-Hamann-Stokoe_Conversational-User-Interfaces.pdf",
+      "source": "sources\\2023_Albert-Hamann-Stokoe_Conversational-User-Interfaces.md",
+      "wiki": "wiki/2023_Albert-Hamann-Stokoe_Conversational-User-Interfaces.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2023_Albert-Hamann-Stokoe_Conversational-User-Interfaces.pdf",
+      "source_hash": "ce0d80caddbaadde729776295d7d7a02f02a61bc4d3999d3426d0038fc86fc6a",
+      "source_path": "sources\\2023_Albert-Hamann-Stokoe_Conversational-User-Interfaces.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2023_Albert-Hamann-Stokoe_Conversational-User-Interfaces",
+    "stem": "2023_Albert-Hamann-Stokoe_Conversational-User-Interfaces",
+    "title": "Conversational User Interfaces in Smart Homecare Interactions: A Conversation Analytic Case Study",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2023"
+  },
+  {
+    "authors": [
+      "Saul Albert",
+      "Lauren Hall"
+    ],
+    "citation_key": "albert-2024-distributed-agency",
+    "doi": "10.1177/17504813241267059",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024_Albert-Hall_Distributed-Agency-Smart.md",
+      "pdf": "papers\\2024_Albert-Hall_Distributed-Agency-Smart.pdf",
+      "source": "sources\\2024_Albert-Hall_Distributed-Agency-Smart.md",
+      "wiki": "wiki/2024_Albert-Hall_Distributed-Agency-Smart.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2024_Albert-Hall_Distributed-Agency-Smart.pdf",
+      "source_hash": "0b50e4bbef35d20059d31c4f8db9f87e21c675512b2707dd88effb7df00ba785",
+      "source_path": "sources\\2024_Albert-Hall_Distributed-Agency-Smart.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2024_Albert-Hall_Distributed-Agency-Smart",
+    "stem": "2024_Albert-Hall_Distributed-Agency-Smart",
+    "title": "Distributed agency in smart homecare interactions: A conversation analytic case study",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "Avinash Baidya",
+      "Kamalika Das",
+      "Xiang Gao"
+    ],
+    "citation_key": "baidya-2020-behavior-gap",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2020_Baidya-Das-Gao_Behavior-Gap-Evaluating.md",
+      "pdf": "papers\\2020_Baidya-Das-Gao_Behavior-Gap-Evaluating.pdf",
+      "source": "sources\\2020_Baidya-Das-Gao_Behavior-Gap-Evaluating.md",
+      "wiki": "wiki/2020_Baidya-Das-Gao_Behavior-Gap-Evaluating.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2020_Baidya-Das-Gao_Behavior-Gap-Evaluating.pdf",
+      "source_hash": "5f431e2a85b7a719679787d7c8265659bac21056c51e81b484c61f237b4dbd12",
+      "source_path": "sources\\2020_Baidya-Das-Gao_Behavior-Gap-Evaluating.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2020_Baidya-Das-Gao_Behavior-Gap-Evaluating",
+    "stem": "2020_Baidya-Das-Gao_Behavior-Gap-Evaluating",
+    "title": "The Behavior Gap: Evaluating Zero-shot LLM Agents in Complex Task-Oriented Dialogs",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2020"
+  },
+  {
+    "authors": [
+      "Adrian Bangerter",
+      "Eric Mayor",
+      "Simona Pekarek Doehler"
+    ],
+    "citation_key": "bangerter-2011-reported-speech",
+    "doi": "10.1080/0163853X.2010.519765",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2011_Bangerter-Mayor-Doehler_Reported-Speech-Conversational.md",
+      "pdf": "papers\\2011_Bangerter-Mayor-Doehler_Reported-Speech-Conversational.pdf",
+      "source": "sources\\2011_Bangerter-Mayor-Doehler_Reported-Speech-Conversational.md",
+      "wiki": "wiki/2011_Bangerter-Mayor-Doehler_Reported-Speech-Conversational.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2011_Bangerter-Mayor-Doehler_Reported-Speech-Conversational.pdf",
+      "source_hash": "fa46d7cd50b0a2634d3537e6931425c713779e4341a8d7aad2cdc30308fc3062",
+      "source_path": "sources\\2011_Bangerter-Mayor-Doehler_Reported-Speech-Conversational.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2011_Bangerter-Mayor-Doehler_Reported-Speech-Conversational",
+    "stem": "2011_Bangerter-Mayor-Doehler_Reported-Speech-Conversational",
+    "title": "Reported Speech in Conversational Storytelling During Nursing Shift Handover Meetings",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2011"
+  },
+  {
+    "authors": [
+      "Anne-Marie Barraja-Rohan"
+    ],
+    "citation_key": "barraja-rohan-2011-storytelling",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2011_Barraja-Rohan_I-Told-You.md",
+      "pdf": "papers\\2011_Barraja-Rohan_I-Told-You.pdf",
+      "source": "sources\\2011_Barraja-Rohan_I-Told-You.md",
+      "wiki": "wiki/2011_Barraja-Rohan_I-Told-You.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2011_Barraja-Rohan_I-Told-You.pdf",
+      "source_hash": "c620894b386d7dc053b6c6611a7783582db3c5e0d7a16ec4a92b687831705a9d",
+      "source_path": "sources\\2011_Barraja-Rohan_I-Told-You.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2011_Barraja-Rohan_I-Told-You",
+    "stem": "2011_Barraja-Rohan_I-Told-You",
+    "title": "'I told you': Storytelling development of a Japanese learning English as a Second Language",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2011"
+  },
+  {
+    "authors": [
+      "Mathias Barthel"
+    ],
+    "citation_key": "barthel-alexa-too-slow",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\0000_Barthel_Alexa-You-Are.md",
+      "pdf": "papers\\0000_Barthel_Alexa-You-Are.pdf",
+      "source": "sources\\0000_Barthel_Alexa-You-Are.md",
+      "wiki": "wiki/0000_Barthel_Alexa-You-Are.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\0000_Barthel_Alexa-You-Are.pdf",
+      "source_hash": "8617d3edc586eff792e84de87d4c45fb4706867d1f0e83af0e34f51f621c762b",
+      "source_path": "sources\\0000_Barthel_Alexa-You-Are.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:0000_Barthel_Alexa-You-Are",
+    "stem": "0000_Barthel_Alexa-You-Are",
+    "title": "Alexa, you are too slow! Invariant turn-transition times and conversational flow in natural human - voice agent interaction",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": ""
+  },
+  {
+    "authors": [
+      "Merve Bozb캇y캇k",
+      "Olcay Sert",
+      "Kadriye Dilek Bacanak"
+    ],
+    "citation_key": "bozbyik-sert-bacanak-veo-imdat",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\0000_Bozb-y-k-Sert-Bacanak_Veo-Integrated-Imdat-Pre-Service.md",
+      "pdf": "papers\\0000_Bozb-y-k-Sert-Bacanak_Veo-Integrated-Imdat-Pre-Service.pdf",
+      "source": "sources\\0000_Bozb-y-k-Sert-Bacanak_Veo-Integrated-Imdat-Pre-Service.md",
+      "wiki": "wiki/0000_Bozb-y-k-Sert-Bacanak_Veo-Integrated-Imdat-Pre-Service.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\0000_Bozb-y-k-Sert-Bacanak_Veo-Integrated-Imdat-Pre-Service.pdf",
+      "source_hash": "b4b6f2a7c40ea8aadbe505bc7d40c9307d978610b8b22aa36f505dd6909373c2",
+      "source_path": "sources\\0000_Bozb-y-k-Sert-Bacanak_Veo-Integrated-Imdat-Pre-Service.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:0000_Bozb-y-k-Sert-Bacanak_Veo-Integrated-Imdat-Pre-Service",
+    "stem": "0000_Bozb-y-k-Sert-Bacanak_Veo-Integrated-Imdat-Pre-Service",
+    "title": "VEO-integrated IMDAT in Pre-service Language Teacher Education: A Focus on Change in Teacher Questioning Practices",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": ""
+  },
+  {
+    "authors": [
+      "Adam Brandt",
+      "Spencer Hazel",
+      "Rory Mckinnon",
+      "Kleopatra Sideridou",
+      "Joe Tindale",
+      "Nikoletta Ventoura"
+    ],
+    "citation_key": "brandt-2023-writing-dialogue",
+    "doi": "10.1145/3571884.3603758",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2023_Brandt-Hazel-Mckinnon_From-Writing-Dialogue.md",
+      "pdf": "papers\\2023_Brandt-Hazel-Mckinnon_From-Writing-Dialogue.pdf",
+      "source": "sources\\2023_Brandt-Hazel-Mckinnon_From-Writing-Dialogue.md",
+      "wiki": "wiki/2023_Brandt-Hazel-Mckinnon_From-Writing-Dialogue.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2023_Brandt-Hazel-Mckinnon_From-Writing-Dialogue.pdf",
+      "source_hash": "728b8ac47cf689f085f05c35106d3a70f40c12cf6d7428796e43ead731a674e6",
+      "source_path": "sources\\2023_Brandt-Hazel-Mckinnon_From-Writing-Dialogue.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2023_Brandt-Hazel-Mckinnon_From-Writing-Dialogue",
+    "stem": "2023_Brandt-Hazel-Mckinnon_From-Writing-Dialogue",
+    "title": "From Writing Dialogue to Designing Conversation: Considering the potential of Conversation Analysis for Voice User Interfaces",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2023"
+  },
+  {
+    "authors": [
+      "Brandt, Adam",
+      "Hazel, Spencer",
+      "McKinnon, Rory",
+      "Sideridou, Kleopatra",
+      "Tindale, Joe",
+      "Ventoura, Nikoletta"
+    ],
+    "citation_key": "brandt2024dora",
+    "doi": "10.1177/17504813241267109",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024_Brandt_Educating-Dora-Teaching.md",
+      "pdf": "papers\\\\2024_Brandt_Educating-Dora-Teaching.pdf",
+      "source": "sources\\\\2024_Brandt_Educating-Dora-Teaching.md",
+      "wiki": "wiki/2024_Brandt_Educating-Dora-Teaching.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [
+        "publisher PDF",
+        "DOI embedded in publisher PDF"
+      ],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\\\2024_Brandt_Educating-Dora-Teaching.pdf",
+      "source_hash": "705a55ee9478a56e2ea5d98f791642f7b15f3f1264d00b095e4d3e0bf6b9095a",
+      "source_path": "sources\\\\2024_Brandt_Educating-Dora-Teaching.md"
+    },
+    "publication_stage": "version_of_record",
+    "record_id": "paper:2024_Brandt_Educating-Dora-Teaching",
+    "stem": "2024_Brandt_Educating-Dora-Teaching",
+    "title": "Educating Dora: Teaching a conversational agent to talk",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "Barry Brown",
+      "Fanjun Bu",
+      "Ilan Mandel",
+      "Wendy Ju"
+    ],
+    "citation_key": "brown-2024-trash-motion",
+    "doi": "10.1145/3613904.3642610",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024_Brown-Bu-Mandel_Trash-Motion-Emergent.md",
+      "pdf": "papers\\2024_Brown-Bu-Mandel_Trash-Motion-Emergent.pdf",
+      "source": "sources\\2024_Brown-Bu-Mandel_Trash-Motion-Emergent.md",
+      "wiki": "wiki/2024_Brown-Bu-Mandel_Trash-Motion-Emergent.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2024_Brown-Bu-Mandel_Trash-Motion-Emergent.pdf",
+      "source_hash": "0ae143b075e738342bfaa1f38d656ee07a151ff18b9ba28caea8b89bb84b66c7",
+      "source_path": "sources\\2024_Brown-Bu-Mandel_Trash-Motion-Emergent.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2024_Brown-Bu-Mandel_Trash-Motion-Emergent",
+    "stem": "2024_Brown-Bu-Mandel_Trash-Motion-Emergent",
+    "title": "Trash in Motion: Emergent Interactions with a Robotic Trashcan",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "Last Name, First Name"
+    ],
+    "citation_key": "innovationinlanguagelear",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024-hwang-et-al.md",
+      "pdf": "papers\\2024-hwang-et-al.pdf",
+      "source": "sources\\2024-hwang-et-al.md",
+      "wiki": "wiki/2024-hwang-et-al.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2024-hwang-et-al.pdf",
+      "source_hash": "7cfac6dec6abe85c18ac065791e727bcc0278c5b053167e7ececfbc99204c693",
+      "source_path": "sources\\2024-hwang-et-al.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2024-hwang-et-al",
+    "stem": "2024-hwang-et-al",
+    "title": "Innovation in Language Learning and Teaching",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": ""
+  },
+  {
+    "authors": [
+      "Jeon, Jaeho",
+      "et al."
+    ],
+    "citation_key": "jeon2026ailiteracy",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\20260115-jeon-et-al-literacy.md",
+      "pdf": "papers\\20260115-jeon-et-al-literacy.pdf",
+      "source": "sources\\20260115-jeon-et-al-literacy.md",
+      "wiki": "wiki/20260115-jeon-et-al-literacy.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\20260115-jeon-et-al-literacy.pdf",
+      "source_hash": "2cadb2fe8da30dc900f5b19cb5fe519b743da7f5071cd36dd981f545ff398325",
+      "source_path": "sources\\20260115-jeon-et-al-literacy.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:20260115-jeon-et-al-literacy",
+    "stem": "20260115-jeon-et-al-literacy",
+    "title": "The AI turn in literacy practices: toward an inclusive educational framework",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2026"
+  },
+  {
+    "authors": [
+      "Jeon, Jaeho",
+      "Lee, Seongyong"
+    ],
+    "citation_key": "jeonlee2023llm",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2023-09-jeon-lee-eait-chatgpt.md",
+      "pdf": "papers\\2023-09-jeon-lee-eait-chatgpt.pdf",
+      "source": "sources\\2023-09-jeon-lee-eait-chatgpt.md",
+      "wiki": "wiki/2023-09-jeon-lee-eait-chatgpt.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2023-09-jeon-lee-eait-chatgpt.pdf",
+      "source_hash": "bd5c70c63a6d13a79dcb51a69e481c1f813415f661d386bb8d90d6f420db75a9",
+      "source_path": "sources\\2023-09-jeon-lee-eait-chatgpt.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2023-09-jeon-lee-eait-chatgpt",
+    "stem": "2023-09-jeon-lee-eait-chatgpt",
+    "title": "Large language models in education: A focus on the complementary relationship between human teachers and ChatGPT",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2023"
+  },
+  {
+    "authors": [
+      "Jeon, Jaeho",
+      "Lee, Seongyong"
+    ],
+    "citation_key": "jeonlee2024flipped",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024-08-jeon-lee-ets.md",
+      "pdf": "papers\\2024-08-jeon-lee-ets.pdf",
+      "source": "sources\\2024-08-jeon-lee-ets.md",
+      "wiki": "wiki/2024-08-jeon-lee-ets.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2024-08-jeon-lee-ets.pdf",
+      "source_hash": "bedc2b38c19c153449067930b313ec915e251e0d515d07129e6c5c87226ebd1e",
+      "source_path": "sources\\2024-08-jeon-lee-ets.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2024-08-jeon-lee-ets",
+    "stem": "2024-08-jeon-lee-ets",
+    "title": "The impact of a chatbot-assisted flipped approach on EFL learner interaction",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "Jeon, Jaeho",
+      "Lee, Seongyong",
+      "Coronel-Molina, Serafín M."
+    ],
+    "citation_key": "jeonlee2024gebias",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024-09-05-jeon-lee-coronel-molina-elt.md",
+      "pdf": "papers\\2024-09-05-jeon-lee-coronel-molina-elt.pdf",
+      "source": "sources\\2024-09-05-jeon-lee-coronel-molina-elt.md",
+      "wiki": "wiki/2024-09-05-jeon-lee-coronel-molina-elt.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2024-09-05-jeon-lee-coronel-molina-elt.pdf",
+      "source_hash": "824c4e4c6b622cf22b532cc1fdc51a87358aa186bd392e79e6657c0b38ca293c",
+      "source_path": "sources\\2024-09-05-jeon-lee-coronel-molina-elt.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2024-09-05-jeon-lee-coronel-molina-elt",
+    "stem": "2024-09-05-jeon-lee-coronel-molina-elt",
+    "title": "Rethinking AI: bias in speech-recognition chatbots for ELT",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "Jeon, Jaeho",
+      "Lee, Seongyong",
+      "et al."
+    ],
+    "citation_key": "jeonlee2025transling",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2025-08-29-jeon-et-al-applied-linguistics.md",
+      "pdf": "papers\\2025-08-29-jeon-et-al-applied-linguistics.pdf",
+      "source": "sources\\2025-08-29-jeon-et-al-applied-linguistics.md",
+      "wiki": "wiki/2025-08-29-jeon-et-al-applied-linguistics.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2025-08-29-jeon-et-al-applied-linguistics.pdf",
+      "source_hash": "5cf9b340953b9deca2084f2be4126d6bc7d7f2a9e733d91ca97153a94ee0d3da",
+      "source_path": "sources\\2025-08-29-jeon-et-al-applied-linguistics.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2025-08-29-jeon-et-al-applied-linguistics",
+    "stem": "2025-08-29-jeon-et-al-applied-linguistics",
+    "title": "Generative AI and its dilemmas: exploring AI from a translanguaging perspective",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2025"
+  },
+  {
+    "authors": [
+      "Jeon, Jaeho",
+      "Lee, Seongyong",
+      "Choi, Gyeonghee"
+    ],
+    "citation_key": "jeonleechoi2024speech",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024-05-jeon-lee-choi-ile.md",
+      "pdf": "papers\\2024-05-jeon-lee-choi-ile.pdf",
+      "source": "sources\\2024-05-jeon-lee-choi-ile.md",
+      "wiki": "wiki/2024-05-jeon-lee-choi-ile.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2024-05-jeon-lee-choi-ile.pdf",
+      "source_hash": "a79233698d22e557c7d255d2728cbd5e06458e45575fe68e3193cc44e40870a5",
+      "source_path": "sources\\2024-05-jeon-lee-choi-ile.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2024-05-jeon-lee-choi-ile",
+    "stem": "2024-05-jeon-lee-choi-ile",
+    "title": "Speech-recognition chatbots for language learning: A systematic review",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "Lee, Seongyong",
+      "et al."
+    ],
+    "citation_key": "lee2025gefeedback",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\20250909-seongyong-et-al-aral.md",
+      "pdf": "papers\\20250909-seongyong-et-al-aral.pdf",
+      "source": "sources\\20250909-seongyong-et-al-aral.md",
+      "wiki": "wiki/20250909-seongyong-et-al-aral.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\20250909-seongyong-et-al-aral.pdf",
+      "source_hash": "fe1180e9e7de66bb8960510ffd881abbbcaf30e399187077a210bff66c05f611",
+      "source_path": "sources\\20250909-seongyong-et-al-aral.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:20250909-seongyong-et-al-aral",
+    "stem": "20250909-seongyong-et-al-aral",
+    "title": "Generative AI and English language teaching: A global Englishes perspective",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2025"
+  },
+  {
+    "authors": [
+      "Lee, Seongyong"
+    ],
+    "citation_key": "lee2025genaiagency",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2025-04-genai-and-agency-eltj.md",
+      "pdf": "papers\\2025-04-genai-and-agency-eltj.pdf",
+      "source": "sources\\2025-04-genai-and-agency-eltj.md",
+      "wiki": "wiki/2025-04-genai-and-agency-eltj.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2025-04-genai-and-agency-eltj.pdf",
+      "source_hash": "9b181b4b5b25f6f45e2f7d6691927cd747f4f6f1add84a6678d9e42983077359",
+      "source_path": "sources\\2025-04-genai-and-agency-eltj.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2025-04-genai-and-agency-eltj",
+    "stem": "2025-04-genai-and-agency-eltj",
+    "title": "Generative AI (GenAI) and preservice teacher agency in ELT",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2025"
+  },
+  {
+    "authors": [
+      "Lee, Seongyong",
+      "et al."
+    ],
+    "citation_key": "lee2025genaireview",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\20260131-lee-et-al-review-ile.md",
+      "pdf": "papers\\20260131-lee-et-al-review-ile.pdf",
+      "source": "sources\\20260131-lee-et-al-review-ile.md",
+      "wiki": "wiki/20260131-lee-et-al-review-ile.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\20260131-lee-et-al-review-ile.pdf",
+      "source_hash": "aa4ef77dd1f0fc0b3a04b7314d837e2791dd89bff7437968054b27339143e2ec",
+      "source_path": "sources\\20260131-lee-et-al-review-ile.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:20260131-lee-et-al-review-ile",
+    "stem": "20260131-lee-et-al-review-ile",
+    "title": "Generative AI in language learning: A systematic review of classroom-based empirical research",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2025"
+  },
+  {
+    "authors": [
+      "Lee, Seongyong",
+      "Jeon, Jaeho"
+    ],
+    "citation_key": "leejeon2024agency",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024-04-lee-jeon-system.md",
+      "pdf": "papers\\2024-04-lee-jeon-system.pdf",
+      "source": "sources\\2024-04-lee-jeon-system.md",
+      "wiki": "wiki/2024-04-lee-jeon-system.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2024-04-lee-jeon-system.pdf",
+      "source_hash": "c06fb21841fe4ba91872c24231cb73192e628f93acb4df58f1d5277d850ff795",
+      "source_path": "sources\\2024-04-lee-jeon-system.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2024-04-lee-jeon-system",
+    "stem": "2024-04-lee-jeon-system",
+    "title": "Teacher agency and ICT affordances in classroom-based language assessment: The return to face-to-face classes after online teaching",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "Lee, Seongyong",
+      "Jeon, Jaeho"
+    ],
+    "citation_key": "leejeon2024humanai",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024-05-jeon-lee-eait.md",
+      "pdf": "papers\\2024-05-jeon-lee-eait.pdf",
+      "source": "sources\\2024-05-jeon-lee-eait.md",
+      "wiki": "wiki/2024-05-jeon-lee-eait.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2024-05-jeon-lee-eait.pdf",
+      "source_hash": "6c153102d1db6f82f7945e97a83a475b349172ce8062e73a96cc9f6ee897581f",
+      "source_path": "sources\\2024-05-jeon-lee-eait.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2024-05-jeon-lee-eait",
+    "stem": "2024-05-jeon-lee-eait",
+    "title": "Can learners benefit from chatbots instead of humans? A systematic review of human-chatbot comparison research in language education",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "Lee, Seongyong",
+      "Jeon, Jaeho"
+    ],
+    "citation_key": "leejeon2024teacherpd",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2024-11-05-lee-jeon-llt.md",
+      "pdf": "papers\\2024-11-05-lee-jeon-llt.pdf",
+      "source": "sources\\2024-11-05-lee-jeon-llt.md",
+      "wiki": "wiki/2024-11-05-lee-jeon-llt.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2024-11-05-lee-jeon-llt.pdf",
+      "source_hash": "786fcd7fc9e40391f8aa68e38010cbdd5eef0f3ae4cdf160528bb0e6a2dce026",
+      "source_path": "sources\\2024-11-05-lee-jeon-llt.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2024-11-05-lee-jeon-llt",
+    "stem": "2024-11-05-lee-jeon-llt",
+    "title": "The growing interest in AI chatbots for language learning: Teacher professional development and pedagogical use",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "Lee, Seongyong",
+      "Jeon, Jaeho"
+    ],
+    "citation_key": "leejeon2026ck",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\20260606-lee-jeon-llt.md",
+      "pdf": "papers\\20260606-lee-jeon-llt.pdf",
+      "source": "sources\\20260606-lee-jeon-llt.md",
+      "wiki": "wiki/20260606-lee-jeon-llt.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\20260606-lee-jeon-llt.pdf",
+      "source_hash": "3299061f1d19dd5ae37e1821af55d8bda0cbae7624b555dceb60a2518de096be",
+      "source_path": "sources\\20260606-lee-jeon-llt.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:20260606-lee-jeon-llt",
+    "stem": "20260606-lee-jeon-llt",
+    "title": "Generative AI and metaverse in developing pre-service teachers’ content knowledge",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2026"
+  },
+  {
+    "authors": [
+      "Lee, Seongyong",
+      "Jeon, Jaeho",
+      "Choe, Hohsung"
+    ],
+    "citation_key": "leejeonchoe2025tesol",
+    "doi": "10.1002/tesq.3300",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\2025-03-lee-jeon-choe-tq.md",
+      "pdf": "papers\\2025-03-lee-jeon-choe-tq.pdf",
+      "source": "sources\\2025-03-lee-jeon-choe-tq.md",
+      "wiki": "wiki/2025-03-lee-jeon-choe-tq.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\2025-03-lee-jeon-choe-tq.pdf",
+      "source_hash": "433cca9dcb530662b97bae4870c86f4e8573012f5c490b93641ec831ea7060e2",
+      "source_path": "sources\\2025-03-lee-jeon-choe-tq.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:2025-03-lee-jeon-choe-tq",
+    "stem": "2025-03-lee-jeon-choe-tq",
+    "title": "Enhancing Pre-Service Teachers' Global Englishes Awareness with Technology: A Focus on AI Chatbots in 3D Metaverse Environments",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2025"
+  },
+  {
+    "authors": [
+      "Lee, Seongyong",
+      "Jeon, Jaeho",
+      "Lee, Jang Ho"
+    ],
+    "citation_key": "leejeonlee2026gemini",
+    "doi": "",
+    "metadata_status": "open",
+    "paths": {
+      "card": "cards\\20260905-lee-et-al-tesol-journal.md",
+      "pdf": "papers\\20260905-lee-et-al-tesol-journal.pdf",
+      "source": "sources\\20260905-lee-et-al-tesol-journal.md",
+      "wiki": "wiki/20260905-lee-et-al-tesol-journal.md"
+    },
+    "provenance": {
+      "metadata_checked_at": "",
+      "metadata_sources": [],
+      "parsed_with": "docling",
+      "pdf_path": "papers\\20260905-lee-et-al-tesol-journal.pdf",
+      "source_hash": "54432e969567957ed21a29595d7324683f698d69d5305a10d249becbc8890a54",
+      "source_path": "sources\\20260905-lee-et-al-tesol-journal.md"
+    },
+    "publication_stage": "",
+    "record_id": "paper:20260905-lee-et-al-tesol-journal",
+    "stem": "20260905-lee-et-al-tesol-journal",
+    "title": "Multimodal GenAI for Communicative Language Teaching: Gemini Live",
+    "updated_at": "2026-09-08T11:17:28+00:00",
+    "year": "2026"
+  }
+]
