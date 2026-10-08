@@ -54,7 +54,7 @@ The current operating mode is manual ingest. Always-on monitoring, remote agents
 
 Before creating or installing any runtime, the implementation agent must ask and record the intended operating surface: Windows native, WSL/Linux, macOS, or mixed Windows+WSL. It must also ask and record the preferred ChatOps surface: Discord or Slack. These questions are required because Python environments are OS-specific even when the project files are shared, and ChatOps credentials/configuration are provider-specific. The agent may proceed without asking only when the user has already explicitly chosen both in the same setup request.
 
-Environment setup is idempotent: detect the available Python runtime and required packages first; keep compatible installations and skip them; install only missing dependencies in the approved runtime; never reinstall or upgrade working packages unnecessarily. When `${ROOT}` is inside OneDrive, Dropbox, Google Drive, iCloud Drive, Synology Drive, or another sync-managed/cloud folder, do not create `.venv`, `venv`, virtualenv, conda env, package cache, model cache, or heavyweight runtime dependency folders under `${ROOT}`. Docling and related PDF dependencies must be installed in the global/user Python runtime or in an explicitly approved environment outside all cloud-synced folders. Windows-specific heavyweight Python environments must be centralized in a non-cloud path such as `D:\win-python\...`; when a Windows virtual environment is needed, create or reuse it under that approved base path, not under `${ROOT}`. WSL-specific environments must be centralized separately in a non-cloud path such as `D:\WSL\...`. A Windows environment and a WSL/Linux environment must not share the same `venv` or `site-packages` directory: they have different executable layouts, activation scripts, path semantics, and native binary wheels. They may share the same project source files and research data, but not the same Python environment folder. If an existing outside-cloud runtime is available, prefer reusing it after an import/version check. If installation requires unavailable permissions, network access, or credentials, stop before ingest and report the exact prerequisite instead of pretending the setup succeeded.
+Environment setup is idempotent: detect the available Python runtime and required packages first; keep compatible installations and skip them; install only missing dependencies in the approved runtime; never reinstall or upgrade working packages unnecessarily. When `${ROOT}` is inside OneDrive, Dropbox, Google Drive, iCloud Drive, Synology Drive, or another sync-managed/cloud folder, do not create `.venv`, `venv`, virtualenv, conda env, package cache, model cache, or heavyweight runtime dependency folders under `${ROOT}`. Docling and related PDF dependencies must be installed in the global/user Python runtime or in an explicitly approved environment outside all cloud-synced folders. Windows-specific heavyweight Python environments must be centralized in a user-selected non-cloud path such as `<WINDOWS_ENV_ROOT>\\...`; when a Windows virtual environment is needed, create or reuse it under that approved base path, not under `${ROOT}`. WSL-specific environments must be centralized separately in a user-selected non-cloud path such as `<WSL_ENV_ROOT>/...`. A Windows environment and a WSL/Linux environment must not share the same `venv` or `site-packages` directory: they have different executable layouts, activation scripts, path semantics, and native binary wheels. They may share the same project source files and research data, but not the same Python environment folder. If an existing outside-cloud runtime is available, prefer reusing it after an import/version check. If installation requires unavailable permissions, network access, or credentials, stop before ingest and report the exact prerequisite instead of pretending the setup succeeded.
 
 macOS must use its own macOS-native Python environment and package/cache locations outside cloud-synced folders. Do not reuse Windows or WSL/Linux environments on macOS, and do not place macOS virtual environments, Homebrew caches, pip caches, HuggingFace caches, Docling/OCR model caches, or other heavyweight runtime folders under iCloud Drive, Dropbox, Google Drive, OneDrive, or another sync-managed folder.
 
@@ -222,7 +222,7 @@ Before the first ingest, the implementation agent must check whether Python and 
 
 `opendataloader-pdf` and `pdftotext` are optional fallback extractors, not replacements for Docling. Before installing them, the agent must tell the user which operating surfaces are missing them and let the user choose whether to install Windows only, WSL/Linux only, macOS only, or multiple platform-specific installations. Install each fallback extractor in the matching OS environment only; do not assume that installing it in WSL makes it available to Windows, or that installing it in Windows makes it available to WSL.
 
-For Windows, install Windows-native fallback tools into or alongside the approved Windows runtime base such as `D:\win-python`. For WSL/Linux, install Linux fallback tools from inside WSL, preferably through the WSL distribution's package manager or that WSL environment's Python package manager. For macOS, install macOS-native fallback tools only in macOS-approved locations outside cloud-synced folders.
+For Windows, install Windows-native fallback tools into or alongside the approved Windows runtime base such as `<WINDOWS_ENV_ROOT>`. For WSL/Linux, install Linux fallback tools from inside WSL, preferably through the WSL distribution's package manager or that WSL environment's Python package manager. For macOS, install macOS-native fallback tools only in macOS-approved locations outside cloud-synced folders.
 
 ### 4.2 Summary and wiki policy
 
@@ -697,18 +697,18 @@ Markdown draft + project references.bib + CSL
 
 Knowledge Manager must be installed globally as a skill/plugin so `/km:search` is available from any project folder. Each project receives a local adapter/config that points to the shared `${ROOT}`.
 
-The global KM installation is the executable command surface; it must not be copied into every project. Each project-local `km-config.json` is only routing/configuration. For the current Codex KM plugin, the shared database target is declared in the plugin-readable field `storage.obsidian.vaultPath` (use Windows forward slashes), while `llm_wiki_root` and `search_paths` document the llm-wiki adapter contract. A project may therefore run `/km:search` from its own working directory while reading `D:/OneDrive/2_rch_db` (or another explicitly configured database root). If no local config exists, the command must not guess a sibling or backup folder; it must report the missing target configuration.
+The global KM installation is the executable command surface; it must not be copied into every project. Each project-local `km-config.json` is only routing/configuration. For the current Codex KM plugin, the shared database target is declared in the plugin-readable field `storage.obsidian.vaultPath` (use Windows forward slashes), while `llm_wiki_root` and `search_paths` document the llm-wiki adapter contract. A project may therefore run `/km:search` from its own working directory while reading the explicitly configured `[selected DB root]`. If no local config exists, the command must not guess a sibling or backup folder; it must report the missing target configuration.
 
 Canonical shared-database adapter shape:
 
 ```json
 {
-  "llm_wiki_root": "D:/OneDrive/2_rch_db",
+  "llm_wiki_root": "[selected DB root]",
   "storage": {
     "primary": "obsidian",
     "obsidian": {
       "enabled": true,
-      "vaultPath": "D:/OneDrive/2_rch_db",
+      "vaultPath": "[selected DB root]",
       "defaultFolder": "wiki"
     }
   },

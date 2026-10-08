@@ -91,12 +91,12 @@ def shell(title: str, body: str, source: Path, site: Path, output: Path | None =
     current = output or page_path(site, source, site.parent)
     rel = os.path.relpath(site / "index.html", current.parent).replace(chr(92), "/")
     return f'''<!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)} · {SITE_NAME}</title><link rel="stylesheet" href="{rel.replace('index.html','styles.css')}"></head>
 <body><div class="layout"><aside class="rail"><a class="brand" href="{rel}">LLM WIKI</a><p class="rail-note">RESEARCH ARCHIVE · 2026</p>
 <nav><a href="{rel}">Home</a><a href="{rel}#catalog">Catalog</a><a href="{rel}#about">About</a></nav></aside>
 <main class="content"><div class="eyebrow">ARCHIVE / {html.escape(source.relative_to(site.parent).as_posix())}</div>{body}
-<footer>Static research wiki · generated from Markdown · paper records remain in English; wiki layer is localized.</footer></main></div></body></html>'''
+<footer>Static research wiki · generated from Markdown · paper records and wiki layer follow the configured language settings.</footer></main></div></body></html>'''
 
 
 def build(root: Path, site: Path) -> int:
@@ -129,10 +129,10 @@ def build(root: Path, site: Path) -> int:
         href = os.path.relpath(destination, site).replace(chr(92), "/")
         category = source.parent.name
         rows.append(f'<a class="row" data-search="{html.escape((title_of(source)+" "+category).lower())}" href="{href}"><span class="num">{len(rows)+1:03d}</span><span class="row-title">{html.escape(title_of(source))}</span><span class="meta">{html.escape(category.upper())}</span></a>')
-    body = f'''<header class="hero"><div><div class="eyebrow">DIGITAL ARCHIVE · STATIC EDITION</div><h1>{SITE_NAME}</h1><p>논문을 읽고, 연결하고, 다시 찾아가기 위한 연구 위키입니다.</p></div><div class="count">{len(rows):02d}<small>WIKI PAGES</small></div></header>
-<section class="toolbar"><label for="search">SEARCH / 검색</label><input id="search" type="search" placeholder="개념, 주제, 논문 검색"><span id="result-count">{len(rows)} pages</span></section>
+    body = f'''<header class="hero"><div><div class="eyebrow">DIGITAL ARCHIVE · STATIC EDITION</div><h1>{SITE_NAME}</h1><p>A research wiki for reading, connecting, and revisiting the literature.</p></div><div class="count">{len(rows):02d}<small>WIKI PAGES</small></div></header>
+<section class="toolbar"><label for="search">SEARCH</label><input id="search" type="search" placeholder="Search concepts, topics, and papers"><span id="result-count">{len(rows)} pages</span></section>
 <section id="catalog" class="catalog"><div class="catalog-head"><span>NO.</span><span>TITLE</span><span>SECTION</span></div>{''.join(rows)}</section>
-<section id="about" class="about"><h2>읽는 순서</h2><p>개념·overview 페이지에서 주제를 잡고, 논문 페이지에서 상세 카드와 source로 이동하세요. 이 사이트는 <code>wiki/</code>의 구조화된 탐색층을 정적으로 보여줍니다.</p></section>
+<section id="about" class="about"><h2>How to explore</h2><p>Start with concept and overview pages, then follow paper pages to their detailed cards and parsed sources. This site presents the structured navigation layer from <code>wiki/</code>.</p></section>
 <script src="app.js"></script>'''
     (site / "index.html").write_text(shell(SITE_NAME, body, root / "wiki" / "index.md", site, site / "index.html"), encoding="utf-8")
     (site / "styles.css").write_text(CSS, encoding="utf-8")

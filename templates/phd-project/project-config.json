@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "db_root": "{{DB_ROOT}}",
+  "project_root": "{{PROJECT_ROOT}}",
+  "search_paths": [
+    "indexes",
+    "wiki",
+    "cards",
+    "sources"
+  ]
+}

@@ -8,10 +8,10 @@ This repository uses `km-config.json` with `publication_profile: public-summary-
 
 ## Language contract
 
-- `sources/`, `cards/`, paper summaries, bibliographic metadata, and `refs.bib` use English by default (`paper_language: en`). Preserve original titles, author names, quotations, and citation metadata; do not translate the paper record merely because the wiki language is Korean.
-- `wiki/`, overview/concept/question/project explanations, navigation indexes, and their labels use the configured `wiki_language`. The current project setting is Korean (`wiki_language: ko`).
+- `sources/`, `cards/`, paper summaries, bibliographic metadata, and `refs.bib` use English by default (`paper_language: en`). Preserve original titles, author names, quotations, and citation metadata.
+- `wiki/`, overview/concept/question/project explanations, navigation indexes, and their labels use the configured `wiki_language`. The public template defaults to English (`wiki_language: en`).
 - At setup, ask separately for the paper/card/source language and the wiki/synthesis language when either is unset. Offer English, Korean, or another specified language; never infer the choice from the model, operating-system locale, or chat language.
-- A Korean wiki does not permit Korean card/source summaries. A paper record remains English while the navigation and explanatory synthesis layer may be localized.
+- A paper record remains in its configured paper language; the navigation and explanatory synthesis layer follows its separately configured wiki language.
 
 ## Startup
 
@@ -19,19 +19,16 @@ This repository uses `km-config.json` with `publication_profile: public-summary-
 - Do not rely on memory from earlier sessions.
 - Inspect `indexes/`, `wiki/`, and `cards/` before scanning the whole tree.
 - State the active root and write scope before broad or destructive changes.
-- This root is inside OneDrive. Never create `.venv`, `venv`, virtualenv, conda env, package cache, model cache, or heavyweight dependency folders here.
+- Treat this repository as potentially cloud-synced. Never create `.venv`, `venv`, virtualenv, conda env, package cache, model cache, or heavyweight dependency folders inside it.
 - Docling and PDF dependencies must use the global/user Python runtime or an explicitly approved environment outside all cloud-synced folders.
-- Approved Docling runtime for this installation: Windows path `D:\win-python\master_venv`, Python command `D:\win-python\master_venv\Scripts\python.exe`.
-- Secondary WSL Docling runtime: Windows path `D:\WSL\docling\venv`, WSL path `/mnt/d/WSL/docling/venv`, Python command `wsl -e /mnt/d/WSL/docling/venv/bin/python`.
-- Windows and WSL may share this project's source files and research data, but must not share the same Python environment folder. Keep Windows venvs under `D:\win-python` and WSL/Linux venvs under `D:\WSL` or another approved non-cloud WSL path.
+- Install dependencies only in a user-selected environment outside this repository and any cloud-synced folder. Do not assume a particular drive, username, or environment path.
+- Windows, WSL/Linux, and macOS may share source files and research data, but must not share the same Python environment folder. Use a separate native environment for each operating system.
 - Before adding runtime dependencies, confirm the intended operating surface: Windows native, WSL/Linux, macOS, or mixed Windows+WSL. Use a platform-specific environment for each selected surface.
 
 ### Windows + WSL operating surfaces
 
-- Windows native remains supported with `D:\win-python\master_venv\Scripts\python.exe` and PowerShell commands.
-- WSL2 is also a supported operating surface. Use `/mnt/d/OneDrive/2_rch_db` for this root and `/mnt/d/WSL/docling/venv/bin/python` for the approved WSL Docling runtime; do not invoke the Windows Python executable from WSL.
-- The native WSL Codex CLI and the global `km@knowledge-manager` plugin are installed under `/home/seongyong_lee/.nvm` and `/home/seongyong_lee/.codex`. The project-local `.agents/skills/llm-wiki-ops` is shared through the mounted project root.
-- When running in WSL, use an interactive login shell so the native Node/Codex path is loaded. Windows PATH shims must not be mistaken for Linux installations.
+- Windows native, WSL2/Linux, and macOS are supported operating surfaces. Use the path format and Python executable native to the current surface; never invoke a Windows executable from WSL/Linux or vice versa.
+- The project-local `.agents/skills/llm-wiki-ops` is shared with any client that reads this repository's skill format.
 
 ## Storage Contract
 
@@ -60,7 +57,11 @@ Every ingest, audit, correction, and refresh must resolve an exact `record_id` b
 4. Use external web or scholarly search only when explicitly requested or when running metadata audit.
 5. If local evidence is missing, say so. Do not invent citations, DOI values, results, or claims.
 
+For a bound PhD project, the KM adapter must resolve the database from that project's `project-config.json`, not the current working directory. The allowed corpus is exactly `indexes/`, `wiki/`, `cards/`, and (only for evidence verification) `sources/`. Use internal DB search by default. Search the web only when the user explicitly asks for external/current literature. Preserve the KM engine fallback order (GraphRAG, Obsidian CLI, Obsidian MCP, restricted text fallback); engine choice does not change the corpus reading order above. Never silently scan the whole vault or unrelated folders.
+
 ## Ingest Trigger
+
+This repository-local `llm-wiki-ops` skill handles DB ingest and maintenance when the agent is operating in this DB root. It is not the PhD project's general KM search workflow. A bare `ingest` request means every top-level PDF in this root's `inbox/`; if none exist, report that there is nothing to ingest and do not run an empty pipeline.
 
 When the user says "ingest this file", "ingest all new PDFs in inbox", or equivalent natural language, run the complete workflow:
 
@@ -88,11 +89,10 @@ PDF extraction order is Docling first, then `opendataloader-pdf`, then `pypdf`, 
 
 ## Runtime Policy
 
-- Preferred runtime command: `D:\win-python\master_venv\Scripts\python.exe`.
-- From PowerShell, run root scripts with the Windows runtime, for example: `& 'D:\win-python\master_venv\Scripts\python.exe' scripts\ingest_batch.py`.
+- Use the Python executable from the selected OS-native environment. From PowerShell, invoke that environment's `python.exe`; from WSL/Linux/macOS, use its `python` executable.
 - Do not install dependencies into this folder.
 - If Docling is missing, install it only in a global/user runtime or explicitly approved environment outside cloud-synced folders, then verify `import docling` before ingest.
-- If a Windows-native runtime is needed, use an approved non-cloud environment under `D:\win-python`, not this OneDrive root.
+- If a platform-native runtime is needed, place it outside this repository and any cloud-sync root.
 - Do not reuse a WSL `venv` as a Windows `venv`, or a Windows `venv` as a WSL `venv`. Native wheels, scripts, executable names, and path handling differ.
 - `opendataloader-pdf` and `pdftotext` are optional fallback extractors. Before installing them, report which platforms are missing them and let the user choose Windows only, WSL/Linux only, macOS only, or multiple platform-specific installs.
 - Do not use `ingest_batch.py` as a harmless empty smoke test unless `inbox/` has first been inspected and confirmed empty. For no-ingest validation, run `build_registry.py`, `build_indexes.py`, `export_refs_bib.py`, and `qc_report.py` directly.

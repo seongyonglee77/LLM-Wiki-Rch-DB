@@ -227,7 +227,26 @@ def main() -> int:
     evidence = json.loads(Path(args.evidence).read_text(encoding="utf-8"))
     if not isinstance(evidence, dict):
         raise SystemExit("Evidence JSON must be an object")
-    print(build_summary_card(root, Path(args.source).resolve(), evidence).relative_to(root))
+    card = build_summary_card(root, Path(args.source).resolve(), evidence)
+    # Keep direct summary-card use in sync with the normal ingest pipeline:
+    # the finalized metadata, indexes, bibliography, QC, and static site must
+    # describe the same canonical record. ingest_batch may invoke these stages
+    # again after the card returns; those deterministic rebuilds are safe.
+    from build_html_site import build as build_html_site
+    from build_indexes import build_indexes
+    from build_registry import build_registry
+    from export_refs_bib import export_refs
+    from llm_wiki_common import read_yaml_md
+    from qc_report import qc_report
+
+    data, _body = read_yaml_md(card)
+    record_id = str(data["record_id"])
+    build_registry(root)
+    build_indexes(root)
+    export_refs(root, {record_id})
+    qc_report(root)
+    build_html_site(root, root / "wiki-site")
+    print(card.relative_to(root))
     return 0
 
 

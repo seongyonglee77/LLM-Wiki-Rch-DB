@@ -1,5 +1,5 @@
 # Projects
 
-프로젝트 수준의 연구 묶음과 writing folder를 연결하는 곳입니다.
+This section links research themes or project-level syntheses. It is not a substitute for a PhD manuscript workspace.
 
-현재 등록된 project가 없습니다.
+No project pages are registered yet.

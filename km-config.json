@@ -2,8 +2,8 @@
   "llm_wiki_root": ".",
   "paper_language": "en",
   "paper_language_name": "English",
-  "wiki_language": "ko",
-  "wiki_language_name": "한국어",
+  "wiki_language": "en",
+  "wiki_language_name": "English",
   "publication_profile": "public-summary-only",
   "publish_pdfs": false,
   "storage": {

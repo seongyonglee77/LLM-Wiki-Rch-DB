@@ -1,5 +1,5 @@
 # Questions
 
-반복되는 연구 질문과 관련 논문·개념 페이지를 연결하는 곳입니다.
+This section connects recurring research questions with relevant papers and concepts.
 
-현재 등록된 question이 없습니다.
+No question pages are registered yet.
